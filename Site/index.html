@@ -28,15 +28,21 @@
         </header>
     
         <main>
-            <div id="playBlock">
-                <h2>Play</h2>
-            </div>
+            <a href="#">
+                <div id="playBlock">
+                    <h2>Play</h2>
+                </div>
+            </a>
             
-            <div id="instructionBlock">
-                <a href="#" onclick="smoothScroll(document.getElementById('regle'))"><h2>Instruction</h2></a>
-            </div>
+            <a href="#dg-rm-more-1" onclick="dgReadMore('1')">
+                <div id="instructionBlock">
+                    <h2>Instruction</h2>
+                </div>
+            </a>
             
-            <div id="regle">
+            <p><span id="dg-rm-dots-1" class="dg-rm-dots"></span></p>
+
+            <div id="dg-rm-more-1" class="dg-rm-more">
                 <div class="blockRegle" id="animMouvement">
                     <p>Anim</p>
                 </div>
@@ -50,7 +56,7 @@
                     <p>Instruction gagner</p>
                 </div>
             </div>
-    
+            <a href="#dg-rm-more-1" id="dg-rm-btn-1" class="btn dg-rm-btn" onclick="dgReadMore('1')">V</a>
         </main>
     
         <footer>

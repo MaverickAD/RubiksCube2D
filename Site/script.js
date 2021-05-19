@@ -35,3 +35,23 @@ window.smoothScroll = function(target) {
     // start scrolling
     scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
 }
+
+var dgReadMoreText1 = "V";
+var dgReadMoreText2 = "˄";
+
+function dgReadMore(id) {
+  var dots = document.getElementById("dg-rm-dots-"+id);
+  var moreText = document.getElementById("dg-rm-more-"+id);
+  var btnText = document.getElementById("dg-rm-btn-"+id);
+  console.log(dots)
+  if (dots.style.display === "none") {
+    dots.style.display = "inline";
+    btnText.innerHTML = dgReadMoreText1;
+    moreText.style.display = "none";
+  } else {
+    dots.style.display = "none";
+    btnText.innerHTML = dgReadMoreText2;
+    moreText.style.display = "inline";
+  }
+  window.scrollTo(0, 0);
+}
