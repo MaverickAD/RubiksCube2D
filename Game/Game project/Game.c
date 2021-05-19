@@ -29,10 +29,10 @@ void display(GAME* game) {
             for (int j = 0; j < 3; j++){
                 printf("%d ", game->temoin[i - 2 + j]);
             }
-            
             printf("\n");
         }
     }
+    printf("\n");
 }
 
 GAME * NewGame(int size) {
@@ -169,4 +169,37 @@ int parseInputMaker(GAME* game) {
     }
 
     return 1;
+}
+
+
+void copieTemoin(GAME* game) {
+    for (int  i = 0; i < game->size * game->size; i++)
+    {
+        game->tab[i] = game->temoin[i];
+    }
+}
+
+void shuffle(GAME* game) {
+    srand(time(NULL));
+    for (int i = 0; i < 10000; i++)
+    {
+        int alea = rand() % 4;
+        int indicealea = rand() % (game->size);
+        switch (alea)
+        {
+        case 0:
+            deplacementH(game, LEFT, indicealea);
+            break;
+        case 1:
+            deplacementH(game, RIGHT, indicealea);
+            break;
+        case 2:
+            deplacementV(game, UP, indicealea);
+            break;
+        case 3:
+            deplacementV(game, DOWN, indicealea);
+            break;
+        }
+
+    }
 }

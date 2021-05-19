@@ -53,3 +53,5 @@ int deplacementV(GAME* game, DIR direction, int indice);
 int deplacementH(GAME* game, DIR direction, int indice);
 bool win(GAME* game);
 int parseInputMaker(GAME* game);
+void copieTemoin(GAME* game);
+void shuffle(GAME* game);

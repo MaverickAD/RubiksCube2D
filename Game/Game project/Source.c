@@ -5,13 +5,17 @@
 int main() {
     srand(time(NULL));
     GAME* game = NewGame(GAME_SIZE);
-    fill(game);
-    parseInputMaker(game);
-    display(game);
 
-    while (true)
+    while (!parseInputMaker(game)) {};
+    copieTemoin(game);
+    shuffle(game);
+    display(game);
+    
+    
+    while (!win(game))
     {
         parseInput(game);
         display(game);
     }
+    printf("YOUPIIII !! :)");
 }
