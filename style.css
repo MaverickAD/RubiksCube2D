@@ -1,0 +1,163 @@
+@font-face {
+    font-family: 'Roboto';
+    src: url(font/Roboto/Roboto-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+*{
+    box-sizing: border-box;
+}
+
+body{
+    background: linear-gradient(to bottom ,#2D3561 0%, #722D61 60%, #C05C7E 85%, #F3826F 97%, #FFB961 );
+    font-family: 'Roboto';
+}
+
+.filter{
+    filter: none;
+    transition: filter 0.25s ease;
+}
+
+.filter.expanded{
+    filter: blur(8px);
+}
+
+a{
+    text-decoration: none;
+}
+
+.nav 
+{
+    transition: left 0.5s ease;
+    background-color: #000000;
+    color: white;
+    font-size: 2rem;
+    height: 100vh;
+    left: -17rem;
+    padding: 6rem 2rem 2rem 2rem;
+    position: fixed;
+    top: 0;
+    width: 17rem;
+    z-index: 100;
+}
+
+.nav.expanded { left: 0; }
+
+.nav ul {
+    position: absolute;
+    top: 50%;;
+    transform: translateY(-50%);
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav li{
+    margin-top: 1rem;
+}
+
+.nav ul a{
+    text-decoration: none;
+    color: #FFFFFF;
+}
+
+.nav-toggle {
+    user-select: none;
+    cursor: pointer;
+    height: 2rem;
+    left: 2rem;
+    position: fixed;
+    top: 2rem;
+    width: 3.6rem;
+    z-index: 110;
+}
+
+.nav-toggle:hover { opacity: 0.8; }
+
+.nav-toggle .nav-toggle-bar,  .nav-toggle .nav-toggle-bar::after,  .nav-toggle .nav-toggle-bar::before {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    transition: all 0.5s ease;
+    background: #000000;
+    content: '';
+    height: 0.4rem;
+    width: 100%;
+}
+
+.nav-toggle .nav-toggle-bar { margin-top: 0; }
+
+.nav-toggle .nav-toggle-bar::after { margin-top: 0.8rem; }
+
+.nav-toggle .nav-toggle-bar::before { margin-top: -0.8rem; }
+
+.nav-toggle.expanded .nav-toggle-bar { background: transparent; }
+
+.nav-toggle.expanded .nav-toggle-bar::after, .nav-toggle.expanded .nav-toggle-bar::before {
+    background: #FFFFFF;
+    margin-top: 0;
+}
+
+.nav-toggle.expanded .nav-toggle-bar::after {
+    transform: rotate(45deg);
+}
+
+.nav-toggle.expanded .nav-toggle-bar::before {
+    transform: rotate(-45deg);
+}
+
+#navBar{
+    color: #FFFFFF;
+}
+
+#mainTitle h1{
+    font-size: 2.3em;
+    color: #000000;
+    text-align: center;
+}
+
+/*main{
+    border: 1px solid red;
+}*/
+
+#playBlock, #instructionBlock{
+    display: flex;
+    justify-content: center;
+    margin: 8rem auto 4rem ;
+    border: 3px solid black;
+    height: 6rem;
+    width: 50%;
+    min-width: 20rem;
+}
+
+#playBlock:hover{
+    background: linear-gradient(to right, #009B48 16%, #B90000 16%, #B90000 32%, #0045AD 32%, #0045AD 48%, #FF5900 48%, #FF5900 64%, #FFFFFF 64%, #FFFFFF 80%,#FFD500 80%);
+    transition: background 1.5s ease;
+}
+
+#playBlock h2, #instructionBlock h2{
+    font-size: 1.5em;
+    margin: auto 0;
+    text-align: center;
+    color: #000000;
+}
+
+#regle{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.blockRegle{
+    border: 3px solid black;
+    width: 40%;
+    height: 20rem;
+    margin: 10rem auto 1rem;
+}
+
+footer p{
+    text-align: center;
+    font-weight: bold;
+}
