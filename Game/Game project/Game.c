@@ -46,7 +46,7 @@ GAME * NewGame(int size) {
     if ((game->tab) != NULL) {
         // initialisation des paramètres 
         game->size = size;
-        game->temoin = NULL;
+        game->temoin = (int*)malloc(sizeof(int) * size * size);
     }
     else {
         // la GAME n'a pas pu être créée, game vaut NULL
@@ -147,3 +147,26 @@ bool win(GAME* game) {
     return true;
 }
 
+int parseInputMaker(GAME* game) {
+
+    puts("| Create your own pattern |");
+
+    char string[101] = { 0 };
+    scanf_s("%s", string, 100);
+    string[100] = '\0';
+    int len = strlen(string);
+
+    if (len != game->size * game->size) { printf("Canno't match len input %d with len game board %d\n", len, game->size * game->size); return 0; }
+
+    for (int i = 0; i < len; i++) {
+
+        char letter = string[i];
+        if (letter < '1' || letter > '9') { printf("Unknow number %c\n", letter); return 0; }
+
+        letter -= '0';
+
+        game->temoin[i] = letter;
+    }
+
+    return 1;
+}

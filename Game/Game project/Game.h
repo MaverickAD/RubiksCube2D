@@ -51,3 +51,5 @@ int parseInput(GAME* game);
 void fill(GAME* game);
 int deplacementV(GAME* game, DIR direction, int indice);
 int deplacementH(GAME* game, DIR direction, int indice);
+bool win(GAME* game);
+int parseInputMaker(GAME* game);
