@@ -117,14 +117,10 @@ a{
     text-align: center;
 }
 
-/*main{
-    border: 1px solid red;
-}*/
-
 #playBlock, #instructionBlock{
     display: flex;
     justify-content: center;
-    margin: 8rem auto 4rem ;
+    margin: 5.5rem auto 5.5rem ;
     border: 3px solid black;
     height: 6rem;
     width: 50%;
@@ -157,7 +153,7 @@ a{
     flex-wrap: wrap;
     justify-content: space-around;
 }
-.dg-rm-more div:last-child { margin-bottom:15px; } 
+/*.dg-rm-more div:last-child { margin-bottom:15px; } */
 .dg-rm-dots:after { display:inline-block;}
 
 .blockRegle{
