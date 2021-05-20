@@ -14,7 +14,6 @@ html{
 }
 
 body{
-    background: linear-gradient(to bottom ,#2D3561 0%, #722D61 60%, #C05C7E 85%, #F3826F 97%, #FFB961 );
     font-family: 'Roboto';
 }
 
@@ -124,11 +123,12 @@ a{
 #playBlock, #instructionBlock{
     display: flex;
     justify-content: center;
-    margin: 5.5rem auto 5.5rem ;
     border: 3px solid black;
+    margin: 5.5rem auto 5.5rem ;
     height: 6rem;
     width: 50%;
     min-width: 20rem;
+    border-radius: 6px;
     transition: 0.5s ease-in-out;
 }
 
