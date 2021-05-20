@@ -48,5 +48,20 @@ function dgReadMore(id) {
     moreText.style.flexWrap = "wrap";
     moreText.style.justifyContent = "space-around";
   }
-  window.scrollTo(0, 0);
+  smoothScroll(moreText);
+}
+
+var i = 0;
+
+function color(){
+  var colorTab = ["#009B48", "#B90000", "#0045AD", "#FF5900", "#FFFFFF", "#FFD500"];
+  var block = document.querySelector('div#playBlock');
+  block.style.background = colorTab[i];
+  i++;
+  if(i === 6){i=0}
+}
+
+function releaseColor(){
+  var block = document.querySelector('div#playBlock');
+  block.style.background = "";
 }

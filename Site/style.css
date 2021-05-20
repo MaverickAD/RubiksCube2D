@@ -9,6 +9,10 @@
     box-sizing: border-box;
 }
 
+html{
+    height: 100%;
+}
+
 body{
     background: linear-gradient(to bottom ,#2D3561 0%, #722D61 60%, #C05C7E 85%, #F3826F 97%, #FFB961 );
     font-family: 'Roboto';
@@ -125,11 +129,7 @@ a{
     height: 6rem;
     width: 50%;
     min-width: 20rem;
-}
-
-#playBlock:hover{
-    background: linear-gradient(to right, #009B48 16%, #B90000 16%, #B90000 32%, #0045AD 32%, #0045AD 48%, #FF5900 48%, #FF5900 64%, #FFFFFF 64%, #FFFFFF 80%,#FFD500 80%);
-    transition: background 1.5s ease;
+    transition: 0.5s ease-in-out;
 }
 
 #playBlock h2, #instructionBlock h2{
@@ -139,6 +139,25 @@ a{
     color: #000000;
 }
 
+.playText{
+    position: relative;
+    display: inline-block;
+    transition: 0.5s ease-in-out;
+}
+
+.playText::before{
+    content: attr(data-text);
+    position: absolute;
+    margin: auto 0;
+    top: 150%;
+    left: 0;
+    color: transparent;
+    transition: 0.5s ease-in-out;
+}
+
+#playBlock:hover .playText{transform: translateY(-150%); color: transparent;}
+
+#playBlock:hover .playText::before{color: #000000;}
 /*#dg-rm-more-1{
     display: flex;
     flex-direction: row;
