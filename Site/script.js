@@ -43,7 +43,10 @@ function dgReadMore(id) {
     moreText.style.display = "none";
   } else {
     dots.style.display = "none";
-    moreText.style.display = "inline";
+    moreText.style.display = "flex";
+    moreText.style.flexDirection = "row";
+    moreText.style.flexWrap = "wrap";
+    moreText.style.justifyContent = "space-around";
   }
   window.scrollTo(0, 0);
 }

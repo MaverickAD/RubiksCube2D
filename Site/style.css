@@ -147,13 +147,12 @@ a{
 }*/
 
 .dg-rm-more {display: none; } 
-.dg-rm-more:active{
+/*.dg-rm-more:active{
     display: flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: space-around;
-}
-/*.dg-rm-more div:last-child { margin-bottom:15px; } */
+}*/
 .dg-rm-dots:after { display:inline-block;}
 
 .blockRegle{
