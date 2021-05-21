@@ -17,32 +17,35 @@
             <li><a href="#" id="navBar_adventureTitle" onclick="toggleNav()">Adventure mode</a></li>
             <li><a href="#" id="navBar_classicTitle" onclick="toggleNav()">Classic mode</a></li>
             <li><a href="#" id="navBar_makerTitle" onclick="toggleNav()">Maker mode</a></li>
-            <li><a href="#" id="navBar_instruction" onclick="toggleNav()">Instruction</a></li>
+            <li><a href="#" id="navBar_instruction" onclick="toggleNavInstruction()">Instruction</a></li>
+            <li><a href="#" id="navBar_darkMode" onclick="darkMode()">Dark mode</a></li>
         </ul>
     </nav>
     <div class="filter" id="blur">
         <header>
             <div id="mainTitle">
-                <a href="index.html"><h1>Rubik's Cube 2D</h1></a>
+                <h1><a href="index.html">Rubik's Cube 2D</a></h1>
             </div>
         </header>
     
         <main>
             <a href="#">
-                <div id="playBlock" onmouseover="color()" onmouseout="removeColor()">
+                <div class="btn" id="playBlock" onmouseover="color()" onmouseout="removeColor()">
                     <h2 class="playText" data-text="Play">Play</h2>
                 </div>
             </a>
             
-            <a href="#" id="dg-rm-btn-1" class="btn dg-rm-btn" onclick="dgReadMore('1')">
-                <div id="instructionBlock">
-                    <h2>Instruction</h2>
+            <a href="#" id="dg-rm-btn-1" onclick="dgReadMore('1')">
+                <div id="instructionBox">
+                    <div class="btn" id="instructionBlock">
+                        <h2>Instruction</h2>
+                    </div>
                 </div>
             </a>
             
-            <span id="dg-rm-dots-1" class="dg-rm-dots"></span>
+            <span class="dg-rm-dots" id="dg-rm-dots-1"></span>
 
-            <div id="dg-rm-more-1" class="dg-rm-more">
+            <div  class="dg-rm-more" id="dg-rm-more-1">
                 <div class="blockRegle" id="animMouvement">
                     <p>Anim</p>
                 </div>

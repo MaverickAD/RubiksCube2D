@@ -1,3 +1,9 @@
+function darkMode(){
+  var body = document.querySelector("body");
+  console.log(body);
+  body.classList.toggle("dark-mode")
+}
+
 function toggleNav(){
   var navToggle = document.querySelector("div.nav-toggle");
   var nav = document.querySelector("nav.nav");
@@ -71,4 +77,9 @@ function color() {
 function removeColor() {
   var block = document.querySelector('div#playBlock');
   block.style.background = "";
+}
+
+function toggleNavInstruction(){
+  toggleNav();
+  dgReadMore('1');
 }

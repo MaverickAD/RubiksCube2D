@@ -15,6 +15,13 @@ html{
 
 body{
     font-family: 'Roboto';
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+body.dark-mode{
+    color: #FFFFFF;
+    background-color: #000000;
 }
 
 .filter{
@@ -28,6 +35,7 @@ body{
 
 a{
     text-decoration: none;
+    color: #000000;
 }
 
 .nav 
@@ -120,7 +128,7 @@ a{
     text-align: center;
 }
 
-#playBlock, #instructionBlock{
+.btn{
     display: flex;
     justify-content: center;
     border: 3px solid black;
@@ -129,7 +137,58 @@ a{
     width: 50%;
     min-width: 20rem;
     border-radius: 6px;
+    position: relative;
+}
+
+#playBlock{
     transition: 0.5s ease-in-out;
+}
+
+
+
+#instructionBlock{
+    transition: all 0.5s;
+    border: none;
+}
+#instructionBlock:hover{
+    border: none;
+}
+
+#instructionBlock::before{
+    content: '';
+    position: absolute;
+    top: -1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255,0,0,0.8);
+    border-radius: 6px;
+    transition: all 0.5s;
+    transform: scale(1,1);
+}
+#instructionBlock:hover::before{
+    opacity: 0;
+    transform: scale(0.2,0.2);
+}
+
+#instructionBlock::after{
+    content: '';
+    position: absolute;
+    top: -1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s;
+    border: 3px solid rgba(255,0,0,1);
+    border-radius: 6px;
+    transform: scale(1,1);
+}
+#instructionBlock:hover::after{
+    opacity: 1;
+    transform: scale(0.7,0.7);
 }
 
 #playBlock h2, #instructionBlock h2{
@@ -158,20 +217,9 @@ a{
 #playBlock:hover .playText{transform: translateY(-150%); color: transparent;}
 
 #playBlock:hover .playText::before{color: #000000;}
-/*#dg-rm-more-1{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}*/
 
 .dg-rm-more {display: none; } 
-/*.dg-rm-more:active{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
-}*/
+
 .dg-rm-dots:after { display:inline-block;}
 
 .blockRegle{
