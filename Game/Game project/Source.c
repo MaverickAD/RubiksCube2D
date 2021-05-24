@@ -10,12 +10,7 @@ int main() {
     copieTemoin(game);
     shuffle(game);
     display(game);
-    
-    
-    while (!win(game))
-    {
-        parseInput(game);
-        display(game);
-    }
-    printf("YOUPIIII !! :)");
+    petit_carre(game);
+    display(game);
+
 }

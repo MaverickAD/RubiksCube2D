@@ -55,3 +55,4 @@ bool win(GAME* game);
 int parseInputMaker(GAME* game);
 void copieTemoin(GAME* game);
 void shuffle(GAME* game);
+void petit_carre(GAME* game);

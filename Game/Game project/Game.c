@@ -181,7 +181,7 @@ void copieTemoin(GAME* game) {
 
 void shuffle(GAME* game) {
     srand(time(NULL));
-    for (int i = 0; i < 10000; i++)
+    for (int i = 0; i < 1000; i++)
     {
         int alea = rand() % 4;
         int indicealea = rand() % (game->size);
@@ -202,4 +202,36 @@ void shuffle(GAME* game) {
         }
 
     }
+}
+
+void petit_carre(GAME* game) {
+    int tmp = game->temoin[0];
+    int indice = 0;
+    while (game->tab[indice] != tmp) {
+        indice++;
+    }
+
+    if ((indice / 2) > game->size-1) {
+        printf("on est en bas\n");
+        while (indice > game->size)
+        {
+            deplacementV(game, DOWN, indice/game->size);
+           
+            if (indice > (game->size * game->size) - game->size) {
+                indice = indice - (game->size * (game->size - 1));
+            }
+            else {
+                indice += game->size;
+            }
+        }
+    }
+    else { 
+        printf("on est en haut\n");
+        while (indice > game->size) {
+            deplacementV(game, UP, indice/game->size);
+            indice -= game->size;
+        }
+    }
+    //le coin en haut à gauche est correct 
+    
 }
