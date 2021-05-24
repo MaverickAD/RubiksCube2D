@@ -232,6 +232,6 @@ void petit_carre(GAME* game) {
             indice -= game->size;
         }
     }
-    //le coin en haut à gauche est correct 
+    //le coin en haut à gauche est correct (pas encore)
     
 }
