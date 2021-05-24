@@ -9,9 +9,19 @@
     box-sizing: border-box;
 }
 
+html{
+    height: 100%;
+}
+
 body{
-    background: linear-gradient(to bottom ,#2D3561 0%, #722D61 60%, #C05C7E 85%, #F3826F 97%, #FFB961 );
     font-family: 'Roboto';
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+body.dark-mode{
+    color: #FFFFFF;
+    background-color: #000000;
 }
 
 .filter{
@@ -25,6 +35,7 @@ body{
 
 a{
     text-decoration: none;
+    color: #000000;
 }
 
 .nav 
@@ -117,42 +128,176 @@ a{
     text-align: center;
 }
 
-/*main{
-    border: 1px solid red;
-}*/
-
-#playBlock, #instructionBlock{
-    display: flex;
-    justify-content: center;
-    margin: 8rem auto 4rem ;
-    border: 3px solid black;
-    height: 6rem;
-    width: 50%;
-    min-width: 20rem;
-}
-
-#playBlock:hover{
-    background: linear-gradient(to right, #009B48 16%, #B90000 16%, #B90000 32%, #0045AD 32%, #0045AD 48%, #FF5900 48%, #FF5900 64%, #FFFFFF 64%, #FFFFFF 80%,#FFD500 80%);
-    transition: background 1.5s ease;
-}
-
-#playBlock h2, #instructionBlock h2{
+.btn h2{
     font-size: 1.5em;
     margin: auto 0;
     text-align: center;
     color: #000000;
 }
 
-#regle{
-    display: flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: space-around;
+.btn{
+    
+    border-radius: 6px;
+    height: 6rem;
+    width: 50%;
+    min-width: 20rem;
+    margin: auto;
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;*/
 }
+
+#playBlock{
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    outline: 0;
+    color: #fff;
+    line-height: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#playBlock::before{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    color: #000000;
+    display: block;
+    transition: all 0.5s ease;
+    position: absolute;
+    background: var(--check-before, #323237);
+    content: attr(data-play); 
+    transform: translateY(-50%) rotateX(90deg);
+    border: 3px solid #000000;
+    border-radius: 6px;
+}
+
+#playBlock::after{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #000000;
+    display: block;
+    transition: all 0.5s ease;
+    position: absolute;
+    background: var(--check-after,#FFFFFF);
+    content: attr(data-play);
+    transform: translateY(0) rotateX(0);
+    border: 3px solid #000000;
+    border-radius: 6px;
+}
+
+#playBlock:hover::before{
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+    transition: all 0.5s ease;
+}
+
+#playBlock:hover::after{
+    opacity: 0.8;
+    transform: translateY(50%) rotateX(90deg);
+    transition: all 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#instructionBlock{
+    display: flex;
+    justify-content: center;
+    
+    margin: 5.5rem auto 5.5rem ;
+    height: 6rem;
+    width: 50%;
+    min-width: 20rem;
+    border-radius: 6px;
+    position: relative;
+    transition: all 0.5s;
+    border: none;
+}
+#instructionBlock:hover{
+    border: none;
+}
+
+#instructionBlock::before{
+    content: '';
+    position: absolute;
+    top: -1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    background-color: rgba(255,0,0,0.8);
+    border-radius: 6px;
+    transition: all 0.5s;
+    transform: scale(1,1);
+}
+#instructionBlock:hover::before{
+    opacity: 0;
+    transform: scale(0.2,0.2);
+}
+
+#instructionBlock::after{
+    content: '';
+    position: absolute;
+    top: -1;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0;
+    transition: all 0.5s;
+    border: 3px solid rgba(255,0,0,1);
+    border-radius: 6px;
+    transform: scale(1,1);
+}
+#instructionBlock:hover::after{
+    opacity: 1;
+    transform: scale(0.7,0.7);
+}
+
+.dg-rm-more {display: none; } 
+
+.dg-rm-dots:after { display:inline-block;}
 
 .blockRegle{
     border: 3px solid black;
-    width: 40%;
+    width: 35%;
     height: 20rem;
     margin: 10rem auto 1rem;
 }

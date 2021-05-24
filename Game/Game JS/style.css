@@ -1,0 +1,10 @@
+.box {
+    display: flex;  
+    flex-wrap: wrap;
+}
+  
+.child-box {
+    border :  solid black;
+    width  : 6em;
+    height : 6em;
+}
