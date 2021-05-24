@@ -56,3 +56,4 @@ int parseInputMaker(GAME* game);
 void copieTemoin(GAME* game);
 void shuffle(GAME* game);
 void petit_carre(GAME* game);
+int findIndice(GAME* game, int indiceInTemoin);

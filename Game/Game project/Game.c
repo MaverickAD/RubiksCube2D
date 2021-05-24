@@ -26,8 +26,8 @@ void display(GAME* game) {
             for (int j = 0; j < 10; j++) {
                 printf(" ");
             }
-            for (int j = 0; j < 3; j++){
-                printf("%d ", game->temoin[i - 2 + j]);
+            for (int j = 0; j < game->size; j++){
+                printf("%d ", game->temoin[i - ((game->size) - 1) + j]);
             }
             printf("\n");
         }
@@ -204,32 +204,34 @@ void shuffle(GAME* game) {
     }
 }
 
-void petit_carre(GAME* game) {
-    int tmp = game->temoin[0];
+int findIndice(GAME* game, int indiceInTemoin) {
+    int tmp = game->temoin[indiceInTemoin];
     int indice = 0;
     while (game->tab[indice] != tmp) {
         indice++;
     }
+    return indice;
+}
 
-    if ((indice / 2) > game->size-1) {
+
+void petit_carre(GAME* game) {
+    
+    int indice = findIndice(game, 0);
+
+    if ((indice / 2) >= game->size) {
         printf("on est en bas\n");
-        while (indice > game->size)
+        while (indice > game->size - 1)
         {
-            deplacementV(game, DOWN, indice/game->size);
+            deplacementV(game, DOWN, (indice)%(game->size));
            
-            if (indice > (game->size * game->size) - game->size) {
-                indice = indice - (game->size * (game->size - 1));
-            }
-            else {
-                indice += game->size;
-            }
+            indice = findIndice(game, 0);
         }
     }
     else { 
         printf("on est en haut\n");
-        while (indice > game->size) {
-            deplacementV(game, UP, indice/game->size);
-            indice -= game->size;
+        while (indice > game->size - 1) {
+            deplacementV(game, UP, (indice) % (game->size));
+            indice = findIndice(game, 0);
         }
     }
     //le coin en haut à gauche est correct (pas encore)

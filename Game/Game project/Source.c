@@ -1,5 +1,5 @@
-#include "Game.h"
-#define GAME_SIZE 3 
+ #include "Game.h"
+#define GAME_SIZE 3
 
 
 int main() {
@@ -10,7 +10,8 @@ int main() {
     copieTemoin(game);
     shuffle(game);
     display(game);
-    petit_carre(game);
+    petit_carre(game);    
     display(game);
+  
 
 }
