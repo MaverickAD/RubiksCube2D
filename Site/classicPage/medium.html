@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Medium</title>
+    <link rel="stylesheet" href="../styleOtherPage.css">
+    <script src="../script.js"></script>
+</head>
+
+<body>
+    <div class="nav-toggle" onclick="toggleNav()">
+        <div class="nav-toggle-bar"></div>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="#" id="navBar_adventureTitle" onclick="toggleNav()">Adventure mode</a></li>
+            <li><a href="../classic_mode.html" id="navBar_classicTitle" onclick="toggleNav()">Classic mode</a></li>
+            <li><a href="../maker.html" id="navBar_makerTitle" onclick="toggleNav()">Maker mode</a></li>
+            <li><a href="#" id="navBar_instruction" onclick="toggleNavInstruction()">Instruction</a></li>
+            <li><a href="#" id="navBar_darkMode" onclick="darkMode()">Dark mode</a></li>
+        </ul>
+    </nav>
+    <div class="filter" id="blur">
+        <header>
+            <div id="mainTitle-easy">
+                <a href="../index.html">
+                    <h1>Rubik's Cube 2D</h1>
+                </a>
+            </div>
+        </header>
+
+        <main id="classic-main-mod">
+            <div id="info-mod-shuffle">
+                <div id="shuffle"><a href="#">Shuffle Bitche</a></div>
+                <div id="mod">Medium</div>
+            </div>
+
+            <div id="ligne-jeu">
+
+                <div id="boite-pattern">
+                    <div id="petite-boite-pattern"></div>
+                </div>
+
+                <div id="boite-jeu">
+                    <div id="petite-boite-jeu"></div>
+                </div>
+
+                <div id="leaderboard">
+                    <div id="petit-leaderboard"> LEADERBOARD</div>
+                </div>
+
+            </div>
+
+            <div id="timer">TIMER</div>
+        </main>
+
+        <footer>
+            <p>&copy;ISEN_Project_CIR1_2021 by TeamName</p>
+        </footer>
+    </div>
+</body>
+
+</html>

@@ -128,25 +128,125 @@ a{
     text-align: center;
 }
 
+.btn h2{
+    font-size: 1.5em;
+    margin: auto 0;
+    text-align: center;
+    color: #000000;
+}
+
 .btn{
+    
+    border-radius: 6px;
+    height: 6rem;
+    width: 50%;
+    min-width: 20rem;
+    margin: auto;
+    /*display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;*/
+}
+
+#playBlock{
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    outline: 0;
+    color: #fff;
+    line-height: 40px;
+    position: relative;
+    text-align: center;
+    letter-spacing: 1px;
+    display: inline-block;
+    text-decoration: none;
+}
+
+#playBlock::before{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 0.8;
+    color: #000000;
+    display: block;
+    transition: all 0.5s ease;
+    position: absolute;
+    background: var(--check-before, #323237);
+    content: attr(data-play); 
+    transform: translateY(-50%) rotateX(90deg);
+    border: 3px solid #000000;
+    border-radius: 6px;
+}
+
+#playBlock::after{
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    opacity: 1;
+    color: #000000;
+    display: block;
+    transition: all 0.5s ease;
+    position: absolute;
+    background: var(--check-after,#FFFFFF);
+    content: attr(data-play);
+    transform: translateY(0) rotateX(0);
+    border: 3px solid #000000;
+    border-radius: 6px;
+}
+
+#playBlock:hover::before{
+    opacity: 1;
+    transform: translateY(0) rotateX(0);
+    transition: all 0.5s ease;
+}
+
+#playBlock:hover::after{
+    opacity: 0.8;
+    transform: translateY(50%) rotateX(90deg);
+    transition: all 0.5s ease;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+#instructionBlock{
     display: flex;
     justify-content: center;
-    border: 3px solid black;
+    
     margin: 5.5rem auto 5.5rem ;
     height: 6rem;
     width: 50%;
     min-width: 20rem;
     border-radius: 6px;
     position: relative;
-}
-
-#playBlock{
-    transition: 0.5s ease-in-out;
-}
-
-
-
-#instructionBlock{
     transition: all 0.5s;
     border: none;
 }
@@ -190,33 +290,6 @@ a{
     opacity: 1;
     transform: scale(0.7,0.7);
 }
-
-#playBlock h2, #instructionBlock h2{
-    font-size: 1.5em;
-    margin: auto 0;
-    text-align: center;
-    color: #000000;
-}
-
-.playText{
-    position: relative;
-    display: inline-block;
-    transition: 0.5s ease-in-out;
-}
-
-.playText::before{
-    content: attr(data-text);
-    position: absolute;
-    margin: auto 0;
-    top: 150%;
-    left: 0;
-    color: transparent;
-    transition: 0.5s ease-in-out;
-}
-
-#playBlock:hover .playText{transform: translateY(-150%); color: transparent;}
-
-#playBlock:hover .playText::before{color: #000000;}
 
 .dg-rm-more {display: none; } 
 

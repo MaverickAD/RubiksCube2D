@@ -66,17 +66,14 @@ function dgReadMore(id) {
 
 var i = 0;
 
-function color() {
-  var colorTab = ["#009B48", "#B90000", "#0045AD", "#FF5900", "#FFFFFF", "#FFD500"];
-  var block = document.querySelector('div#playBlock');
-  block.style.background = colorTab[i];
-  i++;
-  if (i === 6) { i = 0 }
-}
-
-function removeColor() {
-  var block = document.querySelector('div#playBlock');
-  block.style.background = "";
+function changeParameters() {
+    var colorTab = ["#00FF00", "#FF0000", "#0045AD", "#FFFF00", "#FFFFFF", "#FF7F00"];
+    var block = document.getElementById('playBlock');
+    block.style.setProperty("--check-before",colorTab[i]);
+    i++;
+    if (i === 6) {
+        i=0;
+    }
 }
 
 function toggleNavInstruction(){

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html id="page-choix" lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page de choix</title>
+    <link rel="stylesheet" href="styleOtherPage.css">
+    <script src="script.js"></script>
+</head>
+<body id="page_choix">
+<div class="nav-toggle" onclick="toggleNav()">
+        <div class="nav-toggle-bar"></div>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="#" id="navBar_adventureTitle" onclick="toggleNav()">Adventure mode</a></li>
+            <li><a href="classic_mode.html" id="navBar_classicTitle" onclick="toggleNav()">Classic mode</a></li>
+            <li><a href="maker.html" id="navBar_makerTitle" onclick="toggleNav()">Maker mode</a></li>
+            <li><a href="#" id="navBar_instruction" onclick="toggleNavInstruction()">Instruction</a></li>
+            <li><a href="#" id="navBar_darkMode" onclick="darkMode()">Dark mode</a></li>
+        </ul>
+    </nav>
+    <div class="filter" id="blur">
+        <header>
+            <div id="mainTitle-choice">
+                <a href="index.html"><h1>Rubik's Cube 2D</h1></a>
+            </div>
+        </header>
+
+    <main id="main-choix">
+        <div id="ligne1">
+        <div class="adventure"><a href="#">Mode adventure</a></div>
+
+        <div class="classic"><a href="classic_mode.html">Classic Mode</a></div>
+        </div>
+
+        <div id="ligne2"><a href="maker.html">Maker Mode</a></div>
+
+    </main>
+
+    <footer>
+        <p>&copy;ISEN_Project_CIR1_2021 by TeamName</p>
+    </footer>
+    
+</body>
+</html>
