@@ -1,7 +1,14 @@
 @font-face {
-    font-family: 'Roboto';
-    src: url(font/Roboto/Roboto-Regular.ttf);
+    font-family: 'Arvo';
+    src: url(font/Arvo/Arvo-Regular.ttf);
     font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Arvo';
+    src: url(font/Arvo/Arvo-Bold.ttf);
+    font-weight: bold;
     font-style: normal;
 }
 
@@ -10,9 +17,13 @@
 }
 
 body{
-    background: linear-gradient(to bottom ,#2D3561 0%, #722D61 60%, #C05C7E 85%, #F3826F 97%, #FFB961 );
-    font-family: 'Roboto';
-    border: 2px solid green;
+    font-family: 'Arvo';
+    color: #000000;
+    background-color: #FFFFFF;
+}
+
+html{
+    height: 100%;
 }
 
 .filter{
@@ -26,6 +37,7 @@ body{
 
 a{
     text-decoration: none;
+    color: #000000;
 }
 
 .nav 
@@ -315,6 +327,80 @@ footer p{
 }
 
 /*Page Maker*/
+.skin_barre  /* on reprend le nom qu'on a mis dans 'class=' */
+{
+	width:30px;
+	height:300px;
+	/* on définit la taille du div (celle de l'image) */
+
+	top:20px;
+	left:23px;
+	/* et sa position initiale */
+
+	position:absolute;
+	/* le div n'est plus fixe mais libre */
+
+	background-image:url('img/degrade.jpg');
+	/* on définit ici l'image à afficher dans le div */
+
+	cursor:s-resize;
+	/* et enfin on définit le curseur à afficher lorsque la souris passe sur ce div */
+}
+
+/* =====  de même pour les autres  ===== */
+
+.skin_curseur1
+{
+	width:45px;
+	height:15px;
+	position:absolute;
+	top:12px;
+	left:15px;
+	cursor:s-resize;
+	background-image:url('img/curseur1.png');
+}
+
+.skin_carre
+{
+	width:300px;
+	height:300px;
+	position:absolute;
+	top:20px;left:60px;
+	cursor:move;
+	background-color:red;  /* on définit la couleur initiale du carré */
+	background-image:url('img/degrade\_n-b.png');
+}
+
+.skin_curseur2
+{
+	width:20px;
+	height:20px;
+	position:absolute;
+	top:10px;
+	left:350px;
+	cursor:move;
+	background-image:url('img/curseur2.png');
+}
+
+.skin_resultat
+{
+    color: white;
+	position:absolute;
+	top:330px;
+	left:60px;
+	border:1px solid black; /* dessine un cadre noir autour du 'input' et d'un pixel d'épaisseur */
+	background-color:white;
+	text-align:center;  /* on aligne le texte au centre */
+}
+
+.skin_bouton_OK
+{
+
+	position:absolute;
+	top:330px;
+	left:220px;
+}
+
 #maker-boite{
     margin-bottom: 1%;
     display: flex;
@@ -324,18 +410,102 @@ footer p{
     width: 60%;
 }
 
+#color{
+    border: 2px solid Green;
+    margin-left: 5%;
+    width: 10%;
+}
+
 #boite-palette{
+    margin-left: 5%;
+    margin-bottom: 25%;
+    margin-top: 30%;
+}
+
+#ligne-color{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin-bottom: 20%;
+}
+
+#color1{
+    border: 2px solid red;
+    padding: 8%;
+    width: 5%;
+}
+
+#color2{
+    border: 2px solid purple;
+    padding: 8%;
+    width: 5%;
+}
+
+#color3{
+    border: 2px solid orange;
+    padding: 8%;
+    width: 5%;
+}
+
+#color4{
+    border: 2px solid blue;
+    padding: 8%;
+    width: 5%;
+}
+
+#color5{
+    border: 2px solid green;
+    padding: 8%;
+    width: 5%;
+}
+
+#color6{
+    border: 2px solid yellow;
+    padding: 8%;
+    width: 5%;
+}
+
+#color7{
+    border: 2px solid black;
+    padding: 8%;
+    width: 5%;
+}
+
+#color8{
+    border: 2px solid white;
+    padding: 8%;
+    width: 5%;
+}
+
+#color9{
+    border: 2px solid pink;
+    padding: 8%;
+    width: 5%;
+}
+
+#color10{
     border: 2px solid brown;
+    padding: 8%;
+    width: 5%;
 }
 
 #boite-jeu-maker{
     border: 2px solid blue;
     width: 60%;
-    margin-left: 10%;   
+    margin-left: 15%;  
+    margin-right: 6%;
 }
 
 #petite-boite-jeu-maker{
     border: 2px solid yellow;
     padding-bottom: 40%;
     margin-top: 10%;
+}
+
+#confirm{
+    margin-top: 1%;
+    border: 2px solid purple;
+    width: 20%;
+    margin-left: 50%;
+    text-align: center;
 }

@@ -1,0 +1,33 @@
+#main-choix a{
+    color: black;
+}
+
+#ligne1{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+
+.adventure{
+    border: 2px solid red;
+    width: 30%;
+    text-align: center;
+    padding: 5%;
+}
+
+.classic{
+    border: 2px solid blue;
+    width: 30%;
+    text-align: center;
+    padding: 5%;
+}
+
+#ligne2{
+    margin: auto;
+    margin-top: 5%;
+    border: 2px solid green;
+    width: 30%;
+    text-align: center;
+    padding: 5%;
+    margin-bottom: 5%;
+}

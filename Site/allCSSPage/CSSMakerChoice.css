@@ -1,0 +1,8 @@
+#maker-boite{
+    margin-bottom: 1%;
+    display: flex;
+    justify-content: center;
+    border: 2px solid black;
+    margin-left: 20%;
+    width: 60%;
+}
