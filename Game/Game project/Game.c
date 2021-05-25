@@ -213,9 +213,23 @@ int findIndice(GAME* game, int indiceInTemoin) {
     return indice;
 }
 
+bool IsInColumn(GAME* game, int lastLocked, int indiceTemoin) {
+    int indice = findIndice(game, indiceTemoin);
+    return (indice) % (game->size) <= lastLocked;
+}
+
+bool IsInRow(GAME* game, int LastLocked, int indiceTemoin) {
+    int indice = findIndice(game, indiceTemoin);
+    return (indice / game->size) <= LastLocked;
+}
+
 
 void petit_carre(GAME* game) {
-    
+    //on cherche à placer le cube en haut à gauche 
+
+
+
+    //on le place d'abord à la bonne ligne 
     int indice = findIndice(game, 0);
 
     if ((indice / 2) >= game->size) {
@@ -234,8 +248,8 @@ void petit_carre(GAME* game) {
             indice = findIndice(game, 0);
         }
     }
-    //le coin en haut à gauche est correct
-
+   
+    //on le place ensuite à la bonne colonne
     if (indice > (game->size / 2) - 1) {
         while (indice != 0) {
             deplacementH(game, RIGHT, 0);
@@ -248,6 +262,35 @@ void petit_carre(GAME* game) {
             indice = findIndice(game, 0);
         }
     }
-    
+    //le coin en haut à gauche est correct
+    display(game);
+    //test si deuxieme carre est dans une colonne ou ligne lock
+    if (!(game->tab[game->size]==game->temoin[game->size]))
+    {
+        if (IsInRow(game, 0, game->size)) {
+            int indice = findIndice(game, game->size);
+            deplacementV(game, DOWN, indice);
+        }
+        if (IsInColumn(game,0,game->size))
+        {
+            int indice = findIndice(game, game->size);
+            deplacementH(game, RIGHT, (indice / game->size));
+        }
+    }
+    if ((indice / 2) >= game->size) {
+        while (indice > game->size - 1)
+        {
+            //on est dans la moitié supérieur 
+            deplacementV(game, DOWN, (indice) % (game->size));
 
+            indice = findIndice(game, 0);
+        }
+    }
+    else {
+        //on est dans la moitié inférieur
+        while (indice > game->size - 1) {
+            deplacementV(game, UP, (indice) % (game->size));
+            indice = findIndice(game, 0);
+        }
+    }
 }

@@ -57,3 +57,5 @@ void copieTemoin(GAME* game);
 void shuffle(GAME* game);
 void petit_carre(GAME* game);
 int findIndice(GAME* game, int indiceInTemoin);
+bool IsInColumn(GAME* game, int lastLocked, int indiceTemoin);
+bool IsInRow(GAME* game, int LastLocked, int indiceTemoin);
