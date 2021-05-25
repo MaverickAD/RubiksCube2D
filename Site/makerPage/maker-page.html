@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Hard</title>
+    <title>Page maker-suite</title>
     <link rel="stylesheet" href="../styleOtherPage.css">
-    <script src="../script.js"></script>
+    <script src="../scriptOtherPage.js"></script>
 </head>
 
 <body>
@@ -17,10 +17,9 @@
     <nav class="nav">
         <ul>
             <li><a href="#" id="navBar_adventureTitle" onclick="toggleNav()">Adventure mode</a></li>
-            <li><a href="../classic_mode.html" id="navBar_classicTitle" onclick="toggleNav()">Classic mode</a></li>
-            <li><a href="../maker.html" id="navBar_makerTitle" onclick="toggleNav()">Maker mode</a></li>
-            <li><a href="../index.html" id="navBar_instruction" onclick="toggleNavInstruction()">Instruction</a></li>
-            <li><a href="#" id="navBar_darkMode" onclick="darkMode()">Dark mode</a></li>
+            <li><a href="#" id="navBar_classicTitle" onclick="toggleNav()">Classic mode</a></li>
+            <li><a href="#" id="navBar_makerTitle" onclick="toggleNav()">Maker mode</a></li>
+            <li><a href="#" id="navBar_instruction" onclick="toggleNav()">Instruction</a></li>
         </ul>
     </nav>
     <div class="filter" id="blur">
@@ -34,34 +33,40 @@
 
         <main id="classic-main-mod">
             <div id="info-mod-shuffle">
-                <div id="shuffle"><a href="#">Shuffle Bitche</a></div>
-                <div id="mod">Hard</div>
             </div>
 
             <div id="ligne-jeu">
-
                 <div id="color">
-                <div id="boite-palette"></div>
-                <div id="boite-color">
-                    <div id="color1"></div>
-                    <div id="color2"></div>
-                    <div id="color3"></div>
-                    <div id="color4"></div>
-                    <div id="color5"></div>
-                    <div id="color6"></div>
-                    <div id="color7"></div>
-                    <div id="color8"></div>
-                    <div id="color9"></div>
-                    <div id="color10"></div>
+                    <div id="boite-palette">
+                        <input type="button" value="Ouvrir la palette" onclick="ouvrir_palette('mon_formulaire','champ_recevant_la_couleur')" /></div>
+                    <div id="ligne-color">
+                        <div id="color1"></div>
+                        <div id="color2"></div>
+                    </div>
+                    <div id="ligne-color">
+                        <div id="color3"></div>
+                        <div id="color4"></div>
+                    </div>
+                    <div id="ligne-color">
+                        <div id="color5"></div>
+                        <div id="color6"></div>
+                    </div>
+                    <div id="ligne-color">
+                        <div id="color7"></div>
+                        <div id="color8"></div>
+                    </div>
+                    <div id="ligne-color">
+                        <div id="color9"></div>
+                        <div id="color10"></div>
+                    </div>
                 </div>
-            </div>
 
                 <div id="boite-jeu-maker">
                     <div id="petite-boite-jeu-maker"></div>
                 </div>
             </div>
 
-            <div id="timer">CONFIRM</div>
+            <div id="confirm"><a href="#">CONFIRM</a></div>
         </main>
 
         <footer>

@@ -1,7 +1,14 @@
 @font-face {
-    font-family: 'Roboto';
-    src: url(font/Roboto/Roboto-Regular.ttf);
+    font-family: 'Arvo';
+    src: url(font/Arvo/Arvo-Regular.ttf);
     font-weight: normal;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Arvo';
+    src: url(font/Arvo/Arvo-Bold.ttf);
+    font-weight: bold;
     font-style: normal;
 }
 
@@ -14,7 +21,7 @@ html{
 }
 
 body{
-    font-family: 'Roboto';
+    font-family: 'Arvo';
     color: #000000;
     background-color: #FFFFFF;
 }
@@ -43,7 +50,7 @@ a{
     transition: left 0.5s ease;
     background-color: #000000;
     color: white;
-    font-size: 2rem;
+    font-size: 1.7rem;
     height: 100vh;
     left: -17rem;
     padding: 6rem 2rem 2rem 2rem;
@@ -124,6 +131,7 @@ a{
 
 #mainTitle h1{
     font-size: 2.3em;
+    font-weight: bold;
     color: #000000;
     text-align: center;
 }
