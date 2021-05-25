@@ -266,7 +266,8 @@ void petit_carre(GAME* game) {
     display(game);
     //test si deuxieme carre est dans une colonne ou ligne lock
     if (!(game->tab[game->size]==game->temoin[game->size]))
-    {
+    { 
+        //On extrait le carré que l'on veut placer des lignes et colonnes locked
         if (IsInRow(game, 0, game->size)) {
             int indice = findIndice(game, game->size);
             deplacementV(game, DOWN, indice);
@@ -277,20 +278,57 @@ void petit_carre(GAME* game) {
             deplacementH(game, RIGHT, (indice / game->size));
         }
     }
-    if ((indice / 2) >= game->size) {
-        while (indice > game->size - 1)
-        {
-            //on est dans la moitié supérieur 
-            deplacementV(game, DOWN, (indice) % (game->size));
 
-            indice = findIndice(game, 0);
+    indice = findIndice(game, game->size);
+    
+
+    bool enBas = false;
+    if (game->size >= 7) {
+        if (indice > (game->size * (game->size - 2))) {
+            enBas = true;
         }
     }
     else {
-        //on est dans la moitié inférieur
-        while (indice > game->size - 1) {
-            deplacementV(game, UP, (indice) % (game->size));
-            indice = findIndice(game, 0);
+        if (indice > (game->size * (game->size - 1))) {
+            enBas = true;
         }
     }
+
+    if (enBas) {
+        while (indice > game->size * 2 || (indice < game->size)) {
+            deplacementV(game, DOWN, indice % game->size);
+            indice = findIndice(game, game->size);
+        }
+    }
+    else {
+        while (indice > game->size * 2 || indice < game->size) {
+            deplacementV(game, UP, indice % game->size);
+            indice = findIndice(game, game->size);
+        }
+    }
+    
+    bool aGauche = false;
+    if (game->size >= 7) {
+        if (indice % game->size < 3 ) {
+            aGauche = true;
+        }
+    }
+    else {
+        if (indice % game->size < 2) {
+            aGauche = true;
+        }
+    }
+    if (aGauche) {
+        while (indice != game->size) {
+            deplacementH(game, LEFT, 1);
+            indice = findIndice(game, game->size);
+        }
+    }
+    else {
+        while (indice != game->size) {
+            deplacementH(game, RIGHT, 1);
+            indice = findIndice(game, game->size);
+        }
+    }
+
 }
