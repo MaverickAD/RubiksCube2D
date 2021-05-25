@@ -1,0 +1,14 @@
+#classic-mod{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-direction: column;
+}
+
+#boite-classic{
+    display: flex;
+    border: 2px solid black;
+    margin: 3%;
+    justify-content: center;
+    width: 50%;
+}
