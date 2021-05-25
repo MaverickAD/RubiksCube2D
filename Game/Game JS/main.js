@@ -1,20 +1,22 @@
-const htmlGame = document.querySelector("#container");
+const htmlGame = document.querySelector("#container")
+const buttons = document.querySelector("#buttons")
 
 const Direction = {
-    Up : 'Up',
-    Down : 'Down',
-    Rigth : 'Rigth',
-    Left : 'Left'
-};
+    Up: 'Up',
+    Down: 'Down',
+    Right: 'Right',
+    Left: 'Left'
+}
 
 UP = Direction.Up;
 DOWN = Direction.Down;
-RIGTH = Direction.Rigth;
+RIGHT = Direction.Right;
 LEFT = Direction.Left;
 
 class Game {
     
-    constructor(board, witness, size) {
+    constructor (board, witness, size)
+    {
 
         this.board = board;
         this.witness = witness;
@@ -36,19 +38,19 @@ class Game {
 
     setIndiceBoard(i, value) { this.board[i] = value; }
 
-    nextMove(dir, indice) {
-        switch (dir) {
-            case UP: this.shiftU(indice);break;
-            case DOWN : this.shiftD(indice);break;
-            case RIGTH : this.shiftR(indice);break;
-            case LEFT : this.shiftL(indice);break;
-            default : console.error("Unknow direction", dir); 
-        }
-    }
-
     display() {
         for (let i = 0; i <= this.totalSize - this.size; i += this.size) 
             console.log(...(this.board.slice(i, i + this.size))); 
+    }
+
+    nextMove(dir, indice) {
+        switch (dir) {
+            case 'Up': this.shiftU(indice);break;
+            case 'Down' : this.shiftD(indice);break;
+            case 'Right' : this.shiftR(indice);break;
+            case 'Left' : this.shiftL(indice);break;
+            default : console.error("Unknow direction", dir);break; 
+        }
     }
 
     shiftU(indice){
@@ -96,23 +98,56 @@ class Game {
     }
 
     render() {
-        // <div class="child-box"></div>
         const boxes = document.querySelector(".box");
         boxes.style.width = (this.size * 6 + 2).toString() + "em";
 
-        while (htmlGame.hasChildNodes()) {  
-            htmlGame.removeChild(htmlGame.firstChild);
-        }
+        while (htmlGame.hasChildNodes()) htmlGame.removeChild(htmlGame.firstChild);
 
         this.board.forEach(elem => {
             const temp = document.createElement("div");
             temp.className += " child-box";
-            temp.innerHTML = elem;
+            temp.style.backgroundColor = elem;
             htmlGame.appendChild(temp);
         });
     }
 }
 
-let a = new Game([1,2,3,4,5,6,7,8,9,4,11,12,13,14,15,16],[1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,16] , 4);
-a.shuffle();
+let a = new Game(["#aba5a7","#aba5a7","#c2eef0","#aba5a7","#aba5a7"
+                 ,"#c2eef0","#b99a5e","#b99a5e","#b99a5e","#c2eef0"
+                 ,"#b99a5e","#aba5a7","#ffffff","#aba5a7","#b99a5e"
+                 ,"#f37a7a","#ffffff","#aba5a7","#ffffff","#f37a7a"
+                 ,"#ffffff","#aba5a7","#e1b1dd","#aba5a7","#ffffff"]
+                 , [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], 5);
+
+for(let i = 0; i < a.size * 4; i++){
+    const temp = document.createElement("button");
+    const mfia = Math.floor(i / a.size);
+
+    switch(mfia) {
+        case 0:
+            temp.innerHTML = `${UP} ${i % a.size + 1}`;
+            temp.onclick = (() => {a.nextMove(UP, i % a.size);a.render();});
+            break;
+        case 1:
+            temp.innerHTML = `${DOWN} ${i % a.size + 1}`;
+            temp.onclick = (() => { a.nextMove(DOWN, i % a.size); a.render(); });
+            break;
+        case 2:
+            temp.innerHTML = `${LEFT} ${i % a.size + 1}`;
+            temp.onclick = (() => { a.nextMove(LEFT, i % a.size); a.render(); });
+            break;
+        case 3:
+            temp.innerHTML = `${RIGHT} ${i % a.size + 1}`;
+            temp.onclick = (() => { a.nextMove(RIGHT, i % a.size); a.render(); });
+            break;
+    }
+
+    buttons.appendChild(temp);
+}
+
+const temp = document.createElement("button");
+temp.innerHTML = "SHUFFLE";
+temp.onclick = (() => {a.shuffle(); a.render();});
+buttons.appendChild(temp);
+
 a.render();
