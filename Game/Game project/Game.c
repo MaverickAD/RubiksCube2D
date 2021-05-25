@@ -219,21 +219,35 @@ void petit_carre(GAME* game) {
     int indice = findIndice(game, 0);
 
     if ((indice / 2) >= game->size) {
-        printf("on est en bas\n");
         while (indice > game->size - 1)
         {
+            //on est dans la moitié supérieur 
             deplacementV(game, DOWN, (indice)%(game->size));
            
             indice = findIndice(game, 0);
         }
     }
     else { 
-        printf("on est en haut\n");
+        //on est dans la moitié inférieur
         while (indice > game->size - 1) {
             deplacementV(game, UP, (indice) % (game->size));
             indice = findIndice(game, 0);
         }
     }
-    //le coin en haut à gauche est correct (pas encore)
+    //le coin en haut à gauche est correct
+
+    if (indice > (game->size / 2) - 1) {
+        while (indice != 0) {
+            deplacementH(game, RIGHT, 0);
+            indice = findIndice(game, 0);
+        }
+    }
+    else {
+        while (indice != 0) {
+            deplacementH(game, LEFT, 0);
+            indice = findIndice(game, 0);
+        }
+    }
     
+
 }

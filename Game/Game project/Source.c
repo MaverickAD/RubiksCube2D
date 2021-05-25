@@ -1,5 +1,5 @@
  #include "Game.h"
-#define GAME_SIZE 3
+#define GAME_SIZE 4
 
 
 int main() {
