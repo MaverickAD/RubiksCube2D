@@ -1,14 +1,42 @@
 @font-face {
     font-family: 'Arvo';
-    src: url(font/Arvo/Arvo-Regular.ttf);
+    src: url(../font/Arvo/Arvo-Regular.ttf);
     font-weight: normal;
     font-style: normal;
 }
 
 @font-face {
     font-family: 'Arvo';
-    src: url(font/Arvo/Arvo-Bold.ttf);
+    src: url(../font/Arvo/Arvo-Bold.ttf);
     font-weight: bold;
+    font-style: normal;
+}
+
+@font-face {
+    font-family: 'Roboto';
+    src: url(../font/Roboto/Roboto-Regular.ttf);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'game';
+    src: url(../font/04B_19__.TTF);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'game2';
+    src: url(../font/04B_30__.TTF);
+    font-weight: normal;
+    font-style: normal;
+}
+
+@font-face{
+    font-family: 'game3';
+    src: url(../font/upheavtt.ttf);
+    font-weight: normal;
     font-style: normal;
 }
 
@@ -131,6 +159,7 @@ a{
 
 #mainTitle h1{
     width: auto;
+    font-family: 'game3';
     font-size: 2.3em;
     font-weight: bold;
     color: #000000;
