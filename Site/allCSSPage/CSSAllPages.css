@@ -1,17 +1,3 @@
-@font-face {
-    font-family: 'Arvo';
-    src: url(font/Arvo/Arvo-Regular.ttf);
-    font-weight: normal;
-    font-style: normal;
-}
-
-@font-face {
-    font-family: 'Arvo';
-    src: url(font/Arvo/Arvo-Bold.ttf);
-    font-weight: bold;
-    font-style: normal;
-}
-
 *{
     box-sizing: border-box;
 }
@@ -21,7 +7,6 @@ html{
 }
 
 body{
-    font-family: 'Arvo';
     color: #000000;
     background-color: #FFFFFF;
 }

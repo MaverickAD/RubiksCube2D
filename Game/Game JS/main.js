@@ -1,5 +1,6 @@
-const htmlGame = document.querySelector("#container")
-const buttons = document.querySelector("#buttons")
+const htmlGame = document.querySelector("#game");
+const htmlWitness = document.querySelector("#witness");
+const buttons = document.querySelector("#buttons");
 
 const Direction = {
     Up: 'Up',
@@ -98,9 +99,9 @@ class Game {
     }
 
     render() {
-        const boxes = document.querySelector(".box");
-        boxes.style.width = (this.size * 6 + 2).toString() + "em";
-
+        
+        htmlGame.style.width = (this.size * 6 + 2).toString() + "em";
+        htmlWitness.style.width = htmlGame.style.width;
         while (htmlGame.hasChildNodes()) htmlGame.removeChild(htmlGame.firstChild);
 
         this.board.forEach(elem => {
@@ -109,15 +110,37 @@ class Game {
             temp.style.backgroundColor = elem;
             htmlGame.appendChild(temp);
         });
+
+        while (htmlWitness.hasChildNodes()) htmlWitness.removeChild(htmlWitness.firstChild);
+
+        this.witness.forEach(elem => {
+            const temp = document.createElement("div");
+            temp.className += " child-box";
+            temp.style.backgroundColor = elem;
+            htmlWitness.appendChild(temp);
+        });
+
+        for (let i = 0; i < this.totalSize; i++) {
+            if (this.board[i] !== this.witness[i]) return 
+        }
+        console.log("gagne")
+
     }
 }
 
-let a = new Game(["#aba5a7","#aba5a7","#c2eef0","#aba5a7","#aba5a7"
-                 ,"#c2eef0","#b99a5e","#b99a5e","#b99a5e","#c2eef0"
-                 ,"#b99a5e","#aba5a7","#ffffff","#aba5a7","#b99a5e"
-                 ,"#f37a7a","#ffffff","#aba5a7","#ffffff","#f37a7a"
-                 ,"#ffffff","#aba5a7","#e1b1dd","#aba5a7","#ffffff"]
-                 , [1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1], 5);
+let a = new Game(["#000000","#ff0000","#ffffff","#ffffff","#00ff00","#000000"
+                 ,"#ff0000","#ff0000","#ff0000","#00ff00","#00ff00","#00ff00"
+                 ,"#ffffff","#ff0000","#454545","#454545","#00ff00","#ffffff"
+                 ,"#ffffff","#0000ff","#454545","#454545","#ffff00","#ffffff"
+                 ,"#0000ff","#0000ff","#0000ff","#ffff00","#ffff00","#ffff00"
+                 ,"#000000","#0000ff","#ffffff","#ffffff","#ffff00","#000000"]
+                 ,
+                 ["#000000","#ff0000","#ffffff","#ffffff","#00ff00","#000000"
+                 ,"#ff0000","#ff0000","#ff0000","#00ff00","#00ff00","#00ff00"
+                 ,"#ffffff","#ff0000","#454545","#454545","#00ff00","#ffffff"
+                 ,"#ffffff","#0000ff","#454545","#454545","#ffff00","#ffffff"
+                 ,"#0000ff","#0000ff","#0000ff","#ffff00","#ffff00","#ffff00"
+                 ,"#000000","#0000ff","#ffffff","#ffffff","#ffff00","#000000"], 6);
 
 for(let i = 0; i < a.size * 4; i++){
     const temp = document.createElement("button");

@@ -8,82 +8,62 @@ function toggleNav() {
     filter.addEventListener('click', changeClassName(filter));
   }
   
-  function changeClassName(e) {
+function changeClassName(e) {
     e.classList.toggle("expanded");
+}
+  
+window.smoothScroll = function (target) {
+  var scrollContainer = target;
+  do { //find scroll container
+    scrollContainer = scrollContainer.parentNode;
+    if (!scrollContainer) return;
+    scrollContainer.scrollTop += 1;
+  } while (scrollContainer.scrollTop == 0);
+  
+  var targetY = 0;
+  do { //find the top of target relatively to the container
+    if (target == scrollContainer) break;
+    targetY += target.offsetTop;
+  } while (target = target.offsetParent);
+  
+  scroll = function (c, a, b, i) {
+    i++; if (i > 30) return;
+    c.scrollTop = a + (b - a) / 30 * i;
+    setTimeout(function () { scroll(c, a, b, i); }, 20);
   }
-  
-  window.smoothScroll = function (target) {
-    var scrollContainer = target;
-    do { //find scroll container
-      scrollContainer = scrollContainer.parentNode;
-      if (!scrollContainer) return;
-      scrollContainer.scrollTop += 1;
-    } while (scrollContainer.scrollTop == 0);
-  
-    var targetY = 0;
-    do { //find the top of target relatively to the container
-      if (target == scrollContainer) break;
-      targetY += target.offsetTop;
-    } while (target = target.offsetParent);
-  
-    scroll = function (c, a, b, i) {
-      i++; if (i > 30) return;
-      c.scrollTop = a + (b - a) / 30 * i;
-      setTimeout(function () { scroll(c, a, b, i); }, 20);
-    }
     // start scrolling
-    scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
-  }
+  scroll(scrollContainer, scrollContainer.scrollTop, targetY, 0);
+}
   
-  function dgReadMore(id) {
-    var dots = document.getElementById("dg-rm-dots-" + id);
-    var moreText = document.getElementById("dg-rm-more-" + id);
-    if (dots.style.display === "none") {
+function dgReadMore(id) {
+  var dots = document.getElementById("dg-rm-dots-" + id);
+  var moreText = document.getElementById("dg-rm-more-" + id);
+  if (dots.style.display === "none") {
       dots.style.display = "inline";
       moreText.style.display = "none";
-    } else {
+  } else {
       dots.style.display = "none";
       moreText.style.display = "flex";
       moreText.style.flexDirection = "row";
       moreText.style.flexWrap = "wrap";
       moreText.style.justifyContent = "space-around";
-    }
-    window.scrollTo(0, 0);
   }
+  window.scrollTo(0, 0);
+}
   
   
-  var clic = false;
-  //Cette variable nous indique si l'utilisateur clique sur la barre.
+var clic = false;  
+var clic2 = false;
+var r = 255, g = 0, b = 0;
+var r_1 = 255, g_1 = 0, b_1 = 0;
+var blanc = 0, noir = 1;
+var x = 360, y = 20;
+var resultat_hexa;
   
-  var clic2 = false;
-  //Cette variable nous indique si l'utilisateur clique sur le carré.
-  
-  var r = 255, g = 0, b = 0;
-  //Variables qui stockeront la couleur en rgb.
-  
-  var r_1 = 255, g_1 = 0, b_1 = 0;
-  // Variables secondaires rgb.
-  
-  var blanc = 0, noir = 1;
-  // Le pourcentage de noir et de blanc entre 0 et 1 appliqué à la couleur (ici, pour le noir, 1 signifie qu'il n'y en aura pas, et 0 totalement : c'est l'inverse)
-  
-  var x = 360, y = 20;
-  //position initiale de curseur2 (dans le carré).
-  
-  var resultat_hexa;
-  
-  function clique(objet) {
-  
-    if (objet == "barre") // si l'utilisateur clique sur la barre ...
-    {
-      clic = true; // ...alors on met true (vrai) à clic
-    }
-    else // sinon l'utilisateur clique sur le carré ...
-    {
-      clic2 = true; // ...alors on met true (vrai) à clic2
-    }
-  
-  }
+function clique(objet) {
+  if (objet == "barre") clic = true;
+  else clic2 = true;
+}
   
   
   function afficher() // ici on gère l'affichage de la couleur
@@ -168,39 +148,28 @@ function toggleNav() {
   
   }
   
-  document.onmousedown = calcul;
+document.onmousedown = calcul;
   // lorsque la souris clique n'importe où dans le document, on appelle la fonction calcul.
   
-  document.onmouseup = function () { clic = false; clic2 = false; }
+document.onmouseup = function () { clic = false; clic2 = false; }
   // si l'utilisateur relâche le bouton de la souris, alors les variables clic et clic2 redeviennent fausses (false).
   
-  function calcul(event) // event contient les événements de la page (on s'en sert pour la position du curseur).
-  {
+function calcul(event){
   
-    if (clic && position('y', event) <= 320 && position('y', event) >= 20) // on appelle position() pour connaître la position de la souris.
-    {
-      document.getElementById("curseur1").style.top = position('y', event) - 7;
-      //on change la position du curseur (top) en même temps que la souris.
+  if (clic && position('y', event) <= 320 && position('y', event) >= 20){
+    document.getElementById("curseur1").style.top = position('y', event) - 7;
   
+    if ((position('y', event) - 20) <= 50){
   
-      // c'est à partir d'ici qu'on regarde sur quel sixième la souris se trouve.
-  
-      if ((position('y', event) - 20) <= 50) // 1/6 (50px)
-      {
-  
-        r = 255;
-        g = 0;
-        b = Math.round((position('y', event) - 20) * 255 / 50);
-  
-      }
-      else if ((position('y', event) - 20) <= 100) // 2/6 (100px)
-      {
-  
-        r = Math.round(255 - ((position('y', event) - 70) * 255 / 50));
-        g = 0;
-        b = 255;
-  
-      }
+      r = 255;
+      g = 0;
+      b = Math.round((position('y', event) - 20) * 255 / 50);
+    }
+    else if ((position('y', event) - 20) <= 100){
+      r = Math.round(255 - ((position('y', event) - 70) * 255 / 50));
+      g = 0;
+      b = 255;
+    }
       else if ((position('y', event) - 20) <= 150) // 3/6 (150px)
       {
   

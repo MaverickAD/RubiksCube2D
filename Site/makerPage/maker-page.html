@@ -8,7 +8,7 @@
     <title>Page maker-suite</title>
     <link rel="stylesheet" href="../allCSSPage/CSSAllPages.css">
     <link rel="stylesheet" href="../allCSSPage/CSSMakerPage.css">
-    <script src="../scriptOtherPage.js"></script>
+    <script type="text/javascript" src="../scriptOtherPage.js"></script>
 </head>
 
 <body>
@@ -34,32 +34,31 @@
         </header>
 
         <main id="classic-main-mod">
-            <div id="info-mod-shuffle">
-            </div>
+            <div id="info-mod-shuffle"></div>
 
             <div id="ligne-jeu">
                 <div id="color">
                     <div id="boite-palette">
                         <input type="button" value="Ouvrir la palette" onclick="ouvrir_palette('mon_formulaire','champ_recevant_la_couleur')" /></div>
                     <div id="ligne-color">
-                        <div id="color1"></div>
-                        <div id="color2"></div>
+                        <div class="color" style="background-color:red" draggable="true" id="color1"></div>
+                        <div class="color" style="background-color:blue" draggable="true" id="color2"></div>
                     </div>
                     <div id="ligne-color">
-                        <div id="color3"></div>
-                        <div id="color4"></div>
+                        <div class="color" style="background-color:brown" draggable="true" id="color3"></div>
+                        <div class="color" style="background-color:yellow" draggable="true" id="color4"></div>
                     </div>
                     <div id="ligne-color">
-                        <div id="color5"></div>
-                        <div id="color6"></div>
+                        <div class="color" style="background-color:purple" draggable="true" id="color5"></div>
+                        <div class="color" style="background-color:orange" draggable="true" id="color6"></div>
                     </div>
                     <div id="ligne-color">
-                        <div id="color7"></div>
-                        <div id="color8"></div>
+                        <div class="color" style="background-color:green" draggable="true" id="color7"></div>
+                        <div class="color" style="background-color:grey" draggable="true" id="color8"></div>
                     </div>
                     <div id="ligne-color">
-                        <div id="color9"></div>
-                        <div id="color10"></div>
+                        <div class="color" style="background-color:white" draggable="true" id="color9"></div>
+                        <div class="color" style="background-color:black" draggable="true" id="color10"></div>
                     </div>
                 </div>
 
