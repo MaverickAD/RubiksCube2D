@@ -30,23 +30,27 @@
         </header>
         
         <main>
-            <div class="btn">
-                <a href="choix.html">
-                    <div class="btn" id="playBlock" data-play="Play" onmouseover="changeParameters()">
-                        <h2 class="playText" data-text="Play"></h2>
-                    </div>
-                </a>
+            <div id="playInstructionBlock">
+                <div class="btn">
+                    <a href="choix.html">
+                        <div class="btn" id="playBlock" data-text="Play" onmouseover="changeParameters()">
+                            <h2></h2>
+                        </div>
+                    </a>
+                </div>
+            
+                <div class="btn">
+                    <a href="#" id="dg-rm-btn-1" onclick="dgReadMore('1')">
+                        <div class="btn" id="instructionBlock" data-text="Instruction" onmouseover="changeParameters()">
+                            <h2></h2>
+                        </div>
+                    </a>
+                </div>
             </div>
 
-            <a href="#" id="dg-rm-btn-1" onclick="dgReadMore('1')">
-                <div class="btn" id="instructionBlock">
-                    <h2>Instruction</h2>
-                </div>
-            </a>
-            
             <span class="dg-rm-dots" id="dg-rm-dots-1"></span>
-
-            <div  class="dg-rm-more" id="dg-rm-more-1">
+        
+            <div class="dg-rm-more" id="dg-rm-more-1">
                 <div class="blockRegle" id="animMouvement">
                     <p>Anim</p>
                 </div>
@@ -60,7 +64,7 @@
                     <p>Instruction gagner</p>
                 </div>
             </div>
-            
+        
         </main>
     
         <footer>

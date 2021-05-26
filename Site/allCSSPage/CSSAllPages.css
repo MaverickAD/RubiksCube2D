@@ -45,13 +45,20 @@
 }
 
 html{
-    height: 100%;
+    height: 90%;
+    min-height: 90%;
+    margin: 0;
+    padding: 0;
 }
 
 body{
     font-family: 'Arvo';
     color: #000000;
-    background-color: #FFFFFF;
+    background-color: #FAEFED;
+    height: 100%;
+    min-height: 100%;
+    margin: 0;
+    padding: 0;
 }
 
 body.dark-mode{
@@ -62,6 +69,8 @@ body.dark-mode{
 .filter{
     filter: none;
     transition: filter 0.25s ease;
+    height: 100%;
+    bottom: 0;
 }
 
 .filter.expanded{
@@ -164,6 +173,10 @@ a{
     font-weight: bold;
     color: #000000;
     text-align: center;
+}
+
+main{
+    height: 70%;
 }
 
 footer p{
