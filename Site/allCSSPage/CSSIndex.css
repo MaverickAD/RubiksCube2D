@@ -1,5 +1,5 @@
 #playInstructionBlock{
-    height: 100%;
+    height: 20rem;
     display: flex;
     flex-direction: column;
     justify-content: space-between;
@@ -26,11 +26,10 @@
     width: 100%;
     opacity: 1;
     outline: 0;
-    color: #fff;
-    line-height: 40px;
+    
     position: relative;
     text-align: center;
-    letter-spacing: 1px;
+
     display: inline-block;
     text-decoration: none;
 }
@@ -40,13 +39,15 @@
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 0.8;
     color: #000000;
     display: block;
     transition: all 0.5s ease;
     position: absolute;
-    background: var(--check-before, #323237);
+    background: var(--check-before, #FFFFFF);
     content: attr(data-text);
+    font-family: 'game2';
+    font-size: 2em;
+
     transform: translateY(-50%) rotateX(90deg);
     border: 3px solid #000000;
     border-radius: 6px;
@@ -57,26 +58,26 @@
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 1;
     color: #000000;
     display: block;
     transition: all 0.5s ease;
     position: absolute;
     background: var(--check-after,#FFFFFF);
-    content: attr(data-text);
+    content: attr(data-after);
+    font-family: 'game2';
+    font-size: 2em;
+    
     transform: translateY(0) rotateX(0);
     border: 3px solid #000000;
     border-radius: 6px;
 }
 
 #playBlock:hover::before{
-    opacity: 1;
     transform: translateY(0) rotateX(0);
     transition: all 0.5s ease;
 }
 
 #playBlock:hover::after{
-    opacity: 0.8;
     transform: translateY(50%) rotateX(90deg);
     transition: all 0.5s ease;
 }
@@ -86,11 +87,10 @@
     width: 100%;
     opacity: 1;
     outline: 0;
-    color: #fff;
-    line-height: 40px;
+    
     position: relative;
     text-align: center;
-    letter-spacing: 1px;
+    
     display: inline-block;
     text-decoration: none;
 }
@@ -100,13 +100,15 @@
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 0.8;
     color: #000000;
     display: block;
     transition: all 0.5s ease;
     position: absolute;
     background: var(--check-before, #FFFFFF);
-    content: attr(data-text); 
+    content: attr(data-before);
+    font-family: 'game2';
+    font-size: 2em;
+    
     transform: translateY(0) rotateX(0);
     border: 3px solid #000000;
     border-radius: 6px;
@@ -117,26 +119,26 @@
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 1;
     color: #000000;
     display: block;
     transition: all 0.5s ease;
     position: absolute;
-    background: var(--check-after,#323237);
+    background: var(--check-after,#FFFFFF);
     content: attr(data-text);
+    font-family: 'game2';
+    font-size: 2em;
+    
     transform: translateY(50%) rotateX(90deg);
     border: 3px solid #000000;
     border-radius: 6px;
 }
 
 #instructionBlock:hover::before{
-    opacity: 1;
     transform: translateY(-50%) rotateX(-90deg);
     transition: all 0.5s ease;
 }
 
 #instructionBlock:hover::after{
-    opacity: 0.8;
     transform: translateY(0) rotateX(0);
     transition: all 0.5s ease;
 }

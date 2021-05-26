@@ -84,6 +84,7 @@ a{
 
 .nav 
 {
+    font-family: 'game3';
     transition: left 0.5s ease;
     background-color: #000000;
     color: white;
@@ -173,10 +174,6 @@ a{
     font-weight: bold;
     color: #000000;
     text-align: center;
-}
-
-main{
-    height: 70%;
 }
 
 footer p{
