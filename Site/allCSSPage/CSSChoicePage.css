@@ -9,25 +9,49 @@
 }
 
 .adventure{
-    border: 2px solid red;
-    width: 30%;
+    font-family: game2;
+    background-color: #FA5608;
+    width: 40%;
     text-align: center;
-    padding: 5%;
+    padding-top: 5%;
+    padding-bottom: 5%;
+    border-radius: 25px;
+    font-size: 3rem;
+    box-shadow: 0 .3em gray; 
+    cursor: pointer;
 }
 
 .classic{
-    border: 2px solid blue;
-    width: 30%;
+    font-family: game2;
+    background-color: #7B39EB;
+    width: 40%;
     text-align: center;
-    padding: 5%;
+    padding-top: 6%;
+    padding-bottom: 5%;
+    border-radius: 25px;
+    font-size: 3rem;
+    box-shadow: 0 .3em gray; 
+    cursor: pointer;
+}
+
+.adventure:active,.classic:active,#ligne2:active{
+	box-shadow: none;
+	position: relative;
+	top: .3em;
 }
 
 #ligne2{
+    font-family: game2;
     margin: auto;
     margin-top: 5%;
-    border: 2px solid green;
-    width: 30%;
+    background-color: #FE017C;
+    width: 40%;
     text-align: center;
-    padding: 5%;
+    padding-top: 6%;
+    padding-bottom: 6%;
     margin-bottom: 5%;
+    border-radius: 25px;
+    font-size: 3rem;
+    box-shadow: 0 .3em gray; 
+    cursor: pointer;
 }

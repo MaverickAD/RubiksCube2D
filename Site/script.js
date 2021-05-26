@@ -65,15 +65,21 @@ function dgReadMore(id) {
 }
 
 var i = 0;
+var j = 4;
 
 function changeParameters() {
     var colorTab = ["#FEBC0C", "#FA5608", "#FE017C", "#7B39EB", "#3B8DFE"];
-    var block = document.getElementById('playBlock');
-    block.style.setProperty("--check-before",colorTab[i]);
-    i++;
+    var blockPlay = document.getElementById('playBlock');
+    var blockInstruction = document.getElementById('instructionBlock');
+    blockPlay.style.setProperty("--check-before",colorTab[i]);
+    blockInstruction.style.setProperty("--check-after",colorTab[j]);
+    i++; j--;
     if (i === 5) {
-        i=0;
+      i=0;
     }
+    if (j === -1) {
+      j=4;
+  }
 }
 
 function toggleNavInstruction(){

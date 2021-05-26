@@ -1,3 +1,10 @@
+#playInstructionBlock{
+    height: 20rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
 .btn h2{
     font-size: 1.5em;
     margin: auto 0;
@@ -19,11 +26,10 @@
     width: 100%;
     opacity: 1;
     outline: 0;
-    color: #fff;
-    line-height: 40px;
+    
     position: relative;
     text-align: center;
-    letter-spacing: 1px;
+
     display: inline-block;
     text-decoration: none;
 }
@@ -33,13 +39,15 @@
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 0.8;
     color: #000000;
     display: block;
     transition: all 0.5s ease;
     position: absolute;
-    background: var(--check-before, #323237);
-    content: attr(data-play); 
+    background: var(--check-before, #FFFFFF);
+    content: attr(data-text);
+    font-family: 'game2';
+    font-size: 2em;
+
     transform: translateY(-50%) rotateX(90deg);
     border: 3px solid #000000;
     border-radius: 6px;
@@ -50,82 +58,89 @@
     width: 100%;
     top: 0;
     left: 0;
-    opacity: 1;
     color: #000000;
     display: block;
     transition: all 0.5s ease;
     position: absolute;
     background: var(--check-after,#FFFFFF);
-    content: attr(data-play);
+    content: attr(data-after);
+    font-family: 'game2';
+    font-size: 2em;
+    
     transform: translateY(0) rotateX(0);
     border: 3px solid #000000;
     border-radius: 6px;
 }
 
 #playBlock:hover::before{
-    opacity: 1;
     transform: translateY(0) rotateX(0);
     transition: all 0.5s ease;
 }
 
 #playBlock:hover::after{
-    opacity: 0.8;
     transform: translateY(50%) rotateX(90deg);
     transition: all 0.5s ease;
 }
 
 #instructionBlock{
-    display: flex;
-    justify-content: center;
+    height: 100%;
+    width: 100%;
+    opacity: 1;
+    outline: 0;
     
-    margin: 5.5rem auto 5.5rem ;
-    height: 6rem;
-    width: 50%;
-    min-width: 20rem;
-    border-radius: 6px;
     position: relative;
-    transition: all 0.5s;
-    border: none;
-}
-#instructionBlock:hover{
-    border: none;
+    text-align: center;
+    
+    display: inline-block;
+    text-decoration: none;
 }
 
 #instructionBlock::before{
-    content: '';
-    position: absolute;
-    top: -1;
-    left: 0;
-    width: 100%;
     height: 100%;
-    z-index: 1;
-    background-color: rgba(255,0,0,0.8);
+    width: 100%;
+    top: 0;
+    left: 0;
+    color: #000000;
+    display: block;
+    transition: all 0.5s ease;
+    position: absolute;
+    background: var(--check-before, #FFFFFF);
+    content: attr(data-before);
+    font-family: 'game2';
+    font-size: 2em;
+    
+    transform: translateY(0) rotateX(0);
+    border: 3px solid #000000;
     border-radius: 6px;
-    transition: all 0.5s;
-    transform: scale(1,1);
-}
-#instructionBlock:hover::before{
-    opacity: 0;
-    transform: scale(0.2,0.2);
 }
 
 #instructionBlock::after{
-    content: '';
-    position: absolute;
-    top: -1;
-    left: 0;
-    width: 100%;
     height: 100%;
-    z-index: 1;
-    opacity: 0;
-    transition: all 0.5s;
-    border: 3px solid rgba(255,0,0,1);
+    width: 100%;
+    top: 0;
+    left: 0;
+    color: #000000;
+    display: block;
+    transition: all 0.5s ease;
+    position: absolute;
+    background: var(--check-after,#FFFFFF);
+    content: attr(data-text);
+    font-family: 'game2';
+    font-size: 2em;
+    
+    transform: translateY(50%) rotateX(90deg);
+    border: 3px solid #000000;
     border-radius: 6px;
-    transform: scale(1,1);
 }
+
+#instructionBlock:hover::before{
+    transform: translateY(-50%) rotateX(-90deg);
+    transition: all 0.5s ease;
+}
+
 #instructionBlock:hover::after{
-    opacity: 1;
-    transform: scale(0.7,0.7);
+    transform: translateY(0) rotateX(0);
+    transition: all 0.5s ease;
 }
 
 .dg-rm-more {display: none; } 

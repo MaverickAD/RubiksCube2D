@@ -2,6 +2,7 @@
 #define GAME_SIZE 4
 
 
+
 int main() {
     srand(time(NULL));
     GAME* game = NewGame(GAME_SIZE);
