@@ -331,19 +331,28 @@ void petit_carre(GAME* game) {
             indice = findIndice(game, game->size);
         }
     }
-    //le carré en dessous du coin supérieur gauche est bien placé
+    //le carré en dessous du coin supérieur gauche est bien placé 
     printf("\nles 2 en haut sont bons\n");
     display(game);
     //on cherche maintenant à placer les deux carrés manquant du petit carré
-
     int tmp = game->temoin[1];
     indice = 0;
     while (game->tab[indice] != tmp || indice == 0 || indice==game->size) {
         indice++;
     }
+
+    
     if (indice % game->size == 0) {
         deplacementH(game, RIGHT, (indice / game->size));
         indice++;
+    }
+    if (indice == 1) {
+        deplacementV(game, DOWN, 1);
+        deplacementV(game, DOWN, 1);
+        indice = 0;
+        while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
+            indice++;
+        }
     }
     
     if ((indice / 2) >= game->size) {
@@ -398,6 +407,7 @@ void petit_carre(GAME* game) {
 
     printf("\nle 2 eme cube est en attente\n");
     display(game);
+    /*
     if (game->size == 3) {
         int tmp = game->temoin[4];
         indice = 0;
@@ -434,6 +444,7 @@ void petit_carre(GAME* game) {
         }
         deplacementV(game, UP, 1);
     }
+    */
     /*
     else
     {
