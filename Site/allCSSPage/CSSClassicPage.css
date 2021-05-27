@@ -5,46 +5,38 @@
     flex-direction: column;
 }
 
-#boite-classic{
-    font-family: game2 ;
+.box{
     display: flex;
-    margin: 3%;
     justify-content: center;
-    width: 50%;
+    align-items: center;
+    margin: 1.3em;
+    border-radius: 25px;
+    box-shadow: 0 .5em gray;
+    width: 30em;
+    height: 10em;
+    
 }
 
-.easy{
-    width: 100%;
+.box h2{
+    font-family: 'game2';
+    font-size: 2rem;
+    text-align: center;
+}
+
+#easy{
     background-color: #46A346;
-    text-align: center;
-    border-radius: 25px;
-    font-size: 1rem;
-    box-shadow: 0 .5em gray; 
-    cursor: pointer;
 }
 
-.medium{
-    width: 100%;
+#medium{
     background-color: #FEBC0C;
-    text-align: center;
-    border-radius: 25px;
-    font-size: 1rem;
-    box-shadow: 0 .5em gray; 
-    cursor: pointer;
 }
 
-.hard{
-    width: 100%;
+#hard{
     background-color: #FA5608;
-    text-align: center;
-    border-radius: 25px;
-    font-size: 1rem;
-    box-shadow: 0 .5em gray; 
-    cursor: pointer;
 }
 
-.easy:hover, .medium:hover,.hard:hover{
+.box:hover{
     box-shadow: none;
 	position: relative;
 	top: .3em;
-}
+} 

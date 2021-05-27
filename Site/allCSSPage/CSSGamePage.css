@@ -1,5 +1,11 @@
-#mainTitle-easy{
+#mainTitle-easy h1{
     margin-bottom: 1%;
+    display: flex;
+    font-size: 2.3em;
+    color: #000000;
+    align-items: center;
+    width: 50%;
+    margin-left: 30%;
 }
 
 #info-mod-shuffle{
@@ -21,7 +27,6 @@
 
 #ligne-jeu{
     display: flex;
-    margin-top: 0;
 }
 
 #boite-pattern{
@@ -30,9 +35,7 @@
 }
 
 #petite-boite-pattern{
-    margin-top: 25%;
-    border: 2px solid blue;
-    padding-bottom: 100%;
+    border: 2px solid red;
 }
 
 #boite-jeu{
@@ -42,9 +45,11 @@
 }
 
 #petite-boite-jeu{
+    display: flex;
+    justify-content: space-around;
     border: 2px solid yellow;
-    padding-bottom: 40%;
-    margin-top: 10%;
+    padding-bottom: 2%;
+    margin-top: 3%;
 }
 
 #save{
@@ -72,4 +77,40 @@
     width: 20%;
     margin-left: 40%;
     text-align: center;
+}
+
+#gameandwitness {
+    display: flex;
+}
+
+.box {
+    display: flex;  
+    flex-wrap: wrap;
+}
+  
+.child-box-game {
+    border :  solid black;
+    width  : 4em;
+    height : 4em;
+}
+
+#wrapper-witness{
+    margin-top: 30%;
+}
+
+.child-box-witness{
+    border :  solid black;
+    width  : 3em;
+    height : 3em;
+}
+
+#buttons_left, #buttons_right{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+
+#buttons_up, #buttons_down{
+    display: flex;
+    justify-content: space-around;
 }

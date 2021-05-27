@@ -2,7 +2,7 @@
     height: 20rem;
     display: flex;
     flex-direction: column;
-    justify-content: space-between;
+    
 }
 
 .btn h2{
@@ -13,12 +13,11 @@
 }
 
 .btn{
-    
-    border-radius: 6px;
     height: 6rem;
     width: 50%;
     min-width: 20rem;
     margin: auto;
+    border-radius: 6px;
 }
 
 #playBlock{

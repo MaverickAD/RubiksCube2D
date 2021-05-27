@@ -10,7 +10,7 @@ a{
     margin: 3em auto;
 }
 
-#adventure, #classic, #maker{
+.box{
     width: 30em;
     height: 10em;
     text-align: center;
@@ -37,13 +37,13 @@ a{
     background-color: #FE017C;
 }
 
-#adventure h2, #classic h2, #maker h2{
+.box h2{
     font-family: 'game2';
     font-size: 2em;
     width: 60%;
 }
 
-#adventure:hover,#classic:hover,#maker:hover{
+.box:hover{
 	box-shadow: none;
 	position: relative;
 	top: .3em;

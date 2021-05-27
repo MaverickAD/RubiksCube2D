@@ -9,6 +9,7 @@
     <link rel="stylesheet" href="allCSSPageDark/CSSAllPagesDark.css">
     <link rel="stylesheet" href="allCSSPage/CSSIndex.css">
     <script src="script.js"></script>
+    <link rel="icon" type="image/png" sizes="16x16" href="img/logo.png">
 </head>
 <body>
     <div class="nav-toggle" onclick="toggleNav()">
@@ -26,7 +27,8 @@
     <div class="filter" id="blur">
         <header>
             <div id="mainTitle">
-                <h1><a href="index.html">Rubik's Cube 2D</a></h1>
+                <img src="img/logo.png" alt="logo" width="8%">
+                <a href="index.html"><h1>Rubik's Cube 2D</h1></a>
             </div>
         </header>
         
@@ -34,7 +36,7 @@
             <div id="playInstructionBlock">
                 <div class="btn">
                     <a href="choix.html">
-                        <div class="btn" id="playBlock" data-text="Play" data-after="Here you choose the game mode" onmouseover="changeParameters()">
+                        <div id="playBlock" data-text="Play" data-after="Here you choose the game mode" onmouseover="changeParameters()">
                             <h2></h2>
                         </div>
                     </a>
@@ -42,7 +44,7 @@
             
                 <div class="btn">
                     <a href="#" id="dg-rm-btn-1" onclick="dgReadMore('1')">
-                        <div class="btn" id="instructionBlock" data-text="Instruction" data-before="Here you can see the rules" onmouseover="changeParameters()">
+                        <div id="instructionBlock" data-text="Instruction" data-before="Here you can see the rules" onmouseover="changeParameters()">
                             <h2></h2>
                         </div>
                     </a>
