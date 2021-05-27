@@ -118,6 +118,7 @@ int deplacementV(GAME* game, DIR direction, int indice) {
             deplacementV(game, UP, indice);
         }
     }
+    return 1;
 }
 
 int deplacementH(GAME* game, DIR direction, int indice) {
@@ -263,7 +264,7 @@ void petit_carre(GAME* game) {
         }
     }
     //le coin en haut à gauche est correct
-    display(game);
+
     //test si deuxieme carre est dans une colonne ou ligne lock
     if (!(game->tab[game->size]==game->temoin[game->size]))
     { 
@@ -330,5 +331,175 @@ void petit_carre(GAME* game) {
             indice = findIndice(game, game->size);
         }
     }
+    //le carré en dessous du coin supérieur gauche est bien placé
+    printf("\nles 2 en haut sont bons\n");
+    display(game);
+    //on cherche maintenant à placer les deux carrés manquant du petit carré
+
+    int tmp = game->temoin[1];
+    indice = 0;
+    while (game->tab[indice] != tmp || indice == 0 || indice==game->size) {
+        indice++;
+    }
+    if (indice % game->size == 0) {
+        deplacementH(game, RIGHT, (indice / game->size));
+        indice++;
+    }
+    
+    if ((indice / 2) >= game->size) {
+        while (indice > (game->size * 3) - 1 || indice < game->size * 2)
+        {
+            //on est dans la moitié supérieur 
+            deplacementV(game, DOWN, (indice) % (game->size));
+
+            int tmp = game->temoin[1];
+            indice = 0;
+            while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
+                indice++;
+            }
+        }
+    }
+    else {
+        //on est dans la moitié inférieur
+        while (indice > (game->size * 3) - 1 || indice < game->size * 2) {
+            deplacementV(game, UP, (indice) % (game->size));
+            int tmp = game->temoin[1];
+            indice = 0;
+            while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
+                indice++;
+            }
+        }
+    }
+    
+    if (indice > (game->size / 2) - 1) {
+        while (indice != (game->size * 2) + 1) {
+            deplacementH(game, RIGHT, 2);
+            int tmp = game->temoin[1];
+            indice = 0;
+            while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
+                indice++;
+            }
+        }
+    }
+    else {
+        while (indice != (game->size * 2) + 1) {
+            deplacementH(game, LEFT, 2);
+            int tmp = game->temoin[1];
+            indice = 0;
+            while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
+                indice++;
+            }
+        }
+    }
+    if (game->size == 3) {
+        deplacementV(game, UP, 1);
+        indice -= game->size;
+    }
+
+    printf("\nle 2 eme cube est en attente\n");
+    display(game);
+    if (game->size == 3) {
+        int tmp = game->temoin[4];
+        indice = 0;
+        while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size+1)) {
+            indice++;
+        }
+        if (indice == 1)
+        {
+            deplacementH(game, RIGHT, 0);
+            deplacementV(game, DOWN, 2);
+            deplacementV(game, DOWN, 2);
+            deplacementH(game, LEFT, 2);
+            deplacementH(game, LEFT, 0);
+        }
+        if (indice == 2)
+        {
+            deplacementV(game, DOWN, 2);
+            deplacementV(game, DOWN, 2);
+            deplacementH(game, LEFT, 2);
+        }
+        if (indice==5)
+        {
+            deplacementV(game, DOWN, 2);
+            deplacementH(game, LEFT, 2);
+        }
+        if (indice==6)
+        {
+            deplacementH(game, RIGHT, 2);
+
+        }
+        if (indice==8)
+        {
+            deplacementH(game, LEFT, 2);
+        }
+        deplacementV(game, UP, 1);
+    }
+    /*
+    else
+    {
+        display(game);
+        int tmp = game->temoin[game->size + 1];
+        indice = 0;
+        while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size + 1)) {
+            indice++;
+        }
+        if (indice==1)
+        {
+            deplacementH(game, RIGHT, 0);
+            deplacementV(game, DOWN, 2);
+            deplacementV(game, DOWN, 2);
+            deplacementV(game, DOWN, 2);
+            deplacementH(game, LEFT, 0);
+            deplacementH(game, LEFT, 3);
+        }
+        if (indice==(game->size*2))
+        {
+            deplacementV(game, DOWN, 0);
+            deplacementH(game, RIGHT, 3);
+            deplacementV(game, UP, 0);
+        }
+        if (indice == (game->size+1))
+        {
+            deplacementH(game, RIGHT, 1);
+            deplacementV(game, DOWN, 2);
+            deplacementV(game, DOWN, 2);
+            deplacementH(game, LEFT, 1);
+            deplacementH(game, LEFT, 3);
+        }
+        indice = 0;
+        while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size + 1)) {
+            indice++;
+        }
+        if ((indice % game->size<=1)&&(indice!=game->size*2+1))
+        {
+            deplacementH(game, RIGHT, (indice / game->size));
+            deplacementH(game, RIGHT, (indice / game->size));
+        }
+        indice = 0;
+        while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size + 1)) {
+            indice++;
+        }
+        while ((indice/game->size)!=3)
+        {
+            deplacementV(game, DOWN, (indice % game->size));
+            indice = 0;
+            while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size + 1)) {
+                indice++;
+            }
+        }
+        while (indice!=((game->size*3)+1))
+        {
+            deplacementH(game, LEFT, 3);
+            indice = 0;
+            while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size + 1)) {
+                indice++;
+            }
+        }
+        deplacementV(game, UP, 1);
+        deplacementV(game, UP, 1);
+    }
+    */
+
+    
 
 }
