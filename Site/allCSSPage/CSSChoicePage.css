@@ -1,57 +1,51 @@
-#main-choix a{
-    color: black;
+a{
+    width: auto;
 }
 
-#ligne1{
+.ligne{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 2rem auto;
 }
 
-.adventure{
-    font-family: game2;
-    background-color: #FA5608;
-    width: 40%;
+#adventure, #classic, #maker{
+    width: 30em;
+    height: 8em;
     text-align: center;
+    margin: 0;
     padding-top: 5%;
     padding-bottom: 5%;
     border-radius: 25px;
-    font-size: 3rem;
     box-shadow: 0 .3em gray; 
     cursor: pointer;
 }
 
-.classic{
-    font-family: game2;
+#adventure{
+    background-color: #FA5608;
+}
+
+#classic{
     background-color: #7B39EB;
-    width: 40%;
-    text-align: center;
-    padding-top: 6%;
-    padding-bottom: 5%;
-    border-radius: 25px;
-    font-size: 3rem;
-    box-shadow: 0 .3em gray; 
-    cursor: pointer;
 }
 
-.adventure:active,.classic:active,#ligne2:active{
+#maker{
+    background-color: #FE017C;
+}
+
+#adventure h2, #classic h2, #maker h2{
+    font-family: 'game2';
+    font-size: 2em;
+    width: 60%;
+    margin: auto;
+}
+
+
+
+#adventure:hover,#classic:hover,#maker:hover{
 	box-shadow: none;
 	position: relative;
 	top: .3em;
 }
 
-#ligne2{
-    font-family: game2;
-    margin: auto;
-    margin-top: 5%;
-    background-color: #FE017C;
-    width: 40%;
-    text-align: center;
-    padding-top: 6%;
-    padding-bottom: 6%;
-    margin-bottom: 5%;
-    border-radius: 25px;
-    font-size: 3rem;
-    box-shadow: 0 .3em gray; 
-    cursor: pointer;
-}

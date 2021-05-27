@@ -1,0 +1,14 @@
+body.dark-mode{
+    color: #F2F2F2;
+    background-color: #1c1c1e;
+    filter: grayscale(20%);
+}
+
+.nav.dark-mode.expanded{
+    top: 0;
+    margin-top: 0;
+}
+
+.nav.dark-mode ul a{
+    color: #F2F2F2;
+}

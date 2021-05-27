@@ -1,7 +1,8 @@
 function darkMode(){
   var body = document.querySelector("body");
-  console.log(body);
-  body.classList.toggle("dark-mode")
+  var nav = document.querySelector("nav.nav");
+  body.classList.toggle("dark-mode");
+  nav.classList.toggle("dark-mode");
 }
 
 function toggleNav(){
