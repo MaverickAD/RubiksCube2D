@@ -7,19 +7,22 @@ a{
     flex-direction: row;
     justify-content: space-around;
     flex-wrap: wrap;
-    margin: 2rem auto;
+    margin: 3em auto;
 }
 
 #adventure, #classic, #maker{
     width: 30em;
-    height: 8em;
+    height: 10em;
     text-align: center;
     margin: 0;
-    padding-top: 5%;
-    padding-bottom: 5%;
+    
     border-radius: 25px;
     box-shadow: 0 .3em gray; 
     cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 #adventure{
@@ -38,10 +41,7 @@ a{
     font-family: 'game2';
     font-size: 2em;
     width: 60%;
-    margin: auto;
 }
-
-
 
 #adventure:hover,#classic:hover,#maker:hover{
 	box-shadow: none;

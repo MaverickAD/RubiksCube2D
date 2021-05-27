@@ -43,7 +43,7 @@
     cursor: pointer;
 }
 
-.easy:active, .medium:active,.hard:active{
+.easy:hover, .medium:hover,.hard:hover{
     box-shadow: none;
 	position: relative;
 	top: .3em;

@@ -26,10 +26,8 @@
     width: 100%;
     opacity: 1;
     outline: 0;
-    
     position: relative;
     text-align: center;
-
     display: inline-block;
     text-decoration: none;
 }
@@ -49,7 +47,7 @@
     font-size: 2em;
 
     transform: translateY(-50%) rotateX(90deg);
-    border: 3px solid #000000;
+    border: 2px solid #000000;
     border-radius: 6px;
 }
 
@@ -58,17 +56,17 @@
     width: 100%;
     top: 0;
     left: 0;
-    color: #000000;
+    color: #FAEFED;
     display: block;
     transition: all 0.5s ease;
     position: absolute;
-    background: var(--check-after,#FFFFFF);
+    background: var(--check-after,#1C1C1E);
     content: attr(data-after);
     font-family: 'game2';
     font-size: 2em;
     
     transform: translateY(0) rotateX(0);
-    border: 3px solid #000000;
+    border: 2px solid #000000;
     border-radius: 6px;
 }
 
@@ -87,10 +85,8 @@
     width: 100%;
     opacity: 1;
     outline: 0;
-    
     position: relative;
     text-align: center;
-    
     display: inline-block;
     text-decoration: none;
 }
@@ -100,17 +96,16 @@
     width: 100%;
     top: 0;
     left: 0;
-    color: #000000;
+    color: #FAEFED;
     display: block;
     transition: all 0.5s ease;
     position: absolute;
-    background: var(--check-before, #FFFFFF);
+    background: var(--check-before, #1C1C1E);
     content: attr(data-before);
     font-family: 'game2';
     font-size: 2em;
-    
     transform: translateY(0) rotateX(0);
-    border: 3px solid #000000;
+    border: 2px solid #000000;
     border-radius: 6px;
 }
 
@@ -127,9 +122,8 @@
     content: attr(data-text);
     font-family: 'game2';
     font-size: 2em;
-    
     transform: translateY(50%) rotateX(90deg);
-    border: 3px solid #000000;
+    border: 2px solid #000000;
     border-radius: 6px;
 }
 

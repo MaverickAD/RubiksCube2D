@@ -1,8 +1,66 @@
-#maker-boite{
+.maker-boite{
+    font-family: game2;
     margin-bottom: 1%;
     display: flex;
-    justify-content: center;
     border: 2px solid black;
-    margin-left: 20%;
-    width: 60%;
+    margin-left: 25%;
+    width: 50%;
+    border-radius: 25px;
+    font-size: 1rem;
+    box-shadow: 0 .5em gray; 
+    cursor: pointer;
+}
+
+.maker-boite:active{
+    box-shadow: none;
+	position: relative;
+	top: .3em;
+}
+
+#maker a{
+    color: black;
+    text-shadow: 2px 2px white;
+}
+
+
+#p3x3{
+    text-align: center;
+    width: 100%;
+    border-radius: 23px;
+    background-color: #FE017C;
+}
+
+#p4x4{
+    text-align: center;
+    width: 100%;
+    border-radius: 23px;
+    background-color: #FA5608;
+}
+
+#p5x5{
+    text-align: center;
+    width: 100%;
+    border-radius: 23px;
+    background-color: #FEBC0C;
+}
+
+#p6x6{
+    text-align: center;
+    width: 100%;
+    border-radius: 23px;
+    background-color: #46A346;
+}
+
+#p7x7{
+    text-align: center;
+    width: 100%;
+    border-radius: 23px;
+    background-color: #3B8DFE;
+}
+
+#p8x8{
+    text-align: center;
+    width: 100%;
+    border-radius: 23px;
+    background-color: #7B39EB;
 }
