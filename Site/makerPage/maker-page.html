@@ -39,29 +39,35 @@
                     <div id="boite-palette">
                         <input type="button" value="Ouvrir la palette" onclick="ouvrir_palette('mon_formulaire','champ_recevant_la_couleur')" /></div>
                     <div id="ligne-color">
-                        <div class="color" style="background-color:red" draggable="true" id="color1"></div>
-                        <div class="color" style="background-color:blue" draggable="true" id="color2"></div>
+                        <div class="color draggable" style="background-color:red" draggable="true" id="color1"></div>
+                        <div class="color draggable" style="background-color:blue" draggable="true" id="color2"></div>
                     </div>
                     <div id="ligne-color">
-                        <div class="color" style="background-color:brown" draggable="true" id="color3"></div>
-                        <div class="color" style="background-color:yellow" draggable="true" id="color4"></div>
+                        <div class="color draggable" style="background-color:brown" draggable="true" id="color3"></div>
+                        <div class="color draggable" style="background-color:yellow" draggable="true" id="color4"></div>
                     </div>
                     <div id="ligne-color">
-                        <div class="color" style="background-color:purple" draggable="true" id="color5"></div>
-                        <div class="color" style="background-color:orange" draggable="true" id="color6"></div>
+                        <div class="color draggable" style="background-color:purple" draggable="true" id="color5"></div>
+                        <div class="color draggable" style="background-color:orange" draggable="true" id="color6"></div>
                     </div>
                     <div id="ligne-color">
-                        <div class="color" style="background-color:green" draggable="true" id="color7"></div>
-                        <div class="color" style="background-color:grey" draggable="true" id="color8"></div>
+                        <div class="color draggable" style="background-color:green" draggable="true" id="color7"></div>
+                        <div class="color draggable" style="background-color:grey" draggable="true" id="color8"></div>
                     </div>
                     <div id="ligne-color">
-                        <div class="color" style="background-color:white" draggable="true" id="color9"></div>
-                        <div class="color" style="background-color:black" draggable="true" id="color10"></div>
+                        <div class="color draggable" style="background-color:white" draggable="true" id="color9"></div>
+                        <div class="color draggable" style="background-color:black" draggable="true" id="color10"></div>
                     </div>
                 </div>
 
                 <div id="boite-jeu-maker">
-                    <div id="petite-boite-jeu-maker"></div>
+                    <div id="petite-boite-jeu-maker">
+                        <section id="gameandwitness">
+                            <div>
+                                <div class="box" id="game"></div>
+                            </div>
+                        </section>
+                    </div>
                 </div>
             </div>
 
@@ -72,6 +78,7 @@
             <p>&copy;ISEN_Project_CIR1_2021 by TeamName</p>
         </footer>
     </div>
+    <script type="text/javascript" src="maker-drop.js"></script>
 </body>
 
 </html>

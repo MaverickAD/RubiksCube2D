@@ -123,3 +123,19 @@
     margin-left: 50%;
     text-align: center;
 }
+
+/*Page JS */
+#gameandwitness {
+    display: flex;
+}
+
+.box {
+    display: flex;  
+    flex-wrap: wrap;
+}
+  
+.child-box-game {
+    border :  solid black;
+    width  : 4em;
+    height : 4em;
+}
