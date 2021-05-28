@@ -154,7 +154,7 @@ for(let i = 0; i < a.size * 4; i++){
 
     switch(mfia) {
         case 0:
-            temp.innerHTML = `<i class="fas fa-angle-up"></i>`;
+            temp.innerHTML = `<i class="fas fa-chevron-up"></i>`;
             temp.onclick = (() => {a.nextMove(UP, i % a.size);a.render();});
             temp.id = `${UP}${i % a.size + 1}`;
             buttons_up.appendChild(temp);
@@ -172,7 +172,7 @@ for(let i = 0; i < a.size * 4; i++){
             buttons_left.appendChild(temp);
             break;
         case 3:
-            temp.innerHTML = `<i class="fas fa-angle-right"></i>`;
+            temp.innerHTML = `<i class="fas fa-chevron-right"></i>`;
             temp.onclick = (() => { a.nextMove(RIGHT, i % a.size); a.render(); });
             temp.id = `${RIGHT}${i % a.size + 1}`;
             buttons_right.appendChild(temp);
