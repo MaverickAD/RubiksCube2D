@@ -204,7 +204,7 @@ void shuffle(GAME* game) {
 
     }
 }
-
+/*
 int findIndice(GAME* game, int indiceInTemoin) {
     int tmp = game->temoin[indiceInTemoin];
     int indice = 0;
@@ -349,10 +349,13 @@ void petit_carre(GAME* game) {
     if (indice == 1) {
         deplacementV(game, DOWN, 1);
         deplacementV(game, DOWN, 1);
-        indice = 0;
-        while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
-            indice++;
-        }
+    }
+    if (indice == game->size + 1) {
+        deplacementV(game, DOWN, 1);
+    }
+    indice = 0;
+    while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
+        indice++;
     }
     
     if ((indice / 2) >= game->size) {
@@ -407,7 +410,7 @@ void petit_carre(GAME* game) {
 
     printf("\nle 2 eme cube est en attente\n");
     display(game);
-    /*
+    
     if (game->size == 3) {
         int tmp = game->temoin[4];
         indice = 0;
@@ -444,8 +447,8 @@ void petit_carre(GAME* game) {
         }
         deplacementV(game, UP, 1);
     }
-    */
-    /*
+   
+    
     else
     {
         display(game);
@@ -509,8 +512,8 @@ void petit_carre(GAME* game) {
         deplacementV(game, UP, 1);
         deplacementV(game, UP, 1);
     }
-    */
-
     
-
 }
+*/
+
+
