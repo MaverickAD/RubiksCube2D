@@ -516,4 +516,74 @@ void petit_carre(GAME* game) {
 }
 */
 
+solveur* newSolve(GAME* game) {
+    solveur* tmp = (solveur*)malloc(sizeof(solveur));
+    if (tmp != NULL)
+    {
+        tmp->tab = (int*)malloc(sizeof(int) * game->size * game->size);
+        if (tmp->tab != NULL)
+        {
+            tmp->collock = 0;
+            tmp->rowlock = 0;
+            for (int i = 0; i < (game->size * game->size); i++)
+            {
+                tmp->tab[i] = 0;
+            }
+            return (tmp);
+        }
+        else
+        {
+            free(tmp->tab);
+        }
+    }
+    else
+    {
+        free(tmp);
+    }
+}
+
+int FindIndice(GAME* game, solveur* sylvain, int Indice) {
+    int value = game->temoin[Indice];
+    int i = 0;
+    while (game->tab[i] != value || sylvain->tab[i] == 1)
+    {
+        i++;
+    }
+    return i;
+}
+
+void BottomRight(GAME* game, solveur* sylvain, int place) {
+    int iteration = 0;
+
+    int ligne = place / game->size;
+    //on place le carré dans la dernière colonne 
+    while ((place % game->size) != (game->size - 1)) {
+        deplacementH(game, RIGHT, place / game->size);
+        //on compte le nombre de décalages
+        iteration++;
+        place++;
+    }
+
+    //on le place ensuite à la dernière ligne 
+    while (place / game->size != game->size - 1) {
+        deplacementV(game, DOWN, game->size - 1);
+        place += game->size;
+    }
+
+    //si la ligne était locked, on la remet à sa place
+    if (ligne < sylvain->rowlock) {
+        for (int i = 0; i < iteration; i++) {
+            deplacementH(game, LEFT, ligne);
+        }
+    }
+}
+
+
+
+int Solveur(GAME* game) {
+    solveur* sylvain = newSolve(game);
+
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 0));
+}
+
 

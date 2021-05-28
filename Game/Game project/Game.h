@@ -44,6 +44,16 @@ typedef enum DIR {
 } DIR;
 
 
+typedef struct solveur {
+    //tableau pour connaitre les cases bien placées
+    int* tab;
+    //nombre de colonnes locked
+    int collock;
+    //nombre de lignes locked
+    int rowlock;
+}solveur;
+
+
 COLORS toColor(int value);
 void display(GAME* game);
 GAME * NewGame(int size);
@@ -55,7 +65,13 @@ bool win(GAME* game);
 int parseInputMaker(GAME* game);
 void copieTemoin(GAME* game);
 void shuffle(GAME* game);
-void petit_carre(GAME* game);
-int findIndice(GAME* game, int indiceInTemoin);
-bool IsInColumn(GAME* game, int lastLocked, int indiceTemoin);
-bool IsInRow(GAME* game, int LastLocked, int indiceTemoin);
+//void petit_carre(GAME* game);
+//int findIndice(GAME* game, int indiceInTemoin);
+//bool IsInColumn(GAME* game, int lastLocked, int indiceTemoin);
+//bool IsInRow(GAME* game, int LastLocked, int indiceTemoin);
+
+
+solveur* newSolve(GAME* game);
+int FindIndice(GAME* game, solveur* sylvain, int Indice);
+void BottomRight(GAME* game, solveur* sylvain, int place);
+int Solveur(GAME* game);
