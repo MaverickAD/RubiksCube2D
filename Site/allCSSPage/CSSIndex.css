@@ -45,6 +45,8 @@
     font-family: 'game2';
     font-size: 2em;
 
+    padding: 5% 0 0;
+
     transform: translateY(-50%) rotateX(90deg);
     border: 2px solid #000000;
     border-radius: 6px;
@@ -63,7 +65,9 @@
     content: attr(data-after);
     font-family: 'game2';
     font-size: 2em;
-    
+    padding: 5% 0 0;
+
+
     transform: translateY(0) rotateX(0);
     border: 2px solid #000000;
     border-radius: 6px;
@@ -103,6 +107,10 @@
     content: attr(data-before);
     font-family: 'game2';
     font-size: 2em;
+    padding: 5% 0 0;
+
+
+
     transform: translateY(0) rotateX(0);
     border: 2px solid #000000;
     border-radius: 6px;
@@ -121,6 +129,8 @@
     content: attr(data-text);
     font-family: 'game2';
     font-size: 2em;
+    padding: 5% 0 0;
+    
     transform: translateY(50%) rotateX(90deg);
     border: 2px solid #000000;
     border-radius: 6px;
