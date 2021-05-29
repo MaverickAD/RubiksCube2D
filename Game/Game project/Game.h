@@ -75,3 +75,4 @@ solveur* newSolve(GAME* game);
 int FindIndice(GAME* game, solveur* sylvain, int Indice);
 void BottomRight(GAME* game, solveur* sylvain, int place);
 int Solveur(GAME* game);
+void placement(GAME* game, solveur* sylvain, int Indice);

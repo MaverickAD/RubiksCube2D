@@ -558,14 +558,14 @@ void BottomRight(GAME* game, solveur* sylvain, int place) {
     int ligne = place / game->size;
     //on place le carré dans la dernière colonne 
     while ((place % game->size) != (game->size - 1)) {
-        deplacementH(game, RIGHT, place / game->size);
+        deplacementH(game, RIGHT, ligne);
         //on compte le nombre de décalages
         iteration++;
         place++;
     }
 
     //on le place ensuite à la dernière ligne 
-    while (place / game->size != game->size - 1) {
+    while (place != (game->size * game->size) - 1) {
         deplacementV(game, DOWN, game->size - 1);
         place += game->size;
     }
@@ -578,12 +578,121 @@ void BottomRight(GAME* game, solveur* sylvain, int place) {
     }
 }
 
+void placement(GAME* game, solveur* sylvain, int Indice) {
+    int colonne = Indice % game->size;
+    int iteration = 0;
+
+    //on prépare d'abord la colonne qui va recevoir le carré
+    while (Indice / game->size != game->size - 1) {
+        deplacementV(game, DOWN, colonne);
+        Indice += game->size;
+        iteration++;
+    }
+
+    //on place ensuite le carré dans la colonne
+    for (int i = 0; i < ((game->size - 1) - colonne); i++) {
+        deplacementH(game, LEFT, game->size - 1);
+    }
+
+    //on remonte ensuite la colonne
+    for (int i = 0; i < iteration; i++) {
+        deplacementV(game, UP, colonne);
+        Indice -= game->size;
+    }
+
+    //on notifie que le carré est maintenant bien placé
+    sylvain->tab[Indice] = 1;
+
+    //on actualise le nombre de lignes et colonnes locked si nécessaire
+    if (sylvain->collock < colonne) {
+        sylvain->collock = colonne + 1;
+    }
+    if (sylvain->rowlock < Indice / game->size) {
+        sylvain->rowlock = Indice / game->size + 1;
+    }
+
+
+}
+
 
 
 int Solveur(GAME* game) {
     solveur* sylvain = newSolve(game);
 
+
+
+    /*  3*3
     BottomRight(game, sylvain, FindIndice(game, sylvain, 0));
+    placement(game, sylvain, 0);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 1));
+    placement(game, sylvain, 1);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 3));
+    placement(game, sylvain, 3);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 4));
+    placement(game, sylvain, 4);
+    */
+
+
+
+    4 * 4;
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 0));
+    placement(game, sylvain, 0);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 1));
+    placement(game, sylvain, 1);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 4));
+    placement(game, sylvain, 4);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 5));
+    placement(game, sylvain, 5);
+    BottomRight(game, sylvain, FindIndice(game,  sylvain, 2));
+    placement(game, sylvain, 2);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 6));
+    placement(game, sylvain, 6); 
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 8));
+    placement(game, sylvain, 8);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 9));
+    placement(game, sylvain, 9);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 10));
+    placement(game, sylvain, 10);
+    
+
+
+    /*5 * 5;
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 0));
+    placement(game, sylvain, 0);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 1));
+    placement(game, sylvain, 1);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 5));
+    placement(game, sylvain, 5);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 6));
+    placement(game, sylvain, 6);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 2));
+    placement(game, sylvain, 2);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 7));
+    placement(game, sylvain, 7);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 10));
+    placement(game, sylvain, 10);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 11));
+    placement(game, sylvain, 11);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 12));
+    placement(game, sylvain, 12);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 3));
+    placement(game, sylvain, 3);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 8));
+    placement(game, sylvain, 8);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 13));
+    placement(game, sylvain, 13);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 15));
+    placement(game, sylvain, 15);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 16));
+    placement(game, sylvain, 16);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 17));
+    placement(game, sylvain, 17);
+    BottomRight(game, sylvain, FindIndice(game, sylvain, 18));
+    placement(game, sylvain, 18);
+    */
+    
+   
 }
+
 
 
