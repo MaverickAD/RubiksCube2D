@@ -604,16 +604,34 @@ void placement(GAME* game, solveur* sylvain, int Indice) {
     sylvain->tab[Indice] = 1;
 
     //on actualise le nombre de lignes et colonnes locked si nécessaire
-    if (sylvain->collock < colonne) {
+    if (sylvain->collock < colonne + 1) {
         sylvain->collock = colonne + 1;
     }
-    if (sylvain->rowlock < Indice / game->size) {
+    if (sylvain->rowlock < (Indice / game->size) + 1) {
         sylvain->rowlock = Indice / game->size + 1;
     }
 
 
 }
 
+void finSolving(GAME* game, solveur* sylvain) {
+     
+}
+
+void dispSylvain(GAME* game, solveur* sylvain) {
+    for (int i = 0; i < (game->size) * (game->size); i++) {
+        printf("%d ", sylvain->tab[i]);
+        if ((i + 1) % (game->size) == 0) {
+            for (int j = 0; j < 10; j++) {
+                printf(" ");
+            }
+            printf("\n");
+        }
+        
+    }
+    printf("\nrowlock = %d\n", sylvain->rowlock);
+    printf("\ncollock = %d\n", sylvain->collock);
+}
 
 
 int Solveur(GAME* game) {
@@ -634,28 +652,47 @@ int Solveur(GAME* game) {
 
 
 
-    4 * 4;
+    /*4 * 4;
     BottomRight(game, sylvain, FindIndice(game, sylvain, 0));
     placement(game, sylvain, 0);
+    display(game);
+    dispSylvain(game, sylvain);
     BottomRight(game, sylvain, FindIndice(game, sylvain, 1));
     placement(game, sylvain, 1);
+    display(game);
+    dispSylvain(game, sylvain);
     BottomRight(game, sylvain, FindIndice(game, sylvain, 4));
     placement(game, sylvain, 4);
+    display(game);
+    dispSylvain(game, sylvain);
     BottomRight(game, sylvain, FindIndice(game, sylvain, 5));
     placement(game, sylvain, 5);
+    display(game);
+    dispSylvain(game, sylvain);
     BottomRight(game, sylvain, FindIndice(game,  sylvain, 2));
     placement(game, sylvain, 2);
+    display(game);
+    dispSylvain(game, sylvain);
     BottomRight(game, sylvain, FindIndice(game, sylvain, 6));
     placement(game, sylvain, 6); 
+    display(game);
+    dispSylvain(game, sylvain);
     BottomRight(game, sylvain, FindIndice(game, sylvain, 8));
     placement(game, sylvain, 8);
+    display(game);
+    dispSylvain(game, sylvain);
     BottomRight(game, sylvain, FindIndice(game, sylvain, 9));
     placement(game, sylvain, 9);
+    display(game);
+    dispSylvain(game, sylvain);
     BottomRight(game, sylvain, FindIndice(game, sylvain, 10));
     placement(game, sylvain, 10);
-    
+    display(game);
+    dispSylvain(game, sylvain);
+    */
 
 
+       
     /*5 * 5;
     BottomRight(game, sylvain, FindIndice(game, sylvain, 0));
     placement(game, sylvain, 0);
@@ -690,8 +727,6 @@ int Solveur(GAME* game) {
     BottomRight(game, sylvain, FindIndice(game, sylvain, 18));
     placement(game, sylvain, 18);
     */
-    
-   
 }
 
 
