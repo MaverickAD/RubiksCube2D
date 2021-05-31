@@ -89,7 +89,7 @@
     margin-top: 30%;
 }
 
-#ligne-color{
+.ligne-color{
     display: flex;
     flex-direction: row;
     justify-content: space-around;
@@ -136,6 +136,5 @@
   
 .child-box-game {
     border :  solid black;
-    width  : 4em;
-    height : 4em;
+
 }
