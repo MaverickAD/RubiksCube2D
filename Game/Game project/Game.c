@@ -624,16 +624,19 @@ void placement(GAME* game, solveur* sylvain, int Indice) {
 void colonneDroite(GAME* game, solveur* sylvain) {
     for (int i = 0; i < game->size; i++) {
         bool need = false;
-        for (int i = 0; i < game->size - 2; i++) {
-            need = game->tab[game->size - 1] == sylvain->colright[i];
+        for (int j = 0; j < game->size - 2; j++) {
+            need = game->tab[(game->size * game->size )- 1] == sylvain->colright[j];
         }
         if (need) {
-            while (need) {
+            int k = 0;
+            while (need && k < game->size - 1) {
                 deplacementH(game, LEFT, game->size - 1);
+                for (int j = 0; j < game->size - 2; j++) {
+                    need = game->tab[(game->size * game->size) - 1] == sylvain->colright[j];
+                }
+                k++;
             }
-            for (int i = 0; i < game->size - 2; i++) {
-                need = game->tab[game->size - 1] == sylvain->colright[i];
-            }
+            
         }
         deplacementV(game, DOWN, game->size - 1);
      }
@@ -674,7 +677,8 @@ int Solveur(GAME* game) {
         placement(game, sylvain, 3);
         BottomRight(game, sylvain, FindIndice(game, sylvain, 4));
         placement(game, sylvain, 4);
-        dispSylvain(game, sylvain);
+        colonneDroite(game, sylvain);
+        //dispSylvain(game, sylvain);
     }
    
   
@@ -745,7 +749,8 @@ int Solveur(GAME* game) {
         placement(game, sylvain, 17);
         BottomRight(game, sylvain, FindIndice(game, sylvain, 18));
         placement(game, sylvain, 18);
-        dispSylvain(game, sylvain);
+        colonneDroite(game, sylvain);
+        //dispSylvain(game, sylvain);
     }
     
 
