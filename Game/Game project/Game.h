@@ -56,7 +56,7 @@ typedef struct solveur {
     int* colright;
 
     //tableau de corrspondance pour le placement de la dernière colonne 
-    int* tab;
+    int* correspondance;
 }solveur;
 
 
