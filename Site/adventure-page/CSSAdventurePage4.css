@@ -1,4 +1,4 @@
-'	#mainTitle-easy h1{
+#mainTitle-easy h1{
     margin-bottom: 1%;
     display: flex;
     font-size: 2.3em;
@@ -39,7 +39,8 @@
 #boite-jeu{
     /*border: 2px solid blue;*/
     width: 41%;
-    margin-left: 5%;   
+    margin-left: 5%;  
+    margin-top: 3%; 
 }
 
 #petite-boite-jeu{
@@ -70,10 +71,7 @@
 }
 
 #timer{
-    /* border: 2px solid purple; */
-    width: 20%;
-    margin-left: 40%;
-    text-align: center;
+    margin-bottom: 5%;
 }
 
 #gameandwitness {
@@ -92,7 +90,7 @@
 }
 
 #wrapper-witness{
-    margin-top: 30%;
+    margin-top: 40%;
 }
 
 .child-box-witness{

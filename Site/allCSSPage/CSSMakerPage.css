@@ -78,7 +78,7 @@
 }
 
 #color{
-    border: 2px solid Green;
+    /* border: 2px solid Green; */
     margin-left: 5%;
     width: 10%;
 }
@@ -104,14 +104,13 @@
 }
 
 #boite-jeu-maker{
-    border: 2px solid blue;
-    width: 60%;
-    margin-left: 15%;  
-    margin-right: 6%;
+    /* border: 2px solid blue; */
+    width: 40%;
+    margin-left: 20%;
 }
 
 .petite-boite-jeu-maker{
-    border: 2px solid yellow;
+    /* border: 2px solid yellow; */
     padding-bottom: 40%;
     margin-top: 10%;
 }
@@ -120,7 +119,7 @@
     margin-top: 1%;
     border: 2px solid purple;
     width: 20%;
-    margin-left: 50%;
+    margin-left: 43%;
     text-align: center;
 }
 

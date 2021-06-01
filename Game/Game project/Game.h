@@ -51,6 +51,8 @@ typedef struct solveur {
     int collock;
     //nombre de lignes locked
     int rowlock;
+
+    int* colright;
 }solveur;
 
 
@@ -76,3 +78,5 @@ int FindIndice(GAME* game, solveur* sylvain, int Indice);
 void BottomRight(GAME* game, solveur* sylvain, int place);
 int Solveur(GAME* game);
 void placement(GAME* game, solveur* sylvain, int Indice);
+void colonneDroite(GAME* game, solveur* sylvain);
+void dispSylvain(GAME* game, solveur* sylvain);
