@@ -52,7 +52,11 @@ typedef struct solveur {
     //nombre de lignes locked
     int rowlock;
 
+    //valeur de la colonne de droite (sauf les 2 dernières)
     int* colright;
+
+    //tableau de corrspondance pour le placement de la dernière colonne 
+    int* tab;
 }solveur;
 
 
@@ -79,4 +83,5 @@ void BottomRight(GAME* game, solveur* sylvain, int place);
 int Solveur(GAME* game);
 void placement(GAME* game, solveur* sylvain, int Indice);
 void colonneDroite(GAME* game, solveur* sylvain);
+void endgame(GAME* game, solveur* sylvain);
 void dispSylvain(GAME* game, solveur* sylvain);
