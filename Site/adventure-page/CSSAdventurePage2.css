@@ -1,4 +1,4 @@
-'	#mainTitle-easy h1{
+#mainTitle-easy h1{
     margin-bottom: 1%;
     display: flex;
     font-size: 2.3em;
@@ -39,7 +39,8 @@
 #boite-jeu{
     /*border: 2px solid blue;*/
     width: 41%;
-    margin-left: 5%;   
+    margin-left: 5%;  
+    margin-top: 3%; 
 }
 
 #petite-boite-jeu{
@@ -64,16 +65,13 @@
     width: 20%;
 }
 
-#petit-leaderboard{
-    /* border: 2px solid red; */
-    padding-bottom: 190%;
+#timer{
+    margin-bottom: 5%;
 }
 
-#timer{
-    /* border: 2px solid purple; */
-    width: 20%;
-    margin-left: 40%;
-    text-align: center;
+#petit-leaderboard{
+    /* border: 2px solid red; */
+    padding-bottom: 100%;
 }
 
 #gameandwitness {
@@ -92,7 +90,7 @@
 }
 
 #wrapper-witness{
-    margin-top: 30%;
+    margin-top: 35%;
 }
 
 .child-box-witness{
@@ -107,9 +105,17 @@
     justify-content: space-around;
 }
 
+#buttons_up{
+    margin-bottom: 8%;
+}
+
+#buttons_down{
+    margin-top: 8%;
+}
+
 #buttons_up, #buttons_down{
     display: flex;
     justify-content: space-around;
-    padding-left: 10%;
-    padding-right: 15%;
+    padding-left: 20%;
+    padding-right: 25%;
 }

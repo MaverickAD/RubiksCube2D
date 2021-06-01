@@ -5,11 +5,11 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Medium</title>
+    <title>Page Adventure</title>
     <link rel="stylesheet" href="../allCSSPage/CSSAllPages.css">
-    <link rel="stylesheet" href="../allCSSPage/CSSGamePage.css">
+    <link rel="stylesheet" href="CSSAdventurePage1.css">
     <script src="../script.js"></script>
-    <link rel="icon" type="image/png" sizes="16x16" href="../img/logo.png">
+    <link rel="icon" type="image/png" sizes="20x20" href="../img/logo.png">
     <script src="https://kit.fontawesome.com/65f54486e0.js" crossorigin="anonymous"></script>
 </head>
 
@@ -19,10 +19,10 @@
     </div>
     <nav class="nav">
         <ul>
-            <li><a href="#" id="navBar_adventureTitle" onclick="toggleNav()">Adventure mode</a></li>
-            <li><a href="../classic_mode.html" id="navBar_classicTitle" onclick="toggleNav()">Classic mode</a></li>
-            <li><a href="../maker.html" id="navBar_makerTitle" onclick="toggleNav()">Maker mode</a></li>
-            <li><a href="../index.html" id="navBar_instruction" onclick="toggleNavInstruction()">Instruction</a></li>
+            <li><a href="adventure.html" id="navBar_adventureTitle" onclick="toggleNav()">Adventure mode</a></li>
+            <li><a href="classic_mode.html" id="navBar_classicTitle" onclick="toggleNav()">Classic mode</a></li>
+            <li><a href="maker.html" id="navBar_makerTitle" onclick="toggleNav()">Maker mode</a></li>
+            <li><a href="index.html" id="navBar_instruction" onclick="toggleNavInstruction()">Instruction</a></li>
             <li><a href="#" id="navBar_darkMode" onclick="darkMode()">Dark mode</a></li>
         </ul>
     </nav>
@@ -37,7 +37,7 @@
         <main id="classic-main-mod">
             <div id="info-mod-shuffle">
                 <div id="shuffle"></div>
-                <div id="mod">Easy</div>
+                <div id="mod">Level 1</div>
             </div>
 
             <div id="ligne-jeu">
@@ -62,19 +62,19 @@
                 </div>
 
                 <div id="leaderboard">
+                    <div id="timer">TIMER</div>
                     <div id="petit-leaderboard"> LEADERBOARD</div>
                 </div>
 
             </div>
 
-            <div id="timer">TIMER</div>
         </main>
 
         <footer>
             <p>&copy;ISEN_Project_CIR1_2021 by TeamName</p>
         </footer>
     </div>
-    <script src="../game.js"></script>
+    <script src="adventure1.js"></script>
 </body>
 
 </html>

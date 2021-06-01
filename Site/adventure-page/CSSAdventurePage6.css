@@ -1,4 +1,4 @@
-'	#mainTitle-easy h1{
+#mainTitle-easy h1{
     margin-bottom: 1%;
     display: flex;
     font-size: 2.3em;
@@ -15,7 +15,6 @@
 
 #shuffle{
     /* border: 2px solid yellow; */
-    margin-bottom: 1%;
     text-align: center;
     font-size: 1.5rem;
 }
@@ -39,7 +38,8 @@
 #boite-jeu{
     /*border: 2px solid blue;*/
     width: 41%;
-    margin-left: 5%;   
+    margin-left: 8%;  
+    margin-top: 2%; 
 }
 
 #petite-boite-jeu{
@@ -70,10 +70,7 @@
 }
 
 #timer{
-    /* border: 2px solid purple; */
-    width: 20%;
-    margin-left: 40%;
-    text-align: center;
+    margin-bottom: 5%;
 }
 
 #gameandwitness {
@@ -87,18 +84,18 @@
   
 .child-box-game {
     border :  solid black;
-    width  : 4em;
-    height : 4em;
+    width  : 3.5em;
+    height : 3.5em;
 }
 
 #wrapper-witness{
-    margin-top: 30%;
+    margin-top: 40%;
 }
 
 .child-box-witness{
     border :  solid black;
-    width  : 3em;
-    height : 3em;
+    width  : 2.5em;
+    height : 2.5em;
 }
 
 #buttons_left, #buttons_right{
@@ -110,6 +107,6 @@
 #buttons_up, #buttons_down{
     display: flex;
     justify-content: space-around;
-    padding-left: 10%;
-    padding-right: 15%;
+    padding-left: 5%;
+    padding-right: 10%;
 }

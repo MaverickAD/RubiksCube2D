@@ -1,5 +1,13 @@
 const htmlGame = document.querySelector("#game");
-  
+const htmlWitness = document.querySelector("#witness");
+const shuffle = document.getElementById("shuffle");
+const buttons_up = document.getElementById("buttons_up");
+const buttons_down = document.getElementById("buttons_down")
+const buttons_left = document.getElementById("buttons_left")
+const buttons_right = document.getElementById("buttons_right")
+
+console.log(htmlWitness);
+
 const Direction = {
     Up: 'Up',
     Down: 'Down',
@@ -98,60 +106,83 @@ class Game {
 
     render() {
         
-        htmlGame.style.width = (this.size * 9 + 2).toString() + "em";
+        htmlGame.style.width = (this.size * 4 + 2).toString() + "em";
+        htmlWitness.style.width = (this.size * 3 + 2).toString() + "em";
         while (htmlGame.hasChildNodes()) htmlGame.removeChild(htmlGame.firstChild);
 
         this.board.forEach(elem => {
             const temp = document.createElement("div");
-            temp.style.width = "9em";
-            temp.style.height = "9em";
-            temp.className += "droppable child-box-game";
+            temp.className += "child-box-game";
             temp.style.backgroundColor = elem;
             htmlGame.appendChild(temp);
         });
-    }
-}   
 
-let a = new Game(["#ffffff","#ffffff","#ffffff"
-                 ,"#ffffff","#ffffff","#ffffff"
-                 ,"#ffffff","#ffffff","#ffffff"]
-                 ,
-                 ["#ffffff","#ffffff","#ffffff"
-                 ,"#ffffff","#ffffff","#ffffff"
-                 ,"#ffffff","#ffffff","#ffffff"], 3);
+        while (htmlWitness.hasChildNodes()) htmlWitness.removeChild(htmlWitness.firstChild);
+
+        this.witness.forEach(elem => {
+            const temp = document.createElement("div");
+            temp.className += "child-box-witness";
+            temp.style.backgroundColor = elem;
+            htmlWitness.appendChild(temp);
+        });
+
+        for (let i = 0; i < this.totalSize; i++) {
+            if (this.board[i] !== this.witness[i]) return 
+        }
+        console.log("gagne")
+
+    }
+}
+
+let a = new Game(["#aba5a7","#ff0000","#000000","#00ff00","#aba5a7"
+,"#ff0000","#ff0000","#000000","#00ff00","#00ff00"
+,"#000000","#000000","#000000","#000000","#000000"
+,"#0000ff","#0000ff","#000000","#ffff00","#ffff00"
+,"#aba5a7","#0000ff","#000000","#ffff00","#aba5a7"]
+
+, ["#aba5a7","#ff0000","#000000","#00ff00","#aba5a7"
+,"#ff0000","#ff0000","#000000","#00ff00","#00ff00"
+,"#000000","#000000","#000000","#000000","#000000"
+,"#0000ff","#0000ff","#000000","#ffff00","#ffff00"
+,"#aba5a7","#0000ff","#000000","#ffff00","#aba5a7"], 5);
+
+for(let i = 0; i < a.size * 4; i++){
+    const temp = document.createElement("button");
+    const mfia = Math.floor(i / a.size);
+
+    switch(mfia) {
+        case 0:
+            temp.innerHTML = `<i class="fas fa-chevron-up"></i>`;
+            temp.onclick = (() => {a.nextMove(UP, i % a.size);a.render();});
+            temp.id = `${UP}${i % a.size + 1}`;
+            buttons_up.appendChild(temp);
+            break;
+        case 1:
+            temp.innerHTML = `<i class="fas fa-chevron-down"></i>`;
+            temp.onclick = (() => { a.nextMove(DOWN, i % a.size); a.render(); });
+            temp.id = `${DOWN}${i % a.size + 1}`;
+            buttons_down.appendChild(temp);
+            break;
+        case 2:
+            temp.innerHTML = `<i class="fas fa-chevron-left"></i>`;
+            temp.onclick = (() => { a.nextMove(LEFT, i % a.size); a.render(); });
+            temp.id = `${LEFT}${i % a.size + 1}`;
+            buttons_left.appendChild(temp);
+            break;
+        case 3:
+            temp.innerHTML = `<i class="fas fa-chevron-right"></i>`;
+            temp.onclick = (() => { a.nextMove(RIGHT, i % a.size); a.render(); });
+            temp.id = `${RIGHT}${i % a.size + 1}`;
+            buttons_right.appendChild(temp);
+            break;
+    }
+
+    //buttons.appendChild(temp);
+}
+
+const temp = document.createElement("button");
+temp.innerHTML = "SHUFFLE";
+temp.onclick = (() => {a.shuffle(); a.render();});
+shuffle.appendChild(temp);
 
 a.render();
-
-
-
-
-const draggableElements = document.querySelectorAll(".draggable");
-const droppableElements = document.querySelectorAll(".droppable");
-
-console.log(draggableElements)
-
-draggableElements.forEach(elem => {
-    elem.addEventListener("dragstart", dragStart);
-});
-
-droppableElements.forEach(elem => {
-    elem.addEventListener("dragover", dragOver); // Fires when a dragged item is being dragged over a valid drop target, repeatedly while the draggable item is within the drop zone
-    elem.addEventListener("drop", drop); // Fires when an item is dropped on a valid drop target
-});
-
-function dragStart(event) {
-    console.log("prount")
-    console.log(event.target.style.color)
-    event.dataTransfer.setData("text", event.target.style.backgroundColor);
-}
-
-function dragOver(event){
-    event.preventDefault()
-}
-
-function drop(event) {
-    event.preventDefault();
-    const data = event.dataTransfer.getData("text")
-    event.target.style.backgroundColor = data;
-}
-
