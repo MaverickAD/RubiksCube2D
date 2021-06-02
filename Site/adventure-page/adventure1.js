@@ -6,7 +6,7 @@ const buttons_down = document.getElementById("buttons_down")
 const buttons_left = document.getElementById("buttons_left")
 const buttons_right = document.getElementById("buttons_right")
 
-console.log(htmlWitness);
+const popup = document.querySelector("div#popup");
 
 const Direction = {
     Up: 'Up',
@@ -27,6 +27,8 @@ class Game {
 
         this.board = board;
         this.witness = witness;
+        this.isWin = false;
+        this.isStart = false;
 
         if (size * size !== this.board.length || this.board.length !== this.witness.length) { 
             if (size * size !== this.board.length) console.error("Miss match \'size\'", size * size ,"with \'size board\' ", this.board.length);
@@ -129,8 +131,15 @@ class Game {
         for (let i = 0; i < this.totalSize; i++) {
             if (this.board[i] !== this.witness[i]) return 
         }
-        console.log("gagne")
-
+        this.isWin = true;
+        if (this.isStart) {
+            
+        
+        const filter = document.querySelector("div.filter");
+        filter.classList.toggle = "expanded"
+        popup.style.opacity = "1"
+        popup.style.display = "flex"
+        }
     }
 }
 
@@ -178,7 +187,11 @@ for(let i = 0; i < a.size * 4; i++){
 
 const temp = document.createElement("button");
 temp.innerHTML = "SHUFFLE";
-temp.onclick = (() => {a.shuffle(); a.render();});
+temp.onclick = (() => {
+    if (!a.isStart){ a.isStart = !a.isStart }
+    a.shuffle(); a.render();
+    });
+
 shuffle.appendChild(temp);
 
 a.render();

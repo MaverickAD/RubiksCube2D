@@ -534,6 +534,12 @@ solveur* newSolve(GAME* game) {
                 for (int i = 0; i < game->size - 2; i++) {
                     tmp->colright[i] = game->temoin[(game->size) * (i + 1) - 1];
                 }
+                tmp->correspondance = (int*)malloc(sizeof(int) * (game->size));
+                if (tmp->correspondance != NULL) {
+                    for (int i = 0; i < game->size; i++) {
+                        tmp->correspondance[i] = 0;
+                    }
+                }
                 return (tmp);
             }
             
@@ -625,21 +631,96 @@ void colonneDroite(GAME* game, solveur* sylvain) {
     for (int i = 0; i < game->size; i++) {
         bool need = false;
         for (int j = 0; j < game->size - 2; j++) {
-            need = game->tab[(game->size * game->size )- 1] == sylvain->colright[j];
+            if (game->tab[(game->size * game->size) - 1] == sylvain->colright[j]) {
+                need = true;
+            }
+            
         }
         if (need) {
             int k = 0;
-            while (need && k < game->size - 1) {
+            while (need &&( k < game->size)) {
                 deplacementH(game, LEFT, game->size - 1);
+                need = false;
                 for (int j = 0; j < game->size - 2; j++) {
-                    need = game->tab[(game->size * game->size) - 1] == sylvain->colright[j];
+                    if (game->tab[(game->size * game->size) - 1] == sylvain->colright[j]) {
+                        need = true;
+                    }
                 }
                 k++;
+                if (k == (game->size))
+                {
+                    for (int j = 0; j < game->size - 3; j++) {
+                        int indice = game->size * (game->size - 1);
+                        while (game->tab[indice] != sylvain->colright[j] || sylvain->correspondance[indice % game->size] == 1) {
+                            indice++;
+                        }
+                        sylvain->correspondance[indice % game->size] = 1;
+                    }
+                    int indCoressepondance = game->size - 1;
+                    while (sylvain->correspondance[indCoressepondance] == 1) {
+                        deplacementH(game, RIGHT, game->size - 1);
+                        indCoressepondance--;
+                    }
+                }
             }
             
         }
         deplacementV(game, DOWN, game->size - 1);
+        for (int j = 0; j < game->size; j++)
+        {
+            sylvain->correspondance[j] = 0;
+        }
+
      }
+    
+     //les carrés nécessaires sont placés dans la ligne du bas
+    for (int i = game->size - 3; i >= 0; i--) {
+        while (game->tab[(game->size * game->size) - 1] != sylvain->colright[i]) {
+            deplacementH(game, RIGHT, game->size  - 1);
+        }
+        deplacementV(game, DOWN, game->size - 1);
+    }
+
+
+}
+
+void endgame(GAME* game, solveur* sylvain) {
+    int valueKeyLock = game->temoin[((game->size) * (game->size - 1)) - 1];
+    if (game->tab[(game->size * game->size) - 1] == valueKeyLock) {
+        deplacementH(game, LEFT, game->size - 1);
+    }
+    deplacementV(game, DOWN, game->size - 1);
+    if (game->tab[(game->size * game->size) - 1] == valueKeyLock) {
+        deplacementH(game, LEFT, game->size - 1);
+    }
+
+    int valueTopRight = game->tab[game->size - 1];
+    int valueBottomRight = game->tab[(game->size) * (game->size) - 1];
+  
+    int indice = (game->size) * (game->size - 1);
+    while (game->temoin[indice] != valueBottomRight) {
+        indice++;
+    }
+
+    int delta = 0;
+    while (game->temoin[indice] != valueTopRight) {
+        delta++;
+        if (indice == (game->size) * (game->size - 1)) {
+            indice = (game->size * game->size) - 1;
+        }
+        else {
+            indice--;
+        }
+    }
+    for (int i = 0; i < delta; i++) {
+        deplacementH(game, RIGHT, game->size - 1);
+    }
+    deplacementV(game, UP, game->size - 1);
+    
+    while (!win(game)) {
+        deplacementH(game, LEFT, game->size - 1);
+    }
+
 }
 
 void dispSylvain(GAME* game, solveur* sylvain) {
@@ -678,6 +759,7 @@ int Solveur(GAME* game) {
         BottomRight(game, sylvain, FindIndice(game, sylvain, 4));
         placement(game, sylvain, 4);
         colonneDroite(game, sylvain);
+        endgame(game, sylvain);
         //dispSylvain(game, sylvain);
     }
    
@@ -709,6 +791,7 @@ int Solveur(GAME* game) {
         placement(game, sylvain, 10);
         //dispSylvain(game, sylvain);
         colonneDroite(game, sylvain);
+        endgame(game, sylvain);
 
     }
     
@@ -750,6 +833,7 @@ int Solveur(GAME* game) {
         BottomRight(game, sylvain, FindIndice(game, sylvain, 18));
         placement(game, sylvain, 18);
         colonneDroite(game, sylvain);
+        endgame(game, sylvain);
         //dispSylvain(game, sylvain);
     }
     
