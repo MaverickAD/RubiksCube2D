@@ -1,3 +1,19 @@
+<?php
+
+if (array_key_exists("Pseudo", $_POST)) {
+    $Pseudo = htmlspecialchars($_POST["Pseudo"]);
+
+    // 1 : on ouvre le fichier
+    $monfichier = fopen('leaderboard.txt', 'a+'); 
+    fputs($monfichier, $Pseudo.";"); 
+
+    // 3 : quand on a fini de l'utiliser, on ferme le fichier
+    fclose($monfichier);
+}
+
+?>
+
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -5,7 +21,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Page Medium</title>
+    <title>Page Easy</title>
     <link rel="stylesheet" href="../allCSSPage/CSSAllPages.css">
     <link rel="stylesheet" href="../allCSSPage/CSSGamePage.css">
     <script src="../script.js"></script>
@@ -42,6 +58,33 @@
 
             <div id="ligne-jeu">
 
+            <div id="popup">
+                    <div class="half-box1">
+                        <h2>Good game, you succeed</h2>
+                    </div>
+                    <div class="half-box2">
+                        <div class="half-half-box1">
+                            <p>Your score :</p>
+                            <p>Your time:</p>
+                            <form action="easy.php" method="post">
+                                <TR><TD>Pseudo :</TD><TD><INPUT Type="Text" NAME="Pseudo" ID="Pseudo"></INPUT></TD></TR>
+                                <input type="submit" value="Envoyer" />
+                                </form>
+                        </div>
+                        <div class="half-half-box2">
+                            
+                            <div class="half-half-half">
+                                <a href="">
+                                    <div class="text">
+                                        <p>Restart</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
+
                 <div id="boite-pattern">
 
                     <div id="petite-boite-pattern">
@@ -74,7 +117,6 @@
             <p>&copy;ISEN_Project_CIR1_2021 by TeamName</p>
         </footer>
     </div>
-    <script src="./medium.js"></script>
+    <script src="./easy.js"></script>
 </body>
-
 </html>

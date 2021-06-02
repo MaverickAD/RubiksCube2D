@@ -5,6 +5,7 @@ const buttons_up = document.getElementById("buttons_up");
 const buttons_down = document.getElementById("buttons_down")
 const buttons_left = document.getElementById("buttons_left")
 const buttons_right = document.getElementById("buttons_right")
+const popup = document.querySelector("div#popup");
 
 const maxSize = 2;
 const finalSize = Math.floor(Math.random() * maxSize) + 7
@@ -57,6 +58,8 @@ class Game {
 
         this.board = board;
         this.witness = witness;
+        this.isWin = false;
+        this.isStart = false;
 
         if (size * size !== this.board.length || this.board.length !== this.witness.length) { 
             if (size * size !== this.board.length) console.error("Miss match \'size\'", size * size ,"with \'size board\' ", this.board.length);
@@ -121,7 +124,7 @@ class Game {
     }
 
     shuffle() {
-        for (let i = 0; i < 100; i++)
+        for (let i = 0; i < 1; i++)
         {
             let alea =  Math.floor(Math.random() * 4);
             let indicealea = Math.floor(Math.random() * this.size);
@@ -159,7 +162,15 @@ class Game {
         for (let i = 0; i < this.totalSize; i++) {
             if (this.board[i] !== this.witness[i]) return 
         }
-        console.log("gagne")
+        this.isWin = true;
+        if (this.isStart) {
+            
+        
+        const filter = document.querySelector("div.filter");
+        filter.classList.toggle = "expanded"
+        popup.style.opacity = "1"
+        popup.style.display = "flex"
+        }
         
     }
 }
@@ -213,7 +224,24 @@ for(let i = 0; i < a.size * 4; i++){
 
 const temp = document.createElement("button");
 temp.innerHTML = "SHUFFLE";
-temp.onclick = (() => {a.shuffle(); a.render();});
+temp.onclick = (() => {
+    if (!a.isStart){ a.isStart = !a.isStart }
+    a.shuffle(); a.render();
+    });
+
 shuffle.appendChild(temp);
 
 a.render();
+
+const leaderBoard = document.querySelector("#leaderboard")
+
+fetch('leaderboard2.txt')
+  .then(response => response.text())
+  .then(data => data.split(";"))
+  .then((data) =>
+    data.forEach(element => {
+        let temp = document.createElement("div");
+        temp.innerHTML = element;
+        leaderBoard.appendChild(temp);
+    })
+  )

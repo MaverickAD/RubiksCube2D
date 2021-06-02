@@ -1,3 +1,18 @@
+<?php
+
+if (array_key_exists("Pseudo", $_POST)) {
+    $Pseudo = htmlspecialchars($_POST["Pseudo"]);
+
+    // 1 : on ouvre le fichier
+    $monfichier = fopen('leaderboard2.txt', 'a+'); 
+    fputs($monfichier, $Pseudo.";"); 
+
+    // 3 : quand on a fini de l'utiliser, on ferme le fichier
+    fclose($monfichier);
+}
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,6 +56,33 @@
             </div>
 
             <div id="ligne-jeu">
+
+            <div id="popup">
+                    <div class="half-box1">
+                        <h2>Good game, you succeed</h2>
+                    </div>
+                    <div class="half-box2">
+                        <div class="half-half-box1">
+                            <p>Your score :</p>
+                            <p>Your time:</p>
+                            <form action="hard.php" method="post">
+                                <TR><TD>Pseudo :</TD><TD><INPUT Type="Text" NAME="Pseudo" ID="Pseudo"></INPUT></TD></TR>
+                                <input type="submit" value="Envoyer" />
+                                </form>
+                        </div>
+                        <div class="half-half-box2">
+                            
+                            <div class="half-half-half">
+                                <a href="">
+                                    <div class="text">
+                                        <p>Restart</p>
+                                    </div>
+                                </a>
+                            </div>
+                            
+                        </div>
+                    </div>
+                </div>
 
                 <div id="boite-pattern">
 
