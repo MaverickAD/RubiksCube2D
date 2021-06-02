@@ -13,6 +13,7 @@ int main() {
     display(game);
     Solveur(game);
     display(game);
+   
 
 
 }

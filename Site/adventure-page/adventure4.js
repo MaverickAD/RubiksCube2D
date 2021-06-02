@@ -184,8 +184,14 @@ for(let i = 0; i < a.size * 4; i++){
 }
 
 const temp = document.createElement("button");
+temp.id = "button_shuffle";
 temp.innerHTML = "SHUFFLE";
-temp.onclick = (() => {a.shuffle(); a.render();});
+temp.onclick = (() => {
+    if (!a.isStart){ a.isStart = !a.isStart }
+    a.shuffle(); a.render();
+    chronoStart();
+    });
+
 shuffle.appendChild(temp);
 
 a.render();

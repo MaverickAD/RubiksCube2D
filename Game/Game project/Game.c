@@ -204,317 +204,6 @@ void shuffle(GAME* game) {
 
     }
 }
-/*
-int findIndice(GAME* game, int indiceInTemoin) {
-    int tmp = game->temoin[indiceInTemoin];
-    int indice = 0;
-    while (game->tab[indice] != tmp) {
-        indice++;
-    }
-    return indice;
-}
-
-bool IsInColumn(GAME* game, int lastLocked, int indiceTemoin) {
-    int indice = findIndice(game, indiceTemoin);
-    return (indice) % (game->size) <= lastLocked;
-}
-
-bool IsInRow(GAME* game, int LastLocked, int indiceTemoin) {
-    int indice = findIndice(game, indiceTemoin);
-    return (indice / game->size) <= LastLocked;
-}
-
-
-void petit_carre(GAME* game) {
-    //on cherche à placer le cube en haut à gauche 
-
-
-
-    //on le place d'abord à la bonne ligne 
-    int indice = findIndice(game, 0);
-
-    if ((indice / 2) >= game->size) {
-        while (indice > game->size - 1)
-        {
-            //on est dans la moitié supérieur 
-            deplacementV(game, DOWN, (indice)%(game->size));
-           
-            indice = findIndice(game, 0);
-        }
-    }
-    else { 
-        //on est dans la moitié inférieur
-        while (indice > game->size - 1) {
-            deplacementV(game, UP, (indice) % (game->size));
-            indice = findIndice(game, 0);
-        }
-    }
-   
-    //on le place ensuite à la bonne colonne
-    if (indice > (game->size / 2) - 1) {
-        while (indice != 0) {
-            deplacementH(game, RIGHT, 0);
-            indice = findIndice(game, 0);
-        }
-    }
-    else {
-        while (indice != 0) {
-            deplacementH(game, LEFT, 0);
-            indice = findIndice(game, 0);
-        }
-    }
-    //le coin en haut à gauche est correct
-
-    //test si deuxieme carre est dans une colonne ou ligne lock
-    if (!(game->tab[game->size]==game->temoin[game->size]))
-    { 
-        //On extrait le carré que l'on veut placer des lignes et colonnes locked
-        if (IsInRow(game, 0, game->size)) {
-            int indice = findIndice(game, game->size);
-            deplacementV(game, DOWN, indice);
-        }
-        if (IsInColumn(game,0,game->size))
-        {
-            int indice = findIndice(game, game->size);
-            deplacementH(game, RIGHT, (indice / game->size));
-        }
-    }
-
-    indice = findIndice(game, game->size);
-    
-
-    bool enBas = false;
-    if (game->size >= 7) {
-        if (indice > (game->size * (game->size - 2))) {
-            enBas = true;
-        }
-    }
-    else {
-        if (indice > (game->size * (game->size - 1))) {
-            enBas = true;
-        }
-    }
-
-    if (enBas) {
-        while (indice > game->size * 2 || (indice < game->size)) {
-            deplacementV(game, DOWN, indice % game->size);
-            indice = findIndice(game, game->size);
-        }
-    }
-    else {
-        while (indice > game->size * 2 || indice < game->size) {
-            deplacementV(game, UP, indice % game->size);
-            indice = findIndice(game, game->size);
-        }
-    }
-    
-    bool aGauche = false;
-    if (game->size >= 7) {
-        if (indice % game->size < 3 ) {
-            aGauche = true;
-        }
-    }
-    else {
-        if (indice % game->size < 2) {
-            aGauche = true;
-        }
-    }
-    if (aGauche) {
-        while (indice != game->size) {
-            deplacementH(game, LEFT, 1);
-            indice = findIndice(game, game->size);
-        }
-    }
-    else {
-        while (indice != game->size) {
-            deplacementH(game, RIGHT, 1);
-            indice = findIndice(game, game->size);
-        }
-    }
-    //le carré en dessous du coin supérieur gauche est bien placé 
-    printf("\nles 2 en haut sont bons\n");
-    display(game);
-    //on cherche maintenant à placer les deux carrés manquant du petit carré
-    int tmp = game->temoin[1];
-    indice = 0;
-    while (game->tab[indice] != tmp || indice == 0 || indice==game->size) {
-        indice++;
-    }
-
-    
-    if (indice % game->size == 0) {
-        deplacementH(game, RIGHT, (indice / game->size));
-        indice++;
-    }
-    if (indice == 1) {
-        deplacementV(game, DOWN, 1);
-        deplacementV(game, DOWN, 1);
-    }
-    if (indice == game->size + 1) {
-        deplacementV(game, DOWN, 1);
-    }
-    indice = 0;
-    while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
-        indice++;
-    }
-    
-    if ((indice / 2) >= game->size) {
-        while (indice > (game->size * 3) - 1 || indice < game->size * 2)
-        {
-            //on est dans la moitié supérieur 
-            deplacementV(game, DOWN, (indice) % (game->size));
-
-            int tmp = game->temoin[1];
-            indice = 0;
-            while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
-                indice++;
-            }
-        }
-    }
-    else {
-        //on est dans la moitié inférieur
-        while (indice > (game->size * 3) - 1 || indice < game->size * 2) {
-            deplacementV(game, UP, (indice) % (game->size));
-            int tmp = game->temoin[1];
-            indice = 0;
-            while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
-                indice++;
-            }
-        }
-    }
-    
-    if (indice > (game->size / 2) - 1) {
-        while (indice != (game->size * 2) + 1) {
-            deplacementH(game, RIGHT, 2);
-            int tmp = game->temoin[1];
-            indice = 0;
-            while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
-                indice++;
-            }
-        }
-    }
-    else {
-        while (indice != (game->size * 2) + 1) {
-            deplacementH(game, LEFT, 2);
-            int tmp = game->temoin[1];
-            indice = 0;
-            while (game->tab[indice] != tmp || indice == 0 || indice == game->size) {
-                indice++;
-            }
-        }
-    }
-    if (game->size == 3) {
-        deplacementV(game, UP, 1);
-        indice -= game->size;
-    }
-
-    printf("\nle 2 eme cube est en attente\n");
-    display(game);
-    
-    if (game->size == 3) {
-        int tmp = game->temoin[4];
-        indice = 0;
-        while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size+1)) {
-            indice++;
-        }
-        if (indice == 1)
-        {
-            deplacementH(game, RIGHT, 0);
-            deplacementV(game, DOWN, 2);
-            deplacementV(game, DOWN, 2);
-            deplacementH(game, LEFT, 2);
-            deplacementH(game, LEFT, 0);
-        }
-        if (indice == 2)
-        {
-            deplacementV(game, DOWN, 2);
-            deplacementV(game, DOWN, 2);
-            deplacementH(game, LEFT, 2);
-        }
-        if (indice==5)
-        {
-            deplacementV(game, DOWN, 2);
-            deplacementH(game, LEFT, 2);
-        }
-        if (indice==6)
-        {
-            deplacementH(game, RIGHT, 2);
-
-        }
-        if (indice==8)
-        {
-            deplacementH(game, LEFT, 2);
-        }
-        deplacementV(game, UP, 1);
-    }
-   
-    
-    else
-    {
-        display(game);
-        int tmp = game->temoin[game->size + 1];
-        indice = 0;
-        while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size + 1)) {
-            indice++;
-        }
-        if (indice==1)
-        {
-            deplacementH(game, RIGHT, 0);
-            deplacementV(game, DOWN, 2);
-            deplacementV(game, DOWN, 2);
-            deplacementV(game, DOWN, 2);
-            deplacementH(game, LEFT, 0);
-            deplacementH(game, LEFT, 3);
-        }
-        if (indice==(game->size*2))
-        {
-            deplacementV(game, DOWN, 0);
-            deplacementH(game, RIGHT, 3);
-            deplacementV(game, UP, 0);
-        }
-        if (indice == (game->size+1))
-        {
-            deplacementH(game, RIGHT, 1);
-            deplacementV(game, DOWN, 2);
-            deplacementV(game, DOWN, 2);
-            deplacementH(game, LEFT, 1);
-            deplacementH(game, LEFT, 3);
-        }
-        indice = 0;
-        while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size + 1)) {
-            indice++;
-        }
-        if ((indice % game->size<=1)&&(indice!=game->size*2+1))
-        {
-            deplacementH(game, RIGHT, (indice / game->size));
-            deplacementH(game, RIGHT, (indice / game->size));
-        }
-        indice = 0;
-        while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size + 1)) {
-            indice++;
-        }
-        while ((indice/game->size)!=3)
-        {
-            deplacementV(game, DOWN, (indice % game->size));
-            indice = 0;
-            while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size + 1)) {
-                indice++;
-            }
-        }
-        while (indice!=((game->size*3)+1))
-        {
-            deplacementH(game, LEFT, 3);
-            indice = 0;
-            while (game->tab[indice] != tmp || indice == 0 || indice == game->size || indice == (game->size + 1)) {
-                indice++;
-            }
-        }
-        deplacementV(game, UP, 1);
-        deplacementV(game, UP, 1);
-    }
-    
-}
-*/
 
 solveur* newSolve(GAME* game) {
     solveur* tmp = (solveur*)malloc(sizeof(solveur));
@@ -525,6 +214,7 @@ solveur* newSolve(GAME* game) {
         {
             tmp->collock = 0;
             tmp->rowlock = 0;
+            tmp->NbMoves = 0;
             for (int i = 0; i < (game->size * game->size); i++)
             {
                 tmp->tab[i] = 0;
@@ -540,7 +230,12 @@ solveur* newSolve(GAME* game) {
                         tmp->correspondance[i] = 0;
                     }
                 }
-                return (tmp);
+                tmp->nextMove = (char*)malloc(sizeof(char) * 2);
+                if (tmp->nextMove != NULL) {
+                    tmp->nextMove[0] = 0;
+                    tmp->nextMove[1] = 0;
+                    return (tmp);
+                }
             }
             
         }
@@ -571,7 +266,13 @@ void BottomRight(GAME* game, solveur* sylvain, int place) {
     int ligne = place / game->size;
     //on place le carré dans la dernière colonne 
     while ((place % game->size) != (game->size - 1)) {
+        
         deplacementH(game, RIGHT, ligne);
+        sylvain->NbMoves++;
+        if (sylvain->nextMove[1] == 0) {
+            sylvain->nextMove[0] = ligne;
+            sylvain->nextMove[1] = 'R';
+        }
         //on compte le nombre de décalages
         iteration++;
         place++;
@@ -580,6 +281,11 @@ void BottomRight(GAME* game, solveur* sylvain, int place) {
     //on le place ensuite à la dernière ligne 
     while (place != (game->size * game->size) - 1) {
         deplacementV(game, DOWN, game->size - 1);
+        sylvain->NbMoves++;
+        if (sylvain->nextMove[1] == 0) {
+            sylvain->nextMove[0] = game->size - 1;
+            sylvain->nextMove[1] = 'D';
+        }
         place += game->size;
     }
 
@@ -587,6 +293,11 @@ void BottomRight(GAME* game, solveur* sylvain, int place) {
     if (ligne < sylvain->rowlock) {
         for (int i = 0; i < iteration; i++) {
             deplacementH(game, LEFT, ligne);
+            sylvain->NbMoves++;
+            if (sylvain->nextMove[1] == 0) {
+                sylvain->nextMove[0] = ligne;
+                sylvain->nextMove[1] = 'L';
+            }
         }
     }
 }
@@ -598,6 +309,11 @@ void placement(GAME* game, solveur* sylvain, int Indice) {
     //on prépare d'abord la colonne qui va recevoir le carré
     while (Indice / game->size != game->size - 1) {
         deplacementV(game, DOWN, colonne);
+        sylvain->NbMoves++;
+        if (sylvain->nextMove[1] == 0) {
+            sylvain->nextMove[0] = colonne;
+            sylvain->nextMove[1] = 'D';
+        }
         Indice += game->size;
         iteration++;
     }
@@ -605,11 +321,22 @@ void placement(GAME* game, solveur* sylvain, int Indice) {
     //on place ensuite le carré dans la colonne
     for (int i = 0; i < ((game->size - 1) - colonne); i++) {
         deplacementH(game, LEFT, game->size - 1);
+        sylvain->NbMoves++;
+        if (sylvain->nextMove[1] == 0) {
+            sylvain->nextMove[0] = game->size - 1;
+            sylvain->nextMove[1] = 'L';
+        }
     }
 
     //on remonte ensuite la colonne
     for (int i = 0; i < iteration; i++) {
         deplacementV(game, UP, colonne);
+        sylvain->NbMoves++;
+        if (sylvain->nextMove[1] == 0) {
+            sylvain->nextMove[0] = colonne;
+            sylvain->nextMove[1] = 'U';
+        }
+
         Indice -= game->size;
     }
 
@@ -640,6 +367,7 @@ void colonneDroite(GAME* game, solveur* sylvain) {
             int k = 0;
             while (need &&( k < game->size)) {
                 deplacementH(game, LEFT, game->size - 1);
+                sylvain->NbMoves++;
                 need = false;
                 for (int j = 0; j < game->size - 2; j++) {
                     if (game->tab[(game->size * game->size) - 1] == sylvain->colright[j]) {
@@ -659,6 +387,7 @@ void colonneDroite(GAME* game, solveur* sylvain) {
                     int indCoressepondance = game->size - 1;
                     while (sylvain->correspondance[indCoressepondance] == 1) {
                         deplacementH(game, RIGHT, game->size - 1);
+                        sylvain->NbMoves++;
                         indCoressepondance--;
                     }
                 }
@@ -666,6 +395,7 @@ void colonneDroite(GAME* game, solveur* sylvain) {
             
         }
         deplacementV(game, DOWN, game->size - 1);
+        sylvain->NbMoves++;
         for (int j = 0; j < game->size; j++)
         {
             sylvain->correspondance[j] = 0;
@@ -677,8 +407,10 @@ void colonneDroite(GAME* game, solveur* sylvain) {
     for (int i = game->size - 3; i >= 0; i--) {
         while (game->tab[(game->size * game->size) - 1] != sylvain->colright[i]) {
             deplacementH(game, RIGHT, game->size  - 1);
+            sylvain->NbMoves++;
         }
         deplacementV(game, DOWN, game->size - 1);
+        sylvain->NbMoves++;
     }
 
 
@@ -688,15 +420,18 @@ void endgame(GAME* game, solveur* sylvain) {
     int valueKeyLock = game->temoin[((game->size) * (game->size - 1)) - 1];
     if (game->tab[(game->size * game->size) - 1] == valueKeyLock) {
         deplacementH(game, LEFT, game->size - 1);
+        sylvain->NbMoves++;
     }
     deplacementV(game, DOWN, game->size - 1);
+    sylvain->NbMoves++;
     if (game->tab[(game->size * game->size) - 1] == valueKeyLock) {
         deplacementH(game, LEFT, game->size - 1);
+        sylvain->NbMoves++;
     }
 
     int valueTopRight = game->tab[game->size - 1];
     int valueBottomRight = game->tab[(game->size) * (game->size) - 1];
-  
+
     int indice = (game->size) * (game->size - 1);
     while (game->temoin[indice] != valueBottomRight) {
         indice++;
@@ -714,14 +449,19 @@ void endgame(GAME* game, solveur* sylvain) {
     }
     for (int i = 0; i < delta; i++) {
         deplacementH(game, RIGHT, game->size - 1);
+        sylvain->NbMoves++;
     }
     deplacementV(game, UP, game->size - 1);
-    
+    sylvain->NbMoves++;
+
     while (!win(game)) {
         deplacementH(game, LEFT, game->size - 1);
+        sylvain->NbMoves++;
     }
 
 }
+
+
 
 void dispSylvain(GAME* game, solveur* sylvain) {
     for (int i = 0; i < (game->size) * (game->size); i++) {
@@ -760,7 +500,8 @@ int Solveur(GAME* game) {
         placement(game, sylvain, 4);
         colonneDroite(game, sylvain);
         endgame(game, sylvain);
-        //dispSylvain(game, sylvain);
+        printf("\n Next move : %d %c", sylvain->nextMove[0], sylvain->nextMove[1]);
+        printf("\n Nombre de coups : %d\n", sylvain->NbMoves);
     }
    
   
@@ -789,7 +530,6 @@ int Solveur(GAME* game) {
         placement(game, sylvain, 9);
         BottomRight(game, sylvain, FindIndice(game, sylvain, 10));
         placement(game, sylvain, 10);
-        //dispSylvain(game, sylvain);
         colonneDroite(game, sylvain);
         endgame(game, sylvain);
 
@@ -834,7 +574,6 @@ int Solveur(GAME* game) {
         placement(game, sylvain, 18);
         colonneDroite(game, sylvain);
         endgame(game, sylvain);
-        //dispSylvain(game, sylvain);
     }
     
 

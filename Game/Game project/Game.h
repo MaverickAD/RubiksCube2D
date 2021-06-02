@@ -57,6 +57,10 @@ typedef struct solveur {
 
     //tableau de corrspondance pour le placement de la dernière colonne 
     int* correspondance;
+
+    char* nextMove;
+
+    int NbMoves;
 }solveur;
 
 

@@ -28,6 +28,7 @@ class Game {
         this.board = board;
         this.witness = witness;
         this.isWin = false;
+    
         this.isStart = false;
 
         if (size * size !== this.board.length || this.board.length !== this.witness.length) { 
@@ -133,8 +134,8 @@ class Game {
         }
         this.isWin = true;
         if (this.isStart) {
-            
         
+        chronoStop();    
         const filter = document.querySelector("div.filter");
         filter.classList.toggle = "expanded"
         popup.style.opacity = "1"
@@ -186,12 +187,15 @@ for(let i = 0; i < a.size * 4; i++){
 }
 
 const temp = document.createElement("button");
+temp.id = "button_shuffle";
 temp.innerHTML = "SHUFFLE";
 temp.onclick = (() => {
     if (!a.isStart){ a.isStart = !a.isStart }
     a.shuffle(); a.render();
+    chronoStart();
     });
 
 shuffle.appendChild(temp);
 
 a.render();
+
