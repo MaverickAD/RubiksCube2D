@@ -1,4 +1,11 @@
 const htmlGame = document.querySelector("#game");
+
+document.addEventListener('DOMCententLoaded', function()
+    {
+        let urlPage = document.location.href;
+        console.log(urlPage);
+    }
+)
   
 const Direction = {
     Up: 'Up',
@@ -154,4 +161,7 @@ function drop(event) {
     const data = event.dataTransfer.getData("text")
     event.target.style.backgroundColor = data;
 }
+
+
+
 

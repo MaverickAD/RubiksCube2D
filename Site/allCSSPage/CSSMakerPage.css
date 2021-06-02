@@ -3,79 +3,7 @@
     margin-top: 0;
 }
 
-.skin_barre  /* on reprend le nom qu'on a mis dans 'class=' */
-{
-	width:30px;
-	height:300px;
-	/* on définit la taille du div (celle de l'image) */
 
-	top:20px;
-	left:23px;
-	/* et sa position initiale */
-
-	position:absolute;
-	/* le div n'est plus fixe mais libre */
-
-	background-image:url('../img/degrade.jpg');
-	/* on définit ici l'image à afficher dans le div */
-
-	cursor:s-resize;
-	/* et enfin on définit le curseur à afficher lorsque la souris passe sur ce div */
-}
-
-/* =====  de même pour les autres  ===== */
-
-.skin_curseur1
-{
-	width:45px;
-	height:15px;
-	position:absolute;
-	top:12px;
-	left:15px;
-	cursor:s-resize;
-	background-image:url('../img/curseur1.png');
-}
-
-.skin_carre
-{
-	width:300px;
-	height:300px;
-	position:absolute;
-	top:20px;left:60px;
-	cursor:move;
-	background-color:red;  /* on définit la couleur initiale du carré */
-	background-image:url('../img/degrade\_n-b.png');
-}
-
-.skin_curseur2
-{
-	width:20px;
-	height:20px;
-	position:absolute;
-	top:10px;
-	left:350px;
-	cursor:move;
-	background-image:url('../img/curseur2.png');
-}
-
-.skin_resultat
-{
-    color: white;
-	position:absolute;
-	top:330px;
-	left:60px;
-	border:1px solid black; /* dessine un cadre noir autour du 'input' et d'un pixel d'épaisseur */
-	background-color:white;
-	text-align:center;  /* on aligne le texte au centre */
-}
-
-.skin_bouton_OK
-{
-
-	position:absolute;
-	top:330px;
-	left:220px;
-}
 
 #color{
     /* border: 2px solid Green; */
@@ -84,9 +12,22 @@
 }
 
 #boite-palette{
-    margin-left: 5%;
+    margin-left: 15%;
     margin-bottom: 25%;
     margin-top: 30%;
+}
+
+#palette{
+	border: 2px solid black;
+	margin-bottom: 20%;
+	padding: 13%;
+	width: 10%;
+    margin-left: 35%;
+}
+
+#color-palette{
+    margin-right: 20%;
+    display: none;
 }
 
 .ligne-color{

@@ -183,20 +183,11 @@ function calcul(event){
   }
   
     function valider() {
-    console.log(r);
-    console.log(g);
-    console.log(b);
-  
-    window.close();
+      
+      // window.close();
+      
     //on ferme la palette
-  }
-
-  function valider2() {
-  
-    window.close();
-    //on ferme la palette
-  }
-  
+  }  
   
   // on initialise 2 variables qui nous permettront d'envoyer la couleur dans le bon champ.
   
@@ -207,15 +198,15 @@ function calcul(event){
   
     formulaire = formulaire_recupere;
     champ = champ_recupere;
-  
+    
     ma_palette = window.open("palette.html", "Palette_de_couleur", "height=380,width=400,status=0, scrollbars=0,menubar=0");
     // on ouvre la palette
   }
   
   function valid_couleur(couleur) //fonction appelée lorsqu'on valide la palette. On récupère la couleur.
   {
-  
+    
     document.forms[formulaire].elements[champ].value = couleur;
-  
+    
   }
-
+  

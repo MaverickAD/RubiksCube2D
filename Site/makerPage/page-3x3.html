@@ -9,7 +9,10 @@
     <link rel="stylesheet" href="../allCSSPage/CSSAllPages.css">
     <link rel="stylesheet" href="../allCSSPage/CSSMakerPage.css">
     <link rel="icon" type="image/png" sizes="16x16" href="../img/logo.png">
-    <script src="palette.js"></script>
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="program.js"></script>
+    <script src="colorPalettte.js"></script>
+
 </head>
 
 <body>
@@ -32,14 +35,19 @@
                 <h1><a href="../index.html">Rubik's Cube 2D</a></h1>
             </div>
         </header>
+       
 
         <main id="classic-main-mod">
             <div id="info-mod-shuffle"></div>
-            
             <div id="ligne-jeu">
                 <div id="color">
                     <div id="boite-palette">
-                        <input type="button" value="Ouvrir la palette" onclick="ouvrir_palette('mon_formulaire','champ_recevant_la_couleur')" /></div>
+                        <button id="tool-color-picker" title="Pipette">Ouvrir palette</i></button>
+                        <canvas id="color-palette" width="256" height="256"></canvas>
+                      </div>
+                        <div id="palette" class="color draggable" draggable="true">
+                            
+                        </div>
                         <div class="ligne-color">
                         <div class="color draggable" style="background-color:red" draggable="true" id="color1"></div>
                         <div class="color draggable" style="background-color:blue" draggable="true" id="color2"></div>
@@ -81,6 +89,7 @@
         </footer>
     </div>
     <script src="game-3x3.js"></script>
+    <script src="main.js"></script>
     
 </body>
 
