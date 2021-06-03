@@ -514,7 +514,7 @@ int Solveur(GAME* game) {
         placement(game, sylvain, 4);
         colonneDroite(game, sylvain);
         endgame(game, sylvain);
-        //printf("%d%c", sylvain->nextMove[0], sylvain->nextMove[1]);
+        printf("%d%c", sylvain->nextMove[0], sylvain->nextMove[1]);
     }
 
 
@@ -588,8 +588,60 @@ int Solveur(GAME* game) {
         colonneDroite(game, sylvain);
         //printf("%d%c", sylvain->nextMove[0], sylvain->nextMove[1]);
     }
-
-
+    if (game->size == 6) {
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 0));
+        placement(game, sylvain, 0);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 1));
+        placement(game, sylvain, 1);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 6));
+        placement(game, sylvain, 6);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 7));
+        placement(game, sylvain, 7);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 2));
+        placement(game, sylvain, 2);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 8));
+        placement(game, sylvain, 8);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 12));
+        placement(game, sylvain, 12);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 13));
+        placement(game, sylvain, 13);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 14));
+        placement(game, sylvain, 14);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 3));
+        placement(game, sylvain, 3);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 9));
+        placement(game, sylvain, 9);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 15));
+        placement(game, sylvain, 15);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 18));
+        placement(game, sylvain, 18);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 19));
+        placement(game, sylvain, 19);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 20));
+        placement(game, sylvain, 20);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 21));
+        placement(game, sylvain, 21);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 4));
+        placement(game, sylvain, 4);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 10));
+        placement(game, sylvain, 10);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 16));
+        placement(game, sylvain, 16);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 22));
+        placement(game, sylvain, 22);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 24));
+        placement(game, sylvain, 24);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 25));
+        placement(game, sylvain, 25);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 26));
+        placement(game, sylvain, 26);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 27));
+        placement(game, sylvain, 27);
+        BottomRight(game, sylvain, FindIndice(game, sylvain, 28));
+        placement(game, sylvain, 28);
+        colonneDroite(game, sylvain);
+    }
+    
 }
 
 
