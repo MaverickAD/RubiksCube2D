@@ -1,0 +1,57 @@
+#maker-mod{
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+}
+
+.sizeBox{
+    width: 50%;
+    min-width: 20rem;
+}
+
+.box{
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    margin: 1.3em auto;
+    border-radius: 25px;
+    box-shadow: 0 .5em gray;
+    width: 100%;
+    height: 5em;
+}
+
+.box:hover{
+    box-shadow: none;
+	position: relative;
+	top: .5em;
+}
+
+.box h2{
+    font-family: 'game2';
+    font-size: 2rem;
+    text-shadow: 2px 2px white;
+}
+
+#p3x3{
+    background-color: #FE017C;
+}
+
+#p4x4{
+    background-color: #FA5608;
+}
+
+#p5x5{
+    background-color: #FEBC0C;
+}
+
+#p6x6{
+    background-color: #46A346;
+}
+
+#p7x7{
+    background-color: #3B8DFE;
+}
+
+#p8x8{
+    background-color: #7B39EB;
+}

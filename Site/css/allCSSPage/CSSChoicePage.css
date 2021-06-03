@@ -1,0 +1,51 @@
+a{
+    width: auto;
+}
+
+.ligne{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    margin: 3em auto;
+}
+
+.box{
+    width: 30em;
+    height: 10em;
+    text-align: center;
+    margin: 0;
+    
+    border-radius: 25px;
+    box-shadow: 0 .5em gray; 
+    cursor: pointer;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.box:hover{
+    box-shadow: none;
+    position: relative;
+    top: .5em;
+}
+
+.box h2{
+    font-family: 'game2';
+    font-size: 2em;
+    width: 60%;
+    text-shadow: 2px 2px white;
+}
+
+#adventure{
+    background-color: #FA5608;
+}
+
+#classic{
+    background-color: #7B39EB;
+}
+
+#maker{
+    background-color: #FE017C;
+}

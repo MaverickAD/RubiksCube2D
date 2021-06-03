@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Page Classic-mode</title>
+    <link rel="stylesheet" href="../css/allCSSPage/CSSAllPages.css">
+    <link rel="stylesheet" href="../css/allCSSPage/CSSClassicPage.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="../img/logo.png">
+</head>
+<body>
+    <div class="nav-toggle" onclick="toggleNav()">
+        <div class="nav-toggle-bar"></div>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="adventurePage/adventure1.html" id="navBar_adventureTitle">Adventure mode</a></li>
+            <li><a href="classic_mode.html" id="navBar_classicTitle">Classic mode</a></li>
+            <li><a href="maker.html" id="navBar_makerTitle">Maker mode</a></li>
+            <li><a href="../index.html" id="navBar_instruction">Instruction</a></li>
+            <li><a href="#" id="navBar_darkMode" onclick="darkMode()">Dark mode</a></li>
+        </ul>
+    </nav>
+    <div class="filter" id="blur">
+        <header>
+            <div id="mainTitle">
+                <img src="../img/logo.png" alt="logo" width="100">
+                <h1><a href="../index.html">Rubik's Cube 2D</a></h1>
+            </div>
+        </header>
+
+        <main>
+            <div id="classic-mod">
+                <a href="classicPage/easy.php">
+                    <div class="box" id="easy"><h2>Easy</h2></div>
+                </a>
+
+                <a href="classicPage/medium.php">
+                    <div class="box" id="medium"><h2>Medium</h2></div>
+                </a>
+
+                <a href="classicPage/hard.php">
+                    <div class="box" id="hard"><h2>Hard</h2></div>
+                </a>
+            </div>
+        </main>
+
+        <footer>
+            <p>&copy;ISEN_Project_CIR1_2021 by TeamName</p>
+        </footer>
+    </div>
+    <script src="../js/JSToggleNav.js"></script>
+</body>
+</html>

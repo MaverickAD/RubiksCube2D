@@ -1,0 +1,146 @@
+#info-mod-shuffle{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3em;
+}
+
+#mod{
+    text-align: center;
+    font-size: 2rem;
+}
+
+#mod h3{
+    margin: 0.2em;
+}
+
+#shuffle{
+    display: flex;
+    justify-content: center;
+}
+
+#buttonShuffle{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 8em;
+    height: 3em;
+    border: 3px solid #000000;
+}
+
+#ligne-jeu{
+    display: flex;
+    justify-content: space-around;
+}
+
+#boite-pattern{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 20%;
+}
+
+#buttonsLeft, #buttonsRight{
+    flex-direction: column;
+}
+
+.buttonWithAction{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 0.1em;
+    border: 1px solid #000000;
+    border-radius: 50px;
+}
+
+#leaderboard{
+    border: 2px solid pink;
+    width: 20%;
+}
+
+#timer{
+    margin-bottom: 5%;
+}
+
+#petit-leaderboard{
+    border: 1px solid red;
+    padding-bottom: 10%;
+}
+
+.box {
+    display: flex;  
+    flex-wrap: wrap;
+}
+
+#popup{
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    position: absolute;
+    width: 75%;
+    height: 75%;
+    left: 10em;
+    right: 10em;
+    margin: auto;
+    background: #FFFFFF;
+    border: 3px solid #000000;
+    border-radius: 25px;
+    filter: none;
+    opacity: 0;
+    z-index: 1000;
+}
+
+.half-box1{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid red;
+    height: 50%;
+}
+
+.half-box1 h2{
+    font-family: 'game2';
+    font-size: 2rem;
+}
+
+.half-box2{
+    border: 1px solid red;
+    height: 50%;
+}
+
+.half-half-box1{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid blue;
+    height: 50%;
+}
+
+.half-half-box2{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    border: 1px solid blue;
+    height: 50%;
+}
+
+.half-half-half{
+    width: 33%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.half-half-box2 .text{
+    width: 75%;
+    height: 60%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border: 1px solid pink;
+}
+
+.half-half-box2 p{
+    font-size: 1.2rem;
+    font-weight: bold;
+}

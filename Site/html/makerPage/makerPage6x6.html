@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Maker Page - 6x6</title>
+    <link rel="stylesheet" href="../../css/allCSSPage/CSSAllPages.css">
+    <link rel="stylesheet" href="../../css/allCSSPage/CSSMakerPage.css">
+    <link rel="icon" type="image/png" sizes="16x16" href="../../img/logo.png">
+    <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+    <script src="../../js/makerPage/program.js"></script>
+    <script src="../../js/makerPage/colorPalettte.js"></script>
+</head>
+
+<body>
+    <div class="nav-toggle" onclick="toggleNav()">
+        <div class="nav-toggle-bar"></div>
+    </div>
+    <nav class="nav">
+        <ul>
+            <li><a href="../../html/adventurePage/adventure1.html" id="navBar_adventureTitle">Adventure mode</a></li>
+            <li><a href="../classic_mode.html" id="navBar_classicTitle">Classic mode</a></li>
+            <li><a href="../maker.html" id="navBar_makerTitle">Maker mode</a></li>
+            <li><a href="../../index.html" id="navBar_instruction">Instruction</a></li>
+            <li><a href="#" id="navBar_darkMode">Dark mode</a></li>
+        </ul>
+    </nav>
+    <div class="filter" id="blur">
+        <header>
+            <div id="mainTitle">
+                <img src="../../img/logo.png" alt="logo" width="100">
+                <h1><a href="../../index.html">Rubik's Cube 2D</a></h1>
+            </div>
+        </header>
+
+        <main id="classic-main-mod">
+            <div id="info-mod-shuffle"></div>
+            <div id="ligne-jeu">
+                <div id="color">
+                    <div id="boite-palette">
+                        <button id="tool-color-picker" title="Pipette">Ouvrir palette</i></button>
+                        <canvas id="color-palette" width="256" height="256"></canvas>
+                      </div>
+                        <div id="palette"  class="color draggable" draggable="true">
+                            
+                        </div>
+                        <div class="ligne-color">
+                        <div class="color draggable" style="background-color:red" draggable="true" id="color1"></div>
+                        <div class="color draggable" style="background-color:blue" draggable="true" id="color2"></div>
+                    </div>
+                    <div class="ligne-color">
+                        <div class="color draggable" style="background-color:brown" draggable="true" id="color3"></div>
+                        <div class="color draggable" style="background-color:yellow" draggable="true" id="color4"></div>
+                    </div>
+                    <div class="ligne-color">
+                        <div class="color draggable" style="background-color:purple" draggable="true" id="color5"></div>
+                        <div class="color draggable" style="background-color:orange" draggable="true" id="color6"></div>
+                    </div>
+                    <div class="ligne-color">
+                        <div class="color draggable" style="background-color:green" draggable="true" id="color7"></div>
+                        <div class="color draggable" style="background-color:grey" draggable="true" id="color8"></div>
+                    </div>
+                    <div class="ligne-color">
+                        <div class="color draggable" style="background-color:white" draggable="true" id="color9"></div>
+                        <div class="color draggable" style="background-color:black" draggable="true" id="color10"></div>
+                    </div>
+                </div>
+
+                <div id="boite-jeu-maker">
+                    <div id="petite-boite-jeu-maker">
+                        <section id="gameandwitness">
+                            <div>
+                                <div class="box" id="game"></div>
+                            </div>
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+            <div id="confirm"><a href="#">CONFIRM</a></div>
+        </main>
+
+        <footer>
+            <p>&copy;ISEN_Project_CIR1_2021 by TeamName</p>
+        </footer>
+    </div>
+    <script src="../../js/makerPage/game-6x6.js"></script>
+    <script src="../../js/makerPage/main.js"></script>
+    <script src="../../js/JSToggleNav.js"></script>
+</body>
+
+</html>
