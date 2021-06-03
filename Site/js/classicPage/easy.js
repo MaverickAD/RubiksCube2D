@@ -112,7 +112,7 @@ class Game {
     }
 
     shuffle() {
-        for (let i = 0; i < 100; i++)
+        for (let i = 0; i < 1; i++)
         {
             let alea =  Math.floor(Math.random() * 4);
             let indicealea = Math.floor(Math.random() * this.size);
@@ -184,8 +184,8 @@ for(let i = 0; i < a.size * 4; i++){
     const mfia = Math.floor(i / a.size);
 
     temp.classList.add("buttonWithAction");
-    temp.style.width = sizeIntoHtml + "em";
-    temp.style.height = sizeIntoHtml + "em";
+    temp.style.width = sizeIntoHtml - 1 + "em";
+    temp.style.height = sizeIntoHtml - 1 + "em";
 
     switch(mfia) {
         case 0:
@@ -250,15 +250,15 @@ temp.id = "buttonShuffle";
 temp.innerHTML = "SHUFFLE";
 temp.onclick = (() => {
     if (!a.isStart){ a.isStart = !a.isStart }
-    a.shuffle(); a.render();   
-    chronoReset();
+    a.shuffle(); a.render();
+    chronoStart();
     });
 
 shuffle.appendChild(temp);
 
 a.render();
 
-const leaderBoard = document.querySelector("#leaderboard")
+const leaderBoard = document.querySelector("#petit-leaderboard")
 
 fetch('../../leaderboard/leaderboardEasy.txt')
   .then(response => response.text())

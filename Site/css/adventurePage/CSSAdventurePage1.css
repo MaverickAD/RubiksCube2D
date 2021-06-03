@@ -43,11 +43,20 @@
     flex-direction: column;
 }
 
+#buttonsTop, #buttonsBottom, #buttonsLeft, #buttonsRight{
+    justify-content: space-around;
+}
+
+#cornerTopLeft, #cornerTopRight, #cornerBottomLeft, #cornerBottomRight{
+    border: 1px solid red;
+}
+
 .buttonWithAction{
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0.1em;
+    padding: 0;
     border: 1px solid #000000;
     border-radius: 50px;
 }
@@ -63,7 +72,7 @@
 
 #petit-leaderboard{
     border: 1px solid red;
-    padding-bottom: 10%;
+    /* padding-bottom: 10%; */
 }
 
 .box {

@@ -11,6 +11,8 @@ const cornerBottomLeft = document.getElementById("cornerBottomLeft");
 const cornerBottomRight = document.getElementById("cornerBottomRight");
 const popup = document.querySelector("div#popup");
 
+console.log(popup);
+
 const sizeIntoHtml = 5;
 
 const Direction = {
@@ -234,8 +236,8 @@ temp.id = "buttonShuffle";
 temp.innerHTML = "SHUFFLE";
 temp.onclick = (() => {
     if (!a.isStart){ a.isStart = !a.isStart }
-    a.shuffle(); a.render();   
-    chronoReset();
+    a.shuffle(); a.render();
+    chronoStart();
     });
 
 shuffle.appendChild(temp);

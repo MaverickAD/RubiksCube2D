@@ -237,7 +237,7 @@ temp.innerHTML = "SHUFFLE";
 temp.onclick = (() => {
     if (!a.isStart){ a.isStart = !a.isStart }
     a.shuffle(); a.render();
-    chronoReset();
+    chronoStart();
     });
 
 shuffle.appendChild(temp);

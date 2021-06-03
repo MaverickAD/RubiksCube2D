@@ -120,7 +120,7 @@ class Game {
     }
 
     shuffle() {
-        for (let i = 0; i < 100; i++)
+        for (let i = 0; i < 1; i++)
         {
             let alea =  Math.floor(Math.random() * 4);
             let indicealea = Math.floor(Math.random() * this.size);
@@ -259,7 +259,7 @@ temp.innerHTML = "SHUFFLE";
 temp.onclick = (() => {
     if (!a.isStart){ a.isStart = !a.isStart }
     a.shuffle(); a.render();
-    chronoReset();
+    chronoStart();
     });
 
 shuffle.appendChild(temp);
