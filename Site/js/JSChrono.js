@@ -33,7 +33,8 @@ function format_number(number) {
 }
 
 function afficherChrono(hh, mm, ss, cs) {
-  document.getElementById('chronotime').innerHTML = hh+':'+format_number(mm)+':'+format_number(ss)+','+format_number(cs);
+  var time = document.getElementById('chronotime')
+  time.innerHTML = hh+':'+format_number(mm)+':'+format_number(ss)+','+format_number(cs);
 }
 
 function chronoStartStop() {
@@ -62,8 +63,8 @@ function chronoReset() {
 
 document.addEventListener("DOMContentLoaded",function() {
   // Définition des variables bouton
-  var btnStart = document.getElementById('button_shuffle');
-  var btnReset = document.getElementById('button_shuffle');
+  var btnStart = document.getElementById('buttonShuffle');
+  var btnReset = document.getElementById('buttonShuffle');
   // Ajout des écouteurs d'événements sur les boutons
 	btnStart.addEventListener('click', chronoStartStop);
   btnReset.addEventListener('click', chronoReset);

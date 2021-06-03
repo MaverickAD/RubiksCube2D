@@ -11,7 +11,7 @@ const cornerBottomLeft = document.getElementById("cornerBottomLeft");
 const cornerBottomRight = document.getElementById("cornerBottomRight");
 const popup = document.querySelector("div#popup");
 
-const sizeIntoHtml = 5;
+const sizeIntoHtml = 3;
 
 let game_size = 4;
 const maxSize = 2;
@@ -150,7 +150,7 @@ class Game {
         htmlGame.style.width = (this.size * sizeIntoHtml).toString() + "em";
         htmlGame.style.height = (this.size * sizeIntoHtml).toString() + "em";
         htmlGame.style.margin = (this.size * 0.1).toString() + "em";
-        htmlWitness.style.width = (this.size * 3).toString() + "em";
+        htmlWitness.style.width = (this.size * 2).toString() + "em";
         while (htmlGame.hasChildNodes()) htmlGame.removeChild(htmlGame.firstChild);
 
         this.board.forEach(elem => {
@@ -169,8 +169,8 @@ class Game {
             const temp = document.createElement("div");
             temp.className += "child-box-witness";
             temp.style.backgroundColor = elem;
-            temp.style.width = sizeIntoHtml - 2 + "em";
-            temp.style.height = sizeIntoHtml - 2 + "em";
+            temp.style.width = sizeIntoHtml - 1 + "em";
+            temp.style.height = sizeIntoHtml - 1 + "em";
             temp.style.border = "solid black"
             htmlWitness.appendChild(temp);
         });
@@ -185,6 +185,9 @@ class Game {
             filter.classList.toggle = "expanded"
             popup.style.opacity = "1"
             popup.style.display = "flex"
+            var tps = document.getElementById("chronotime").innerHTML;
+            console.log(tps);
+            document.querySelector("div.chronotime").innerHTML = tps;
         }
     }
 }

@@ -61,8 +61,9 @@ if (array_key_exists("Pseudo", $_POST)) {
                     </div>
                     <div class="half-box2">
                         <div class="half-half-box1">
-                            <p>Your score :</p>
-                            <p>Your time:</p>
+                        <p>Your score :</p>
+                            Your time: <div class="chronotime">0:00:00,00</div>
+
                             <form action="easy.php" method="post">
                                 <TR><TD>Pseudo :</TD><TD><INPUT Type="Text" NAME="Pseudo" ID="Pseudo"></INPUT></TD></TR>
                                 <input type="submit" value="Envoyer" />

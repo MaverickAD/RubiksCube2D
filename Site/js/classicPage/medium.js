@@ -173,6 +173,9 @@ class Game {
             filter.classList.toggle = "expanded"
             popup.style.opacity = "1"
             popup.style.display = "flex"
+            var tps = document.getElementById("chronotime").innerHTML;
+            console.log(tps);
+            document.querySelector("div.chronotime").innerHTML = tps;
         }
     }
 }
