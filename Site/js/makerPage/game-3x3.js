@@ -1,4 +1,5 @@
 const htmlGame = document.querySelector("#game");
+const confirm = document.querySelector("#confirm")
 
 document.addEventListener('DOMCententLoaded', function()
     {
@@ -163,5 +164,14 @@ function drop(event) {
 }
 
 
-
+confirm.onclick = (
+    () => {
+        const plate = document.querySelectorAll(".child-box-game")
+        let res = ""
+        plate.forEach(element => {
+            res += element.style.backgroundColor + ";"
+        });
+        res = res.replace(/\s+/g, "")
+        window.location.href = "../adventurePage/adventure1.html?a=" + res   
+})
 

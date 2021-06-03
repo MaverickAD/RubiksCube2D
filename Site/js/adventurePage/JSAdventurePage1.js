@@ -11,6 +11,7 @@ const cornerBottomLeft = document.getElementById("cornerBottomLeft");
 const cornerBottomRight = document.getElementById("cornerBottomRight");
 const popup = document.querySelector("div#popup");
 
+
 const sizeIntoHtml = 5;
 
 const Direction = {
@@ -155,13 +156,24 @@ class Game {
     }
 }
 
-let a = new Game(["#3b8dfe","#7b39eb","#febc0c"
-                 ,"#fe017c","#3b8dfe","#fa5608"
-                 ,"#febc0c","#7b39eb","#fe017c"]
 
-                 ,["#3b8dfe","#7b39eb","#febc0c"
-                 ,"#fe017c","#3b8dfe","#fa5608"
-                 ,"#febc0c","#7b39eb","#fe017c"], 3);
+
+if (location.search === "") {
+    a = new Game(["#3b8dfe","#7b39eb","#febc0c"
+                     ,"#fe017c","#3b8dfe","#fa5608"
+                     ,"#febc0c","#7b39eb","#fe017c"]
+
+                     ,["#3b8dfe","#7b39eb","#febc0c"
+                     ,"#fe017c","#3b8dfe","#fa5608"
+                  ,"#febc0c","#7b39eb","#fe017c"], 3);
+}
+
+else {
+    const board = location.search.slice(3).split(";")
+    board.pop()
+    const board_ = board.slice()
+    a = new Game(board, board_, 3)
+}
 
 for(let i = 0; i < a.size * 4; i++){
     const temp = document.createElement("div");
