@@ -158,19 +158,28 @@ class Game {
     }
 }
 
-let a = new Game(["#000000","#ff0000","#ffffff","#ffffff","#00ff00","#000000"
-,"#ff0000","#ff0000","#ff0000","#00ff00","#00ff00","#00ff00"
-,"#ffffff","#ff0000","#454545","#454545","#00ff00","#ffffff"
-,"#ffffff","#0000ff","#454545","#454545","#ffff00","#ffffff"
-,"#0000ff","#0000ff","#0000ff","#ffff00","#ffff00","#ffff00"
-,"#000000","#0000ff","#ffffff","#ffffff","#ffff00","#000000"]
 
-, ["#000000","#ff0000","#ffffff","#ffffff","#00ff00","#000000"
-,"#ff0000","#ff0000","#ff0000","#00ff00","#00ff00","#00ff00"
-,"#ffffff","#ff0000","#454545","#454545","#00ff00","#ffffff"
-,"#ffffff","#0000ff","#454545","#454545","#ffff00","#ffffff"
-,"#0000ff","#0000ff","#0000ff","#ffff00","#ffff00","#ffff00"
-,"#000000","#0000ff","#ffffff","#ffffff","#ffff00","#000000"], 6);
+if (location.search == "") {
+    a = new Game(["#000000","#ff0000","#ffffff","#ffffff","#00ff00","#000000"
+                ,"#ff0000","#ff0000","#ff0000","#00ff00","#00ff00","#00ff00"
+        ,"#ffffff","#ff0000","#454545","#454545","#00ff00","#ffffff"
+    ,"#ffffff","#0000ff","#454545","#454545","#ffff00","#ffffff"
+    ,"#0000ff","#0000ff","#0000ff","#ffff00","#ffff00","#ffff00"
+    ,"#000000","#0000ff","#ffffff","#ffffff","#ffff00","#000000"]
+
+    , ["#000000","#ff0000","#ffffff","#ffffff","#00ff00","#000000"
+    ,"#ff0000","#ff0000","#ff0000","#00ff00","#00ff00","#00ff00"
+    ,"#ffffff","#ff0000","#454545","#454545","#00ff00","#ffffff"
+    ,"#ffffff","#0000ff","#454545","#454545","#ffff00","#ffffff"
+    ,"#0000ff","#0000ff","#0000ff","#ffff00","#ffff00","#ffff00"
+    ,"#000000","#0000ff","#ffffff","#ffffff","#ffff00","#000000"], 6);
+
+} else {
+    const board = location.search.slice(3).split(";")
+    board.pop()
+    const board_ = board.slice()
+    a = new Game(board, board_, 6)
+}
 
 for(let i = 0; i < a.size * 4; i++){
     const temp = document.createElement("div");

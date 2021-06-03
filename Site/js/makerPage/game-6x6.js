@@ -1,4 +1,5 @@
 const htmlGame = document.querySelector("#game");
+const confirm = document.querySelector("#confirm")
   
 const Direction = {
     Up: 'Up',
@@ -160,3 +161,15 @@ function drop(event) {
     const data = event.dataTransfer.getData("text")
     event.target.style.backgroundColor = data;
 }
+
+
+confirm.onclick = (
+    () => {
+        const plate = document.querySelectorAll(".child-box-game")
+        let res = ""
+        plate.forEach(element => {
+            res += element.style.backgroundColor + ";"
+        });
+        res = res.replace(/\s+/g, "")
+        window.location.href = "../adventurePage/adventure4.html?a=" + res   
+})

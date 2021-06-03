@@ -13,6 +13,7 @@ const popup = document.querySelector("div#popup");
 
 const sizeIntoHtml = 5;
 
+
 const Direction = {
     Up: 'Up',
     Down: 'Down',
@@ -158,7 +159,9 @@ class Game {
     }
 }
 
-let a = new Game(["#0000ff","#0000ff","#00ff00","#00ff00"
+
+if (location.search == "") {
+    a = new Game(["#0000ff","#0000ff","#00ff00","#00ff00"
                  ,"#0000ff","#000000","#000000","#00ff00"
                  ,"#ffff00","#000000","#000000","#ff0000"
                  ,"#ffff00","#ffff00","#ff0000","#ff0000"]
@@ -167,6 +170,13 @@ let a = new Game(["#0000ff","#0000ff","#00ff00","#00ff00"
                  ,"#0000ff","#000000","#000000","#00ff00"
                  ,"#ffff00","#000000","#000000","#ff0000"
                  ,"#ffff00","#ffff00","#ff0000","#ff0000"], 4);
+} else {
+    const board = location.search.slice(3).split(";")
+    board.pop()
+    const board_ = board.slice()
+    a = new Game(board, board_, 4)
+}
+
 
 for(let i = 0; i < a.size * 4; i++){
     const temp = document.createElement("div");
