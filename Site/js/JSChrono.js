@@ -60,15 +60,6 @@ function chronoReset() {
   afficherChrono(hh, mm, ss, cs);
 }
 
-document.addEventListener("DOMContentLoaded",function() {
-  // Définition des variables bouton
-  var btnStart = document.getElementById('button_shuffle');
-  var btnReset = document.getElementById('button_shuffle');
-  // Ajout des écouteurs d'événements sur les boutons
-	btnStart.addEventListener('click', chronoStartStop);
-  btnReset.addEventListener('click', chronoReset);
-});
-
 function chronoStop() {
     //console.log('Chrono stop');
     window.clearInterval(timer);

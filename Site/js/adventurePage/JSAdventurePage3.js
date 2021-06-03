@@ -11,7 +11,7 @@ const cornerBottomLeft = document.getElementById("cornerBottomLeft");
 const cornerBottomRight = document.getElementById("cornerBottomRight");
 const popup = document.querySelector("div#popup");
 
-const sizeIntoHtml = 5;
+const sizeIntoHtml = 4;
 
 const Direction = {
     Up: 'Up',
@@ -135,8 +135,8 @@ class Game {
             const temp = document.createElement("div");
             temp.className += "child-box-witness";
             temp.style.backgroundColor = elem;
-            temp.style.width = sizeIntoHtml - 2 + "em";
-            temp.style.height = sizeIntoHtml - 2 + "em";
+            temp.style.width = sizeIntoHtml - 1 + "em";
+            temp.style.height = sizeIntoHtml - 1 + "em";
             temp.style.border = "solid black"
             htmlWitness.appendChild(temp);
         });
