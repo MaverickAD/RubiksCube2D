@@ -11,10 +11,7 @@ const cornerBottomLeft = document.getElementById("cornerBottomLeft");
 const cornerBottomRight = document.getElementById("cornerBottomRight");
 const popup = document.querySelector("div#popup");
 
-<<<<<<< HEAD
-console.log(popup);
-=======
->>>>>>> 786607284ec70730e56ba0577a2f586a6f5c97cf
+
 
 const sizeIntoHtml = 5;
 

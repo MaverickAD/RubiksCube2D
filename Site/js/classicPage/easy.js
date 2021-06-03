@@ -1,3 +1,9 @@
+
+
+
+
+
+
 const htmlGame = document.querySelector("#game");
 const htmlWitness = document.querySelector("#witness");
 const shuffle = document.getElementById("shuffle");
@@ -12,6 +18,8 @@ const cornerBottomRight = document.getElementById("cornerBottomRight");
 const popup = document.querySelector("div#popup");
 
 const sizeIntoHtml = 5;
+var variable_js = 5;
+var variable = 10;
 
 let game_size = 4;
 const maxSize = 2;
@@ -112,6 +120,7 @@ class Game {
     }
 
     shuffle() {
+    
         for (let i = 0; i < 1; i++)
         {
             let alea =  Math.floor(Math.random() * 4);
@@ -132,6 +141,9 @@ class Game {
         htmlGame.style.margin = (this.size * 0.1).toString() + "em";
         htmlWitness.style.width = (this.size * 3).toString() + "em";
         while (htmlGame.hasChildNodes()) htmlGame.removeChild(htmlGame.firstChild);
+        afficherScore();
+        afficherScoreRR()
+        
 
         this.board.forEach(elem => {
             const temp = document.createElement("div");
@@ -165,9 +177,6 @@ class Game {
             filter.classList.toggle = "expanded"
             popup.style.opacity = "1"
             popup.style.display = "flex"
-            var tps = document.getElementById("chronotime").innerHTML;
-            console.log(tps);
-            document.querySelector("div.chronotime").innerHTML = tps;
         }
     }
 }
@@ -185,33 +194,34 @@ let a = new Game(res, res_, finalSize)
 for(let i = 0; i < a.size * 4; i++){
     const temp = document.createElement("button");
     const mfia = Math.floor(i / a.size);
-
+   
     temp.classList.add("buttonWithAction");
-    temp.style.width = sizeIntoHtml - 1 + "em";
-    temp.style.height = sizeIntoHtml - 1 + "em";
+    temp.style.width = sizeIntoHtml + "em";
+    temp.style.height = sizeIntoHtml + "em";
 
     switch(mfia) {
         case 0:
             temp.innerHTML = `<i class="fas fa-chevron-up"></i>`;
-            temp.onclick = (() => {a.nextMove(UP, i % a.size);a.render();});
+            temp.onclick = (() => {if (a.isStart) {a.score++};a.nextMove(UP, i % a.size);a.render();});
             temp.id = `${UP}${i % a.size + 1}`;
             buttonsTop.appendChild(temp);
             break;
+            
         case 1:
             temp.innerHTML = `<i class="fas fa-chevron-down"></i>`;
-            temp.onclick = (() => { a.nextMove(DOWN, i % a.size); a.render(); });
+            temp.onclick = (() => { if (a.isStart) {a.score++};a.nextMove(DOWN, i % a.size); a.render(); });
             temp.id = `${DOWN}${i % a.size + 1}`;
             buttonsBottom.appendChild(temp);
             break;
         case 2:
             temp.innerHTML = `<i class="fas fa-chevron-left"></i>`;
-            temp.onclick = (() => { a.nextMove(LEFT, i % a.size); a.render(); });
+            temp.onclick = (() => {if (a.isStart) {a.score++}; a.nextMove(LEFT, i % a.size); a.render(); });
             temp.id = `${LEFT}${i % a.size + 1}`;
             buttonsLeft.appendChild(temp);
             break;
         case 3:
             temp.innerHTML = `<i class="fas fa-chevron-right"></i>`;
-            temp.onclick = (() => { a.nextMove(RIGHT, i % a.size); a.render(); });
+            temp.onclick = (() => { if (a.isStart) {a.score++};a.nextMove(RIGHT, i % a.size); a.render(); });
             temp.id = `${RIGHT}${i % a.size + 1}`;
             buttonsRight.appendChild(temp);
             break;
@@ -253,7 +263,8 @@ temp.id = "buttonShuffle";
 temp.innerHTML = "SHUFFLE";
 temp.onclick = (() => {
     if (!a.isStart){ a.isStart = !a.isStart }
-    a.shuffle(); a.render();
+    a.score = 0
+    a.shuffle(); a.render();    
     chronoStart();
     });
 
@@ -261,13 +272,15 @@ shuffle.appendChild(temp);
 
 a.render();
 
-const leaderBoard = document.querySelector("#petit-leaderboard")
+
+const leaderBoard = document.querySelector("#leaderboard")
 
 fetch('../../leaderboard/leaderboardEasy.txt')
   .then(response => response.text())
   .then(data => data.split(";"))
   .then((data) =>
     data.forEach(element => {
+       
         let temp = document.createElement("div");
         
         temp.innerHTML = element;
@@ -277,7 +290,12 @@ fetch('../../leaderboard/leaderboardEasy.txt')
     })
 )
 
-function myJavascriptFunction() { 
-  var javascriptVariable = score
-  window.location.href = "myphpfile.php?name=" + score; 
-}
+function afficherScore(hhh) {
+    document.getElementById('Score').innerHTML = a.score+';';
+  }
+
+  function afficherScoreRR(hhh) {
+    document.getElementById('ScoreRR').innerHTML = a.score;
+  }
+
+  
