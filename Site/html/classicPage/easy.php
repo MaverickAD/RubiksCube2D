@@ -22,9 +22,12 @@ if (array_key_exists("Pseudo", $_POST)) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Page Easy</title>
     <link rel="stylesheet" href="../../css/allCSSPage/CSSAllPages.css">
-    <link rel="stylesheet" href="../../css/adventurePage/CSSAdventurePage1.css">
+    <link rel="stylesheet" href="../../css/allCSSPage/CSSGamePage.css">
     <link rel="icon" type="image/png" sizes="16x16" href="../../img/logo.png">
     <script src="https://kit.fontawesome.com/65f54486e0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -61,35 +64,30 @@ if (array_key_exists("Pseudo", $_POST)) {
                     </div>
                     <div class="half-box2">
                         <div class="half-half-box1">
-                            <p>Your score : <div id="Score">5</div>
-                        <form name="Scoreform">
-                        </form></p>
-                            Your time:<div class="chronotime">0:00:00,00</div>
-                        <form name="chronoForm">
-                        </form>
-                            <form action="easy.php" method="post">
-                                <TR><TD>Pseudo :</TD><TD><INPUT Type="Text" NAME="Pseudo" ID="Pseudo"></INPUT></TD></TR>
-                                <input type="submit" value="Envoyer" />
-                            </form>
-                            
-                        </div>
-                    <!-- <div class="half-half-box2">
-                            
-                            <div class="half-half-half">
-                                <a href="">
-                                    <div class="text" >
-
-                                        <p>Restartp>
-                                        
-                                    </div>
-                                </a>
+                            <div class="half-half-half-box1">
+                                <div class="half-half-half-half-box1">
+                                    <p>Your score : <span id="Score">5</span></p>
+                                    <form name="Scoreform"></form>
+                                </div>
+                                <div class="half-half-half-half-box2">
+                                    <p>Your time : <span class="chronotime">0:00:00,00</span></p>
+                                    <form name="chronoForm"></form>
+                                </div>
                             </div>
-                            
+                            <div class="half-half-half-box2">
+                                <form action="easy.php" method="post">
+                                    <TR><TD>Pseudo :</TD><TD><INPUT Type="Text" NAME="Pseudo" ID="Pseudo"></INPUT></TD></TR>
+                                    <input type="submit" value="Envoyer"/>
+                                </form>
+                            </div>
                         </div>
--->
-
-
-
+                        <div class="half-half-box2">
+                            <a href="">
+                                <div class="text">
+                                    <p>Restart</p>
+                                </div>
+                            </a>
+                        </div>
                     </div>
                 </div>
 

@@ -11,9 +11,7 @@ const cornerBottomLeft = document.getElementById("cornerBottomLeft");
 const cornerBottomRight = document.getElementById("cornerBottomRight");
 const popup = document.querySelector("div#popup");
 
-const sizeIntoHtml = 5;
-var variable_js = 5;
-var variable = 10;
+const sizeIntoHtml = 3.5;
 
 let game_size = 4;
 const maxSize = 2;
@@ -24,8 +22,17 @@ const colors = [
     "#00FF00",
     "#FF0000",
     "#FF00FF",
-    "#00BFFF"
+    "#00BFFF",
+    "#A0522D",
+    "#F0FFFF",
+    "#ADFF2F",
+    "#A52A2A",
+    "#8B008B",
+    "#DDA0DD",
+    "#696969",
+    "#FFFFF0"
 ]
+
 
 const Direction = {
     Up: 'Up',
@@ -56,7 +63,6 @@ class Game {
             this.board = undefined;
             this.size = undefined;
             this.witness = undefined;
-            
         }
         else { 
             this.size = size;
@@ -114,7 +120,6 @@ class Game {
     }
 
     shuffle() {
-    
         for (let i = 0; i < 1; i++)
         {
             let alea =  Math.floor(Math.random() * 4);
@@ -133,11 +138,10 @@ class Game {
         htmlGame.style.width = (this.size * sizeIntoHtml).toString() + "em";
         htmlGame.style.height = (this.size * sizeIntoHtml).toString() + "em";
         htmlGame.style.margin = (this.size * 0.1).toString() + "em";
-        htmlWitness.style.width = (this.size * 3).toString() + "em";
+        htmlWitness.style.width = (this.size * 2.5).toString() + "em";
         while (htmlGame.hasChildNodes()) htmlGame.removeChild(htmlGame.firstChild);
         afficherScore();
-        afficherScoreRR()
-        
+        afficherScoreRR();
 
         this.board.forEach(elem => {
             const temp = document.createElement("div");
@@ -155,8 +159,8 @@ class Game {
             const temp = document.createElement("div");
             temp.className += "child-box-witness";
             temp.style.backgroundColor = elem;
-            temp.style.width = sizeIntoHtml - 2 + "em";
-            temp.style.height = sizeIntoHtml - 2 + "em";
+            temp.style.width = sizeIntoHtml - 1 + "em";
+            temp.style.height = sizeIntoHtml - 1 + "em";
             temp.style.border = "solid black"
             htmlWitness.appendChild(temp);
         });
@@ -173,25 +177,25 @@ class Game {
             popup.style.display = "flex"
             var tps = document.getElementById("chronotime").innerHTML;
             console.log(tps);
-            document.querySelector("div.chronotime").innerHTML = tps;
+            document.querySelector("span.chronotime").innerHTML = tps;
         }
     }
 }
 
 let res = []
 for (let index = 0; index < finalSize*finalSize; index++) {
-    let color = colors[Math.floor(Math.random() * 5)]
+    let color = colors[Math.floor(Math.random() * 12)]
     res.push(color)
 }
 
-const res_ = res.slice()
+let res_ = res.slice();
 
 let a = new Game(res, res_, finalSize)
 
 for(let i = 0; i < a.size * 4; i++){
     const temp = document.createElement("button");
     const mfia = Math.floor(i / a.size);
-   
+    
     temp.classList.add("buttonWithAction");
     temp.style.width = sizeIntoHtml + "em";
     temp.style.height = sizeIntoHtml + "em";
@@ -223,6 +227,7 @@ for(let i = 0; i < a.size * 4; i++){
             buttonsRight.appendChild(temp);
             break;
     }
+
 
     //buttons.appendChild(temp);
 }
@@ -260,8 +265,8 @@ temp.id = "buttonShuffle";
 temp.innerHTML = "SHUFFLE";
 temp.onclick = (() => {
     if (!a.isStart){ a.isStart = !a.isStart }
-    a.score = 0
-    a.shuffle(); a.render();    
+    a.score = 0;
+    a.shuffle(); a.render();
     chronoStart();
     });
 
@@ -269,15 +274,13 @@ shuffle.appendChild(temp);
 
 a.render();
 
-
 const leaderBoard = document.querySelector("#leaderboard")
 
-fetch('../../leaderboard/leaderboardEasy.txt')
+fetch('../../leaderboard/leaderboardMedium.txt')
   .then(response => response.text())
   .then(data => data.split(";"))
   .then((data) =>
     data.forEach(element => {
-       
         let temp = document.createElement("div");
         
         temp.innerHTML = element;
@@ -294,5 +297,3 @@ function afficherScore(hhh) {
   function afficherScoreRR(hhh) {
     document.getElementById('ScoreRR').innerHTML = a.score;
   }
-
-  

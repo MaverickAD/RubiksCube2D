@@ -10,6 +10,9 @@
     <link rel="stylesheet" href="../../css/adventurePage/CSSAdventurePage1.css">
     <link rel="icon" type="image/png" sizes="20x20" href="../../img/logo.png">
     <script src="https://kit.fontawesome.com/65f54486e0.js" crossorigin="anonymous"></script>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+
 </head>
 
 <body>
@@ -45,29 +48,36 @@
                     </div>
                     <div class="half-box2">
                         <div class="half-half-box1">
-                            <p>Your score :</p>
-                            Your time: <div class="chronotime">0:00:00,00</div>
-                               
+                            <div class="half-half-half-box1">
+                                <div class="half-half-half-half-box1">
+                                    <p>Your score : <span id="Score">5</span></p>
+                                    <form name="Scoreform"></form>
+                                </div>
+                                <div class="half-half-half-half-box2">
+                                    <p>Your time : <span class="chronotime">0:00:00,00</span></p>
+                                    <form name="chronoForm"></form>
+                                </div>
+                            </div>
                         </div>
                         <div class="half-half-box2">
-                            <div class="half-half-half">
+                            <!-- <div class="half-half-half-box1">
                                 <a href="">
                                     <div class="text">
-                                        <p>Previous level</p>
+                                        <p></p>
                                     </div>
                                 </a>
-                            </div>
-                            <div class="half-half-half">
+                            </div> -->
+                            <div class="half-half-half-box1">
                                 <a href="">
                                     <div class="text">
                                         <p>Restart</p>
                                     </div>
                                 </a>
                             </div>
-                            <div class="half-half-half">
-                                <a href="adventure2.html">
+                            <div class="half-half-half-box1">
+                                <a id="next-level" href="adventure2.html">
                                     <div class="text">
-                                        <p>Next level</p>
+                                        <p>Next Level</p>
                                     </div>
                                 </a>
                             </div>

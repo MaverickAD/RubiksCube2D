@@ -1,3 +1,6 @@
+body{
+    font-family: 'Fira Code', monospace;
+}
 #info-mod-shuffle{
     display: flex;
     flex-direction: column;
@@ -43,17 +46,23 @@
     flex-direction: column;
 }
 
+#buttonsTop, #buttonsBottom, #buttonsLeft, #buttonsRight{
+    justify-content: space-around;
+}
+
+
 .buttonWithAction{
     display: flex;
     justify-content: center;
     align-items: center;
     margin: 0.1em;
+    padding: 0;
     border: 1px solid #000000;
     border-radius: 50px;
 }
 
 #leaderboard{
-    border: 2px solid pink;
+    /* border: 2px solid pink; */
     width: 20%;
 }
 
@@ -61,10 +70,6 @@
     margin-bottom: 5%;
 }
 
-#petit-leaderboard{
-    border: 1px solid red;
-    padding-bottom: 10%;
-}
 
 .box {
     display: flex;  
@@ -93,7 +98,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
     height: 50%;
 }
 
@@ -103,15 +107,15 @@
 }
 
 .half-box2{
-    border: 1px solid red;
+    display: flex;
+    flex-direction: column;
     height: 50%;
 }
 
-.half-half-box1{
+ .half-half-box1{
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 1px solid blue;
     height: 50%;
 }
 
@@ -119,28 +123,40 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    border: 1px solid blue;
     height: 50%;
 }
 
-.half-half-half{
-    width: 33%;
-    height: 100%;
+.half-half-half-box1{
     display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: 100%;
+    height: 50%;
+}
+
+.half-half-half-box2{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 50%;
+}
+
+.half-box2 p{
+    font-family: 'game3';
+}
+
+.half-half-half-half-box1{
+    display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 }
 
-.half-half-box2 .text{
-    width: 75%;
-    height: 60%;
+.half-half-half-half-box2{
     display: flex;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
-    border: 1px solid pink;
-}
-
-.half-half-box2 p{
-    font-size: 1.2rem;
-    font-weight: bold;
 }

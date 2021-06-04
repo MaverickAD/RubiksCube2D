@@ -7,9 +7,11 @@
     <title>Rubik's Cube 2D</title>
     <link rel="stylesheet" href="css/allCSSPage/CSSAllPages.css">
     <link rel="stylesheet" href="css/allCSSPage/CSSIndex.css">
-    <link rel="stylesheet" href="css/allCSSPageDark/CSSAllPagesDark.css">
     <script src="js/script.js"></script>
     <link rel="icon" type="image/png" sizes="16x16" href="img/logo.png">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Fira+Code&display=swap" rel="stylesheet">
+
 </head>
 <body>
     <div class="nav-toggle" onclick="toggleNav()">
@@ -17,11 +19,10 @@
     </div>
     <nav class="nav">
         <ul>
-            <li><a href="#" id="navBar_adventureTitle" onclick="toggleNav()">Adventure mode</a></li>
+            <li><a href="html/adventurePage/adventure1.html" id="navBar_adventureTitle" onclick="toggleNav()">Adventure mode</a></li>
             <li><a href="html/classic_mode.html" id="navBar_classicTitle" onclick="toggleNav()">Classic mode</a></li>
             <li><a href="html/maker.html" id="navBar_makerTitle" onclick="toggleNav()">Maker mode</a></li>
             <li><a href="#" id="navBar_instruction" onclick="toggleNavInstruction()">Instruction</a></li>
-            <li><a href="#" id="navBar_darkMode" onclick="darkMode()">Dark mode</a></li>
         </ul>
     </nav>
     <div class="filter" id="blur">
@@ -55,7 +56,7 @@
         
             <div class="dg-rm-more" id="dg-rm-more-1">
                 <div class="blockRegle" id="animMouvement">
-                    <p>Anim</p>
+                   <img src="../Site/img/mouvements_compresse.gif" alt="gif jeu" width="350px">
                 </div>
                 <div class="blockRegle" id="textMouvement">
                     <p>
@@ -64,7 +65,7 @@
                         For lines is the same thing. If you click on first line's left button. The first square will go at end and others will be move on the left of one block. And if you click on the first line's right button, it is exactly the same thing but in the other direction.</p>
                 </div>
                 <div class="blockRegle" id="animGagner">
-                    <p>Anim</p>
+                    <img src="../Site/img/win.png" alt="picture for win" width="400px">
                 </div>
                 <div class="blockRegle" id="textGagner">
                     <p>The goal are to reproduce a pattern. To accomplish that, you can move each columns and each lines 

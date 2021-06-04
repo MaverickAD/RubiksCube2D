@@ -177,7 +177,7 @@ class Game {
             popup.style.display = "flex"
             var tps = document.getElementById("chronotime").innerHTML;
             console.log(tps);
-            document.querySelector("div.chronotime").innerHTML = tps;
+            document.querySelector("span.chronotime").innerHTML = tps;
         }
     }
 }

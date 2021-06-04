@@ -18,7 +18,7 @@
     </div>
     <nav class="nav">
         <ul>
-            <li><a href="" id="navBar_adventureTitle" onclick="toggleNav()">Adventure mode</a></li>
+            <li><a href="adventure1.html" id="navBar_adventureTitle" onclick="toggleNav()">Adventure mode</a></li>
             <li><a href="../classic_mode.html" id="navBar_classicTitle" onclick="toggleNav()">Classic mode</a></li>
             <li><a href="../maker.html" id="navBar_makerTitle" onclick="toggleNav()">Maker mode</a></li>
             <li><a href="../../index.html" id="navBar_instruction" onclick="toggleNavInstruction()">Instruction</a></li>
@@ -45,28 +45,36 @@
                     </div>
                     <div class="half-box2">
                         <div class="half-half-box1">
-                            <p>Your score :</p>
-                            Your time: <div class="chronotime">0:00:00,00</div>
+                            <div class="half-half-half-box1">
+                                <div class="half-half-half-half-box1">
+                                    <p>Your score : <span id="Score">5</span></p>
+                                    <form name="Scoreform"></form>
+                                </div>
+                                <div class="half-half-half-half-box2">
+                                    <p>Your time : <span class="chronotime">0:00:00,00</span></p>
+                                    <form name="chronoForm"></form>
+                                </div>
+                            </div>
                         </div>
                         <div class="half-half-box2">
-                            <div class="half-half-half">
-                                <a href="adventure5.html">
+                            <!-- <div class="half-half-half-box1">
+                                <a href="">
                                     <div class="text">
-                                        <p>Previous level</p>
+                                        <p></p>
                                     </div>
                                 </a>
-                            </div>
-                            <div class="half-half-half">
+                            </div> -->
+                            <div class="half-half-half-box1">
                                 <a href="">
                                     <div class="text">
                                         <p>Restart</p>
                                     </div>
                                 </a>
                             </div>
-                            <div class="half-half-half">
-                                <a href="adventure7.html">
+                            <div class="half-half-half-box1">
+                                <a id="next-level" href="adventure7.html">
                                     <div class="text">
-                                        <p>Next level</p>
+                                        <p>Next Level</p>
                                     </div>
                                 </a>
                             </div>
@@ -106,7 +114,7 @@
                         <form name="chronoForm">
                         </form>
                     </div> 
-                    <div id="petit-leaderboard"> LEADERBOARD</div>
+                    
                 </div>
 
             </div>

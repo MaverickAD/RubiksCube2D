@@ -118,6 +118,7 @@ class Game {
         htmlGame.style.margin = (this.size * 0.1).toString() + "em"
         htmlWitness.style.width = (this.size * 2).toString() + "em";
         while (htmlGame.hasChildNodes()) htmlGame.removeChild(htmlGame.firstChild);
+        afficherScore();
 
         this.board.forEach(elem => {
             const temp = document.createElement("div");
@@ -153,7 +154,7 @@ class Game {
             popup.style.display = "flex"
             var tps = document.getElementById("chronotime").innerHTML;
             console.log(tps);
-            document.querySelector("div.chronotime").innerHTML = tps;
+            document.querySelector("span.chronotime").innerHTML = tps;
         }
     }
 }
@@ -184,6 +185,7 @@ if (location.search == "") {
     a = new Game(board, board_, 7)
     document.getElementById("mod").innerHTML = "maker 7x7";
     document.querySelector("title").innerHTML = "maker 7x7";
+    document.getElementById('next-level').href = "../../html/maker.html";
 }
 
 
@@ -198,30 +200,30 @@ for(let i = 0; i < a.size * 4; i++){
     switch(mfia) {
         case 0:
             temp.innerHTML = `<i class="fas fa-chevron-up"></i>`;
-            temp.onclick = (() => {a.nextMove(UP, i % a.size);a.render();});
+            temp.onclick = (() => {if (a.isStart) {a.score++};a.nextMove(UP, i % a.size);a.render();});
             temp.id = `${UP}${i % a.size + 1}`;
             buttonsTop.appendChild(temp);
             break;
+            
         case 1:
             temp.innerHTML = `<i class="fas fa-chevron-down"></i>`;
-            temp.onclick = (() => { a.nextMove(DOWN, i % a.size); a.render(); });
+            temp.onclick = (() => { if (a.isStart) {a.score++};a.nextMove(DOWN, i % a.size); a.render(); });
             temp.id = `${DOWN}${i % a.size + 1}`;
             buttonsBottom.appendChild(temp);
             break;
         case 2:
             temp.innerHTML = `<i class="fas fa-chevron-left"></i>`;
-            temp.onclick = (() => { a.nextMove(LEFT, i % a.size); a.render(); });
+            temp.onclick = (() => {if (a.isStart) {a.score++}; a.nextMove(LEFT, i % a.size); a.render(); });
             temp.id = `${LEFT}${i % a.size + 1}`;
             buttonsLeft.appendChild(temp);
             break;
         case 3:
             temp.innerHTML = `<i class="fas fa-chevron-right"></i>`;
-            temp.onclick = (() => { a.nextMove(RIGHT, i % a.size); a.render(); });
+            temp.onclick = (() => { if (a.isStart) {a.score++};a.nextMove(RIGHT, i % a.size); a.render(); });
             temp.id = `${RIGHT}${i % a.size + 1}`;
             buttonsRight.appendChild(temp);
             break;
     }
-
     //buttons.appendChild(temp);
 }
 
@@ -258,6 +260,7 @@ temp.id = "buttonShuffle";
 temp.innerHTML = "SHUFFLE";
 temp.onclick = (() => {
     if (!a.isStart){ a.isStart = !a.isStart }
+    a.score = 0;
     a.shuffle(); a.render();
     chronoStart();
     });
@@ -265,3 +268,7 @@ temp.onclick = (() => {
 shuffle.appendChild(temp);
 
 a.render();
+
+function afficherScore(hhh) {
+    document.getElementById('Score').innerHTML = a.score;
+  }
