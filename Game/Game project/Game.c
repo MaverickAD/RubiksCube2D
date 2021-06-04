@@ -506,14 +506,20 @@ int Solveur(GAME* game) {
     if (game->size == 3) {
         BottomRight(game, sylvain, FindIndice(game, sylvain, 0));
         placement(game, sylvain, 0);
+        display(game);
         BottomRight(game, sylvain, FindIndice(game, sylvain, 1));
         placement(game, sylvain, 1);
+        display(game);
         BottomRight(game, sylvain, FindIndice(game, sylvain, 3));
         placement(game, sylvain, 3);
+        display(game);
         BottomRight(game, sylvain, FindIndice(game, sylvain, 4));
         placement(game, sylvain, 4);
+        display(game);
         colonneDroite(game, sylvain);
+        display(game);
         endgame(game, sylvain);
+        display(game);
         printf("%d%c", sylvain->nextMove[0], sylvain->nextMove[1]);
     }
 
@@ -586,7 +592,7 @@ int Solveur(GAME* game) {
         BottomRight(game, sylvain, FindIndice(game, sylvain, 18));
         placement(game, sylvain, 18);
         colonneDroite(game, sylvain);
-        //printf("%d%c", sylvain->nextMove[0], sylvain->nextMove[1]);
+        printf("%d%c", sylvain->nextMove[0], sylvain->nextMove[1]);
     }
     if (game->size == 6) {
         BottomRight(game, sylvain, FindIndice(game, sylvain, 0));
@@ -640,8 +646,12 @@ int Solveur(GAME* game) {
         BottomRight(game, sylvain, FindIndice(game, sylvain, 28));
         placement(game, sylvain, 28);
         colonneDroite(game, sylvain);
+        printf("%d%c", sylvain->nextMove[0], sylvain->nextMove[1]);
+
     }
-    
+    free(game);
+    free(sylvain);
+
 }
 
 
