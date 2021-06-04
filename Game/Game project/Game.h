@@ -7,7 +7,7 @@
 #include <math.h>
 
 
-#define MAX_SIZE 10
+#define MAX_SIZE 8
 #define PARSE_ERROR -1
 #define CICR_SWITCH_ERROR 0 
 
