@@ -61,24 +61,35 @@ if (array_key_exists("Pseudo", $_POST)) {
                     </div>
                     <div class="half-box2">
                         <div class="half-half-box1">
-                        <p>Your score :</p>
-                            Your time: <div class="chronotime">0:00:00,00</div>
+                            <p>Your score : <div id="Score">0</div>
+                        <form name="Scoreform">
+                        </form></p>
+                            Your time:<div class="chronotime">0:00:00,00</div>
+                        <form name="chronoForm">
+                        </form>
                             <form action="medium.php" method="post">
                                 <TR><TD>Pseudo :</TD><TD><INPUT Type="Text" NAME="Pseudo" ID="Pseudo"></INPUT></TD></TR>
                                 <input type="submit" value="Envoyer" />
-                                </form>
+                            </form>
+                            
                         </div>
-                        <div class="half-half-box2">
+                    <!-- <div class="half-half-box2">
                             
                             <div class="half-half-half">
                                 <a href="">
-                                    <div class="text">
-                                        <p>Restart</p>
+                                    <div class="text" >
+
+                                        <p>Restartp>
+                                        
                                     </div>
                                 </a>
                             </div>
                             
                         </div>
+-->
+
+
+
                     </div>
                 </div>
 
@@ -112,8 +123,13 @@ if (array_key_exists("Pseudo", $_POST)) {
                 <div id="leaderboard">
                     <div id="timer">TIMER : 
                         <div id="chronotime">0:00:00,00</div>
-                        <form name="chronoForm">
-                        </form>
+                        <form name="chronoForm"></form>
+                    
+                        
+                        <div class="half-half-box1">
+                            <p>Your score : <div id="ScoreRR">0</div>
+                        <form name="Scoreform"></form>
+
                     </div>
                     <div id="petit-leaderboard">LEADERBOARD</div>
                 </div>

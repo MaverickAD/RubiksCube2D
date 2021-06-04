@@ -11,8 +11,6 @@ const cornerBottomLeft = document.getElementById("cornerBottomLeft");
 const cornerBottomRight = document.getElementById("cornerBottomRight");
 const popup = document.querySelector("div#popup");
 
-console.log(popup);
-
 const sizeIntoHtml = 5;
 
 const Direction = {
@@ -100,7 +98,7 @@ class Game {
     }
 
     shuffle() {
-        for (let i = 0; i < 1; i++)
+        for (let i = 0; i < 100; i++)
         {
             let alea =  Math.floor(Math.random() * 4);
             let indicealea = Math.floor(Math.random() * this.size);

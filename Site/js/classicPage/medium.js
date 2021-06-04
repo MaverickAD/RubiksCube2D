@@ -11,7 +11,7 @@ const cornerBottomLeft = document.getElementById("cornerBottomLeft");
 const cornerBottomRight = document.getElementById("cornerBottomRight");
 const popup = document.querySelector("div#popup");
 
-const sizeIntoHtml = 5;
+const sizeIntoHtml = 3.5;
 
 let game_size = 4;
 const maxSize = 2;
@@ -138,8 +138,10 @@ class Game {
         htmlGame.style.width = (this.size * sizeIntoHtml).toString() + "em";
         htmlGame.style.height = (this.size * sizeIntoHtml).toString() + "em";
         htmlGame.style.margin = (this.size * 0.1).toString() + "em";
-        htmlWitness.style.width = (this.size * 3).toString() + "em";
+        htmlWitness.style.width = (this.size * 2.5).toString() + "em";
         while (htmlGame.hasChildNodes()) htmlGame.removeChild(htmlGame.firstChild);
+        afficherScore();
+        afficherScoreRR();
 
         this.board.forEach(elem => {
             const temp = document.createElement("div");
@@ -157,8 +159,8 @@ class Game {
             const temp = document.createElement("div");
             temp.className += "child-box-witness";
             temp.style.backgroundColor = elem;
-            temp.style.width = sizeIntoHtml - 2 + "em";
-            temp.style.height = sizeIntoHtml - 2 + "em";
+            temp.style.width = sizeIntoHtml - 1 + "em";
+            temp.style.height = sizeIntoHtml - 1 + "em";
             temp.style.border = "solid black"
             htmlWitness.appendChild(temp);
         });
@@ -201,29 +203,31 @@ for(let i = 0; i < a.size * 4; i++){
     switch(mfia) {
         case 0:
             temp.innerHTML = `<i class="fas fa-chevron-up"></i>`;
-            temp.onclick = (() => {a.nextMove(UP, i % a.size);a.render();});
+            temp.onclick = (() => {if (a.isStart) {a.score++};a.nextMove(UP, i % a.size);a.render();});
             temp.id = `${UP}${i % a.size + 1}`;
             buttonsTop.appendChild(temp);
             break;
+            
         case 1:
             temp.innerHTML = `<i class="fas fa-chevron-down"></i>`;
-            temp.onclick = (() => { a.nextMove(DOWN, i % a.size); a.render(); });
+            temp.onclick = (() => { if (a.isStart) {a.score++};a.nextMove(DOWN, i % a.size); a.render(); });
             temp.id = `${DOWN}${i % a.size + 1}`;
             buttonsBottom.appendChild(temp);
             break;
         case 2:
             temp.innerHTML = `<i class="fas fa-chevron-left"></i>`;
-            temp.onclick = (() => { a.nextMove(LEFT, i % a.size); a.render(); });
+            temp.onclick = (() => {if (a.isStart) {a.score++}; a.nextMove(LEFT, i % a.size); a.render(); });
             temp.id = `${LEFT}${i % a.size + 1}`;
             buttonsLeft.appendChild(temp);
             break;
         case 3:
             temp.innerHTML = `<i class="fas fa-chevron-right"></i>`;
-            temp.onclick = (() => { a.nextMove(RIGHT, i % a.size); a.render(); });
+            temp.onclick = (() => { if (a.isStart) {a.score++};a.nextMove(RIGHT, i % a.size); a.render(); });
             temp.id = `${RIGHT}${i % a.size + 1}`;
             buttonsRight.appendChild(temp);
             break;
     }
+
 
     //buttons.appendChild(temp);
 }
@@ -261,6 +265,7 @@ temp.id = "buttonShuffle";
 temp.innerHTML = "SHUFFLE";
 temp.onclick = (() => {
     if (!a.isStart){ a.isStart = !a.isStart }
+    a.score = 0;
     a.shuffle(); a.render();
     chronoStart();
     });
@@ -285,7 +290,10 @@ fetch('../../leaderboard/leaderboardMedium.txt')
     })
 )
 
-function myJavascriptFunction() { 
-  var javascriptVariable = score
-  window.location.href = "myphpfile.php?name=" + score; 
-}
+function afficherScore(hhh) {
+    document.getElementById('Score').innerHTML = a.score;
+  }
+
+  function afficherScoreRR(hhh) {
+    document.getElementById('ScoreRR').innerHTML = a.score;
+  }

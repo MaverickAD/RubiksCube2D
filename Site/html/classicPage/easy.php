@@ -4,7 +4,7 @@ if (array_key_exists("Pseudo", $_POST)) {
     $Pseudo = htmlspecialchars($_POST["Pseudo"]);
 
     // 1 : on ouvre le fichier
-    $monfichier = fopen('../../leaderboard/leaderboardEasy.txt', 'a+'); 
+    $monfichier = fopen('../../leaderboard/leaderboardMedium.txt', 'a+'); 
     fputs($monfichier, $Pseudo.";\n"); 
 
     // 3 : quand on a fini de l'utiliser, on ferme le fichier
@@ -61,25 +61,35 @@ if (array_key_exists("Pseudo", $_POST)) {
                     </div>
                     <div class="half-box2">
                         <div class="half-half-box1">
-                        <p>Your score :</p>
-                            Your time: <div class="chronotime">0:00:00,00</div>
-
+                            <p>Your score : <div id="Score">5</div>
+                        <form name="Scoreform">
+                        </form></p>
+                            Your time:<div class="chronotime">0:00:00,00</div>
+                        <form name="chronoForm">
+                        </form>
                             <form action="easy.php" method="post">
                                 <TR><TD>Pseudo :</TD><TD><INPUT Type="Text" NAME="Pseudo" ID="Pseudo"></INPUT></TD></TR>
                                 <input type="submit" value="Envoyer" />
                             </form>
+                            
                         </div>
-                        <div class="half-half-box2">
+                    <!-- <div class="half-half-box2">
                             
                             <div class="half-half-half">
                                 <a href="">
-                                    <div class="text">
-                                        <p>Restart</p>
+                                    <div class="text" >
+
+                                        <p>Restartp>
+                                        
                                     </div>
                                 </a>
                             </div>
                             
                         </div>
+-->
+
+
+
                     </div>
                 </div>
 
@@ -113,8 +123,13 @@ if (array_key_exists("Pseudo", $_POST)) {
                 <div id="leaderboard">
                     <div id="timer">TIMER : 
                         <div id="chronotime">0:00:00,00</div>
-                        <form name="chronoForm">
-                        </form>
+                        <form name="chronoForm"></form>
+                    
+                        
+                        <div class="half-half-box1">
+                            <p>Your score : <div id="ScoreRR">0</div>
+                        <form name="Scoreform"></form>
+
                     </div>
                     <div id="petit-leaderboard">LEADERBOARD</div>
                 </div>
