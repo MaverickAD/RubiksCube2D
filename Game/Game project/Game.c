@@ -1,21 +1,6 @@
 #include "Game.h"
 
 
-void display(GAME* game) {
-    for (int i = 0; i < (game->size) * (game->size); i++) {
-        printf("%d ", game->tab[i]);
-        if ((i + 1) % (game->size) == 0) {
-            for (int j = 0; j < 10; j++) {
-                printf(" ");
-            }
-            for (int j = 0; j < game->size; j++) {
-                printf("%d ", game->temoin[i - ((game->size) - 1) + j]);
-            }
-            printf("\n");
-        }
-    }
-    printf("\n");
-}
 
 //fonction de création de la structure game
 GAME* NewGame(int size) {
@@ -39,48 +24,9 @@ GAME* NewGame(int size) {
     return game;
 }
 
-int parseInput(GAME* game) {
 
-    char string[3];
-    scanf_s("%s", string, 3);
-    string[2] = 0;
 
-    if (strlen(string) != 2) return -1;
 
-    char collign = string[0];
-    char dir = string[1];
-
-    if (collign < '1'
-        || collign >(game->size + '0')) {
-        puts("SizeError");
-        return -1;
-    }
-
-    if (dir != 'H'
-        && dir != 'B'
-        && dir != 'D'
-        && dir != 'G') {
-        printf_s("Can't find direction ~> %c\n", dir);
-        return -1;
-    }
-
-    collign = (collign % '0') - 1;
-    switch (dir)
-    {
-    case 'H': return deplacementV(game, UP, collign);
-    case 'B': return deplacementV(game, DOWN, collign);
-    case 'D': return deplacementH(game, RIGHT, collign);
-    case 'G': return deplacementH(game, LEFT, collign);
-    default: puts("error");  return -1;
-    }
-
-}
-
-void fill(GAME* game) {
-    for (int i = 0; i < game->size * game->size; i++) {
-        game->tab[i] = rand() % 11;
-    }
-}
 
 //fonction pour réaliser les mouvement verticaux 
 int deplacementV(GAME* game, DIR direction, int indice) {
@@ -143,62 +89,6 @@ bool win(GAME* game) {
     return true;
 }
 
-int parseInputMaker(GAME* game) {
-
-    puts("| Create your own pattern |");
-
-    char string[101] = { 0 };
-    scanf_s("%s", string, 100);
-    string[100] = '\0';
-    int len = strlen(string);
-
-    if (len != game->size * game->size) { printf("Canno't match len input %d with len game board %d\n", len, game->size * game->size); return 0; }
-
-    for (int i = 0; i < len; i++) {
-
-        char letter = string[i];
-        if (letter < '1' || letter > '9') { printf("Unknow number %c\n", letter); return 0; }
-
-        letter -= '0';
-
-        game->temoin[i] = letter;
-    }
-
-    return 1;
-}
-
-
-void copieTemoin(GAME* game) {
-    for (int i = 0; i < game->size * game->size; i++)
-    {
-        game->tab[i] = game->temoin[i];
-    }
-}
-
-void shuffle(GAME* game) {
-    srand(time(NULL));
-    for (int i = 0; i < 1000; i++)
-    {
-        int alea = rand() % 4;
-        int indicealea = rand() % (game->size);
-        switch (alea)
-        {
-        case 0:
-            deplacementH(game, LEFT, indicealea);
-            break;
-        case 1:
-            deplacementH(game, RIGHT, indicealea);
-            break;
-        case 2:
-            deplacementV(game, UP, indicealea);
-            break;
-        case 3:
-            deplacementV(game, DOWN, indicealea);
-            break;
-        }
-
-    }
-}
 
 
 //fonction de création de notre structure solveur
@@ -506,20 +396,14 @@ int Solveur(GAME* game) {
     if (game->size == 3) {
         BottomRight(game, sylvain, FindIndice(game, sylvain, 0));
         placement(game, sylvain, 0);
-        display(game);
         BottomRight(game, sylvain, FindIndice(game, sylvain, 1));
         placement(game, sylvain, 1);
-        display(game);
         BottomRight(game, sylvain, FindIndice(game, sylvain, 3));
         placement(game, sylvain, 3);
-        display(game);
         BottomRight(game, sylvain, FindIndice(game, sylvain, 4));
         placement(game, sylvain, 4);
-        display(game);
         colonneDroite(game, sylvain);
-        display(game);
         endgame(game, sylvain);
-        display(game);
         printf("%d%c", sylvain->nextMove[0], sylvain->nextMove[1]);
     }
 

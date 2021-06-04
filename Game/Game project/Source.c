@@ -16,19 +16,7 @@ int main(int argc, char* argv[]) {
     }
     Solveur(game);
 
-    /*
-
-    GAME* game = NewGame(GAME_SIZE);
-
-
-
-    while (!parseInputMaker(game)) {};
-    copieTemoin(game);
-    shuffle(game);
-    display(game);
-    Solveur(game);
-    display(game);
-    */
+    
 
 
 

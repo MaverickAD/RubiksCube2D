@@ -57,14 +57,6 @@ int deplacementH(GAME* game, DIR direction, int indice);
 //fonction pour savoir si on a résolu le puzzle 
 bool win(GAME* game);
 
-//fonctions de test 
-void display(GAME* game);
-int parseInput(GAME* game);
-void fill(GAME* game);
-int parseInputMaker(GAME* game);
-void copieTemoin(GAME* game);
-void shuffle(GAME* game);
-
 //fonction de création de notre structure solveur 
 solveur* newSolve(GAME* game);
 
