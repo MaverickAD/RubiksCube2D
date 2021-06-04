@@ -48,7 +48,7 @@
 }
 
 #cornerTopLeft, #cornerTopRight, #cornerBottomLeft, #cornerBottomRight{
-    border: 1px solid red;
+    /* border: 1px solid red; */
 }
 
 .buttonWithAction{
@@ -62,7 +62,7 @@
 }
 
 #leaderboard{
-    border: 2px solid pink;
+    /* border: 2px solid pink; */
     width: 20%;
 }
 
@@ -71,7 +71,7 @@
 }
 
 #petit-leaderboard{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     /* padding-bottom: 10%; */
 }
 
@@ -102,7 +102,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 50%;
 }
 
@@ -112,7 +112,7 @@
 }
 
 .half-box2{
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 50%;
 }
 

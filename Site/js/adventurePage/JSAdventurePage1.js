@@ -98,7 +98,7 @@ class Game {
     }
 
     shuffle() {
-        for (let i = 0; i < 100; i++)
+        for (let i = 0; i < 1; i++)
         {
             let alea =  Math.floor(Math.random() * 4);
             let indicealea = Math.floor(Math.random() * this.size);
