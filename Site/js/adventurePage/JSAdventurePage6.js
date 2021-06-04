@@ -183,6 +183,7 @@ if (location.search == "") {
     const board_ = board.slice()
     a = new Game(board, board_, 8)
     document.getElementById("mod").innerHTML = "maker 8x8";
+    document.querySelector("title").innerHTML = "maker 8x8";
 }
 
 

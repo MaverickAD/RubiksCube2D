@@ -180,6 +180,7 @@ if (location.search == "") {
     const board_ = board.slice()
     a = new Game(board, board_, 6)
     document.getElementById("mod").innerHTML = "maker 6x6";
+    document.querySelector("title").innerHTML = "maker 6x6";
 }
 
 for(let i = 0; i < a.size * 4; i++){
