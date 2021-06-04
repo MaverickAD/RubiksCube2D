@@ -182,6 +182,7 @@ if (location.search == "") {
     board.pop()
     const board_ = board.slice()
     a = new Game(board, board_, 7)
+    document.getElementById("mod").innerHTML = "maker 7x7";
 }
 
 

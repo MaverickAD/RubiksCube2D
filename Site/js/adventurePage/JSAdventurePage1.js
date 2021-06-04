@@ -175,6 +175,7 @@ else {
     board.pop()
     const board_ = board.slice()
     a = new Game(board, board_, 3)
+    document.getElementById("mod").innerHTML = "maker 3x3";
 }
 
 for(let i = 0; i < a.size * 4; i++){

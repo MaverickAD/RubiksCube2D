@@ -175,6 +175,7 @@ if (location.search == "") {
     board.pop()
     const board_ = board.slice()
     a = new Game(board, board_, 4)
+    document.getElementById("mod").innerHTML = "maker 4x4";
 }
 
 
