@@ -156,3 +156,11 @@
     height: 20rem;
     margin: 10rem auto 1rem;
 }
+
+#textMouvement p{
+    font-size: 1.2rem;
+}
+
+#textGagner{
+    font-size: 1.5rem;
+}

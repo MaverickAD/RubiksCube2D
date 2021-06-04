@@ -37,7 +37,7 @@ if (array_key_exists("Pseudo", $_POST)) {
             <li><a href="../classic_mode.html" id="navBar_classicTitle" onclick="toggleNav()">Classic mode</a></li>
             <li><a href="../maker.html" id="navBar_makerTitle" onclick="toggleNav()">Maker mode</a></li>
             <li><a href="../../index.html" id="navBar_instruction" onclick="toggleNavInstruction()">Instruction</a></li>
-            <li><a href="#" id="navBar_darkMode" onclick="darkMode()">Dark mode</a></li>
+            
         </ul>
     </nav>
     <div class="filter" id="blur">
